@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organizations — The scoping model that runs the platform · Annie Rimbach</title>
+<meta name="description" content="Case study: designing the organization selector and scoping model that governs an enterprise platform, and making it resilient to deep hierarchies and edge cases.">
+<meta name="theme-color" content="#15302A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="case.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="brand" href="index.html">Annie Rimbach</a>
+    <div class="navright">
+      <a class="back" href="index.html#work">← All work</a>
+      <button class="toggle" id="themeToggle" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="chero">
+    <span class="kicker">Case study · Interaction design</span>
+    <h1>Organizations — the scoping model that runs the platform</h1>
+    <p class="summary">Designing the selector and scoping model that decides <span class="hl">what every user sees</span> — and making it hold up as organizations grow into deep, messy hierarchies.</p>
+    <div class="metabar">
+      <div><div class="k">Role</div><div class="v">Product designer — interaction design, shipped UI</div></div>
+      <div><div class="k">Context</div><div class="v">Enterprise developer-tools platform</div></div>
+      <div><div class="k">Focus</div><div class="v">Model → resilient states → shipped UI</div></div>
+      <div><div class="k">Collaboration</div><div class="v">Engineering, design system</div></div>
+    </div>
+  </div>
+
+  <div class="cbody">
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>The problem</h2></div>
+      <p>The organization selector is the lens the entire platform is seen through — it scopes data, permissions, and navigation. It's also tiny and easy to underestimate. As customers grew, their hierarchies got deep and their names got long, and the original selector started to buckle on exactly the cases that matter most: slow loads, failures, deep nesting, and "wait, which org am I even in?"</p>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Constraints</h2></div>
+      <ul>
+        <li><b>It governs everything.</b> A bug here doesn't break one screen — it scopes the whole product wrong.</li>
+        <li><b>Hierarchies get deep.</b> The model had to stay legible as organizations nested several levels down.</li>
+        <li><b>Resilient by default.</b> Loading, error, and empty states couldn't be afterthoughts.</li>
+        <li><b>Small surface, big stakes.</b> Every pixel of a control this central is load-bearing.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>How I worked</h2></div>
+      <div class="steps">
+        <div class="step s1"><div class="bar"></div><span class="sn">01</span><h3>Map the model</h3><p>Traced how scoping flows through navigation, data, and permissions so the UI matched the real mental model.</p></div>
+        <div class="step s2"><div class="bar"></div><span class="sn">02</span><h3>Design the edges</h3><p>Treated loading, error, empty, long-name, and deep-nesting as first-class states, not exceptions.</p></div>
+        <div class="step s3"><div class="bar"></div><span class="sn">03</span><h3>Ship</h3><p>Delivered the selector plus a dedicated management page, in step with engineering.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Designing the edges, not just the happy path</h2></div>
+      <p>The interesting design work in a selector like this isn't the default — it's everything that happens when the data is slow, missing, deeply nested, or named something forty characters long. Designing those states deliberately is what made the control feel trustworthy.</p>
+      <div class="illus">
+        <div style="background:var(--bg);border:0.5px solid var(--line);border-radius:11px;padding:14px;max-width:340px">
+          <div style="font-family:'Inter';font-size:13px;font-weight:500;color:var(--ink);border:0.5px solid var(--line);border-radius:9px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center">
+            <span>Acme Group · Platform</span><span style="color:var(--node)">▾</span>
+          </div>
+          <div style="margin-top:8px;display:flex;flex-direction:column;gap:2px">
+            <div style="font-family:'Inter';font-size:13px;color:var(--ink);padding:8px 12px;background:var(--surface);border-radius:7px">Acme Group</div>
+            <div style="font-family:'Inter';font-size:13px;color:var(--muted);padding:8px 12px 8px 26px">Platform</div>
+            <div style="font-family:'Inter';font-size:13px;color:var(--muted);padding:8px 12px 8px 40px">Payments — EU…</div>
+            <div style="font-family:'Space Mono',monospace;font-size:11px;color:var(--muted2);padding:8px 12px 8px 26px;display:flex;align-items:center;gap:8px"><span style="width:30px;height:6px;background:var(--line);border-radius:3px;display:inline-block"></span> loading…</div>
+          </div>
+        </div>
+        <div class="cap">Illustrative — recreated for portfolio; placeholder names, not the production UI</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Key decisions &amp; tradeoffs</h2></div>
+      <ul>
+        <li><b>States as first-class.</b> Designing loading, error, and empty up front cost time but removed whole classes of confusion later.</li>
+        <li><b>A dedicated management page.</b> Rather than cram administration into the picker, I split it out — the picker stays fast, management gets room.</li>
+        <li><b>Graceful truncation.</b> Long names get handled predictably instead of breaking the layout.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Outcomes</h2></div>
+      <div class="outcomes">
+        <div class="oc"><p class="ot">A resilient selector</p><p>Shipped a selector that holds up under deep hierarchies and the messy real-world edge cases.</p></div>
+        <div class="oc"><p class="ot">Room to administer</p><p>A dedicated management page gave organization administration its own clear home.</p></div>
+        <div class="oc"><p class="ot">Less "where am I?"</p><p>Clearer scoping reduced confusion about what a user was actually looking at.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>What it taught me</h2></div>
+      <p class="pull">A control this small touches everything — the <span class="uline">edge cases are the design</span>.</p>
+    </div>
+
+    <p class="safe-note">Note: interface shown is illustrative with placeholder names, recreated for portfolio purposes. No proprietary code, internal documents, exported design files, or internal screenshots are included.</p>
+
+    <div class="nextnav">
+      <div><div class="lbl">Next case study</div><a href="cli.html"><span class="t">Moderne CLI — designing for the command line →</span></a></div>
+      <a class="back" href="index.html#work">All work</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Designing how people and <span class="hl">agents</span> build software together.</div>
+    <div style="margin-top:10px"><a href="mailto:anne@moderne.io">anne@moderne.io</a></div>
+    <div class="fmeta">© 2026 Annie Rimbach · Staff product designer, AX</div>
+  </div>
+</footer>
+
+<script src="case.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moderne CLI — Designing for the command line · Annie Rimbach</title>
+<meta name="description" content="Case study: bringing product-design rigor to a developer command-line tool — onboarding, tool discovery, and observability for humans and AI agents.">
+<meta name="theme-color" content="#15302A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="case.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="brand" href="index.html">Annie Rimbach</a>
+    <div class="navright">
+      <a class="back" href="index.html#work">← All work</a>
+      <button class="toggle" id="themeToggle" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="chero">
+    <span class="kicker">Case study · Developer-tool UX</span>
+    <h1>Moderne CLI — designing for the command line</h1>
+    <p class="summary">Bringing product-design rigor to a developer command-line tool — onboarding, tool discovery, and ways to <span class="hl">observe and trust</span> what automated runs are doing, for humans and AI agents alike.</p>
+    <div class="metabar">
+      <div><div class="k">Role</div><div class="v">Product designer — developer-tool UX</div></div>
+      <div><div class="k">Context</div><div class="v">Enterprise developer-tools platform</div></div>
+      <div><div class="k">Focus</div><div class="v">Onboarding → discovery → observability</div></div>
+      <div><div class="k">Collaboration</div><div class="v">Engineering, developer relations</div></div>
+    </div>
+  </div>
+
+  <div class="cbody">
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>The problem</h2></div>
+      <p>The tooling was powerful, but the experience assumed you were already an expert. Getting started ("day zero") was steep, discovering which tools existed was hard, and when an automated run did its work, it was difficult to see and trust what had actually happened. And increasingly, the "user" wasn't only a person at a terminal — it was also an AI agent. Designing for a command-line surface means designing for trust and speed, not screens.</p>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Constraints</h2></div>
+      <ul>
+        <li><b>Two kinds of user.</b> The experience had to work for humans <em>and</em> AI agents reading and acting on the same output.</li>
+        <li><b>Respect the terminal.</b> Developers expect speed, text, and conventions — not a GUI bolted onto a CLI.</li>
+        <li><b>Make runs observable.</b> Automated work has to be legible enough to trust.</li>
+        <li><b>Meet developers where they are.</b> Fit existing workflows instead of demanding new ones.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>How I worked</h2></div>
+      <div class="steps">
+        <div class="step s1"><div class="bar"></div><span class="sn">01</span><h3>Onboarding</h3><p>Designed a "day zero" path to get someone productive fast, without a wall of prerequisites.</p></div>
+        <div class="step s2"><div class="bar"></div><span class="sn">02</span><h3>Tool discovery</h3><p>A tool browser to find and understand what's available — making a powerful toolbox legible.</p></div>
+        <div class="step s3"><div class="bar"></div><span class="sn">03</span><h3>Observability</h3><p>Tool observation and trace analysis so people can see, follow, and trust what a run did.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Making automated work legible</h2></div>
+      <p>The heart of the work was observability: when a tool runs, you should be able to follow the trace — what ran, in what order, and what happened — whether you're a developer scanning output or an agent reasoning over it. Legibility <em>is</em> the trust.</p>
+      <div class="illus">
+        <div style="background:#15302A;border-radius:11px;padding:16px;font-family:'Space Mono',monospace;font-size:12px;line-height:1.7">
+          <div style="color:#9FBDB2">$ mod run · build trace</div>
+          <div style="color:#EAF1EC;margin-top:6px"><span style="color:#DEFD7C">●</span> resolve workspace <span style="color:#7FD8B8">done</span></div>
+          <div style="color:#EAF1EC"><span style="color:#DEFD7C">●</span> build sources <span style="color:#7FD8B8">done</span></div>
+          <div style="color:#EAF1EC"><span style="color:#DEFD7C">◐</span> run analysis <span style="color:#9FBDB2">in progress…</span></div>
+          <div style="color:#6E8C82">○ summarize results</div>
+        </div>
+        <div class="cap">Illustrative — recreated for portfolio; placeholder commands, not the production CLI</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Key decisions &amp; tradeoffs</h2></div>
+      <ul>
+        <li><b>Agents as first-class users.</b> Designing output to be legible to AI agents, not just humans, shaped structure and wording throughout.</li>
+        <li><b>Observability over magic.</b> Showing the trace costs some brevity but buys the trust automation needs.</li>
+        <li><b>Guidelines for consistency.</b> Design guidelines kept the tool coherent as it grew across commands.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Outcomes</h2></div>
+      <div class="outcomes">
+        <div class="oc"><p class="ot">A gentler day zero</p><p>Onboarding guidance lowered the barrier to a first productive run.</p></div>
+        <div class="oc"><p class="ot">Discoverable tools</p><p>A tool browser made a powerful, growing toolbox understandable.</p></div>
+        <div class="oc"><p class="ot">Trustworthy runs</p><p>Observation and trace prototypes shaped how automated work is shown and trusted.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>What it taught me</h2></div>
+      <p class="pull">When your users include AI agents, <span class="uline">legibility is the whole product</span>.</p>
+    </div>
+
+    <p class="safe-note">Note: terminal output shown is illustrative with placeholder commands, recreated for portfolio purposes. No proprietary code, internal documents, or internal screenshots are included.</p>
+
+    <div class="nextnav">
+      <div><div class="lbl">Back to the start</div><a href="trigrep.html"><span class="t">Trigrep — natural-language code search →</span></a></div>
+      <a class="back" href="index.html#work">All work</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Designing how people and <span class="hl">agents</span> build software together.</div>
+    <div style="margin-top:10px"><a href="mailto:anne@moderne.io">anne@moderne.io</a></div>
+    <div class="fmeta">© 2026 Annie Rimbach · Staff product designer, AX</div>
+  </div>
+</footer>
+
+<script src="case.js"></script>
+</body>
+</html>

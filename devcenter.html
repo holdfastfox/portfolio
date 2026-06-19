@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevCenter — Engineering-health reporting · Annie Rimbach</title>
+<meta name="description" content="Case study: turning scattered customer feedback into a clear engineering-health reporting product, and rebuilding it into a modular app.">
+<meta name="theme-color" content="#15302A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="case.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="brand" href="index.html">Annie Rimbach</a>
+    <div class="navright">
+      <a class="back" href="index.html#work">← All work</a>
+      <button class="toggle" id="themeToggle" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="chero">
+    <span class="kicker">Case study · Research &amp; data visualization</span>
+    <h1>DevCenter — engineering-health reporting</h1>
+    <p class="summary">Turning scattered customer feedback into a <span class="hl">clear reporting product</span> — and rebuilding it from a monolithic template into a modular app.</p>
+    <div class="metabar">
+      <div><div class="k">Role</div><div class="v">Product designer — UX research, data visualization</div></div>
+      <div><div class="k">Context</div><div class="v">Enterprise developer-tools platform</div></div>
+      <div><div class="k">Focus</div><div class="v">Research → product direction → rebuild</div></div>
+      <div><div class="k">Collaboration</div><div class="v">Engineering, product, customers</div></div>
+    </div>
+  </div>
+
+  <div class="cbody">
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>The problem</h2></div>
+      <p>Engineering-health reporting was hard to read and built on an unwieldy monolithic template. Customers wanted to understand the state of their codebase over time, but the product made insight feel like work — and the underlying build made it hard to change. The challenge was two-sided: a clearer experience, on a foundation that could actually evolve.</p>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Constraints</h2></div>
+      <ul>
+        <li><b>Many voices, one direction.</b> Feedback came from several enterprise customers with different priorities.</li>
+        <li><b>Data-dense, but legible.</b> Reporting has to surface a lot without overwhelming.</li>
+        <li><b>Rebuild without breaking trust.</b> Customers relied on the existing product while it changed underneath them.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>How I worked</h2></div>
+      <div class="steps">
+        <div class="step s1"><div class="bar"></div><span class="sn">01</span><h3>Research</h3><p>Synthesized feedback from several enterprise customers into a single, prioritized product direction.</p></div>
+        <div class="step s2"><div class="bar"></div><span class="sn">02</span><h3>Design</h3><p>Designed a time-dimension view, plain-language metric explainers, and a safe "dry-run" path to preview before committing.</p></div>
+        <div class="step s3"><div class="bar"></div><span class="sn">03</span><h3>Rebuild</h3><p>Partnered with engineering to rebuild from a monolithic template into a modular app, shipping incrementally.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Making the data make sense</h2></div>
+      <p>Two moves did most of the work: adding a <em>time dimension</em> so teams could see trends rather than a single snapshot, and pairing every metric with a plain-language explainer so people trusted what they were looking at.</p>
+      <div class="illus">
+        <div style="background:var(--bg);border:0.5px solid var(--line);border-radius:11px;padding:18px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:6px">
+            <span style="font-family:'Hedvig Letters Serif',serif;font-size:18px;color:var(--ink)">Code health over time</span>
+            <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--node)">trend ↗</span>
+          </div>
+          <svg viewBox="0 0 520 120" width="100%" height="110" aria-hidden="true">
+            <polyline points="10,96 90,84 170,88 250,64 330,58 410,40 500,30" fill="none" stroke="var(--node)" stroke-width="2"/>
+            <circle cx="410" cy="40" r="4.5" fill="var(--lime)" stroke="var(--ink)" stroke-width="1"/>
+            <line x1="10" y1="110" x2="510" y2="110" stroke="var(--line)" stroke-width="1"/>
+          </svg>
+          <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-top:6px">illustrative trend · placeholder data</div>
+        </div>
+        <div class="cap">Illustrative — recreated for portfolio; not the production UI or real customer data</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Key decisions &amp; tradeoffs</h2></div>
+      <ul>
+        <li><b>Trends over snapshots.</b> A time dimension added complexity but answered the question customers actually had: "are we getting better?"</li>
+        <li><b>Explainers build trust.</b> Spelling out what each metric means cost space but turned skepticism into reliance.</li>
+        <li><b>Dry-run before commit.</b> A safe preview path lowered the risk of acting on a report.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Outcomes</h2></div>
+      <div class="outcomes">
+        <div class="oc"><p class="ot">Shipped to production</p><p>The time-dimension view and metric explainers went live in the product.</p></div>
+        <div class="oc"><p class="ot">A foundation that evolves</p><p>The modular rebuild replaced a brittle template and made future change tractable.</p></div>
+        <div class="oc"><p class="ot">Direction from many</p><p>Turned several customers' feedback into one coherent, shippable direction.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>What it taught me</h2></div>
+      <p class="pull">Data only helps when people <span class="uline">trust and understand it</span> — the explainer is part of the design, not an afterthought.</p>
+    </div>
+
+    <p class="safe-note">Note: charts and figures shown are illustrative with placeholder data, recreated for portfolio purposes. Customers are anonymized; no proprietary code, internal documents, real customer data, or internal screenshots are included.</p>
+
+    <div class="nextnav">
+      <div><div class="lbl">Next case study</div><a href="organizations.html"><span class="t">Organizations — the scoping model →</span></a></div>
+      <a class="back" href="index.html#work">All work</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Designing how people and <span class="hl">agents</span> build software together.</div>
+    <div style="margin-top:10px"><a href="mailto:anne@moderne.io">anne@moderne.io</a></div>
+    <div class="fmeta">© 2026 Annie Rimbach · Staff product designer, AX</div>
+  </div>
+</footer>
+
+<script src="case.js"></script>
+</body>
+</html>
