@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michelin — BibTread · Annie Rimbach</title>
+<meta name="description" content="Case study: modernizing 20-year-old tire retreading software — discovery, research, design, and shipping in 12 weeks while building a user-centered design practice from scratch.">
+<meta name="theme-color" content="#15302A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="case.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="brand" href="index.html">Annie Rimbach</a>
+    <div class="navright">
+      <a class="back" href="index.html#more">← All work</a>
+      <button class="toggle" id="themeToggle" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="chero">
+    <span class="kicker">Case study · Strategy, Research &amp; Mentorship</span>
+    <h1>Michelin — modernizing 20-year-old software</h1>
+    <p class="summary">A Tanzu Labs engagement with Michelin — turning a vague "clean up the UI" request into a <span class="hl">validated product direction</span>, shipping new software in 12 weeks, and building a user-centered design practice in a team that had never had one.</p>
+    <div class="metabar">
+      <div><div class="k">Role</div><div class="v">Product designer &amp; design lead — Tanzu Labs consultant</div></div>
+      <div><div class="k">Context</div><div class="v">Enterprise B2B · tire retreading software</div></div>
+      <div><div class="k">Focus</div><div class="v">Discovery → research → prototype → ship + mentorship</div></div>
+      <div><div class="k">Timeline</div><div class="v">Spring 2023 · shipped in 12 weeks</div></div>
+    </div>
+  </div>
+
+  <div class="cbody">
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>The situation</h2></div>
+      <p>Michelin came to Tanzu Labs for help with three things: re-platforming their tire retreading software (BibTread), solving user pains that were causing customer attrition, and learning Lean, Agile, and user-centered design methodologies.</p>
+      <p class="mut">The challenge wasn't just the software. The client team had strong biases toward personal experience over real data, and a tendency to prioritize less impactful features with little validation. My job was to enable a user-centered approach that would de-risk the real product decisions — and make the case for this way of working by doing it in front of them.</p>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>The problem as stated — and the real one</h2></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px">
+        <div style="background:var(--surface);border:0.5px solid var(--line);border-radius:12px;padding:18px 20px">
+          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted2);margin-bottom:10px">Client's stated ask</div>
+          <p style="font-size:15px;color:var(--muted);margin:0;line-height:1.55">"The existing customer data entry UI needs to be cleaned up."</p>
+        </div>
+        <div style="background:var(--lime);border-radius:12px;padding:18px 20px">
+          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#203E44;opacity:.65;margin-bottom:10px">What research revealed</div>
+          <p style="font-size:15px;color:#203E44;margin:0;line-height:1.55">Too many manual steps to get data from salespeople — causing incomplete, error-prone records and a screenshots-based sharing process.</p>
+        </div>
+      </div>
+      <p class="mut">The gap between these two framings was the whole engagement. Getting the team to see and trust that gap is what made the rest possible.</p>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>How I worked</h2></div>
+      <p class="mut">Five phases, one consistent thread: make the real problem visible before committing to a solution, then ship with data to prove it worked.</p>
+      <div class="steps">
+        <div class="step s1"><div class="bar"></div><span class="sn">01</span><h3>Discover &amp; research</h3><p>Service blueprint to surface pains, 2x2 prioritization, then a full-team user research round to validate the top assumption.</p></div>
+        <div class="step s2"><div class="bar"></div><span class="sn">02</span><h3>Design &amp; prototype</h3><p>Design studio to align on a lean solution, prototype in Michelin's design system, user-tested with the pair running the sessions.</p></div>
+        <div class="step s3"><div class="bar"></div><span class="sn">03</span><h3>Build &amp; measure</h3><p>Strangler-pattern delivery to ship alongside the old system, instrumented with analytics and an explicit adoption target.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Discovery</h2></div>
+      <p>I ran a service blueprint exercise with the team to map user pains end-to-end — then wrote each pain as a testable assumption. I facilitated a 2x2 to surface the assumption with the most potential impact on users but the least confidence in a solution. Two goals: start the product roadmap where it would give users the most value, and show the client team the value of this kind of structured thinking.</p>
+      <div class="illus">
+        <div style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px">
+          <div>
+            <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Prioritized assumption</div>
+            <p style="font-size:14px;color:var(--ink);margin:0;line-height:1.55">Administrators manually enter lots of customer data to process tires, and it is rife with errors that damage customer relationships.</p>
+          </div>
+          <div style="font-family:'Space Mono',monospace;font-size:10px;color:#203E44;background:var(--lime);border-radius:6px;padding:6px 10px;white-space:nowrap;align-self:flex-start">high impact · low confidence</div>
+        </div>
+        <div class="cap">2x2 prioritization — impact on users vs. confidence in a solution</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Research</h2></div>
+      <p>Armed with the prioritized assumption, I led the entire team — including external stakeholders — through a round of user research. After interviews and a full-team synthesis session, we refined the assumption into a validated user problem.</p>
+      <p>The real win was what it did to the room. The client team saw first-hand that they didn't know as much as they thought about user behavior and pain, and how those gaps were affecting business outcomes.</p>
+      <div style="border-left:3px solid var(--lime);padding:14px 18px;margin:20px 0;background:var(--surface);border-radius:0 10px 10px 0">
+        <p style="font-family:'Hedvig Letters Serif',serif;font-size:20px;font-weight:400;color:var(--ink);margin:0 0 8px">"User research is a game changer for us."</p>
+        <p style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:1px;margin:0">Client PM</p>
+      </div>
+      <div class="illus">
+        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Refined user problem</div>
+        <p style="font-size:14px;color:var(--ink);margin:0;line-height:1.6">There are too many manual steps to get data from salespeople — causing incomplete and error-prone customer records. Administrators are frequently asked to send customer records to salespeople, a manual process involving screenshots.</p>
+        <div class="cap">Validated in user research · previously framed as a UI cosmetic issue</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Design studio</h2></div>
+      <p>With a validated problem, I ran a design studio with the full team. Rapid ideation, diverge then converge — and we aligned on a lean solution in a single session.</p>
+      <div class="illus">
+        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px">The lean solution</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;align-items:flex-start;gap:10px">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--node);flex-shrink:0;margin-top:5px"></span>
+            <span style="font-size:14px;color:var(--ink)">Administrator enters customer data on <b>one screen</b> — not multiple — matching how they receive the data</span>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--node);flex-shrink:0;margin-top:5px"></span>
+            <span style="font-size:14px;color:var(--ink)">Form fields with <b>inline validation</b> to catch errors at entry, before they damage records</span>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--node);flex-shrink:0;margin-top:5px"></span>
+            <span style="font-size:14px;color:var(--ink)"><b>"Export to PDF"</b> for easy sharing with salespeople — replacing the screenshots workflow entirely</span>
+          </div>
+        </div>
+        <div class="cap">Design studio output — rapid ideation, aligned in one session</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Prototype &amp; validate</h2></div>
+      <p>My pair and I built a prototype using Michelin's existing design system, then returned to users for another round of testing. This time, I had my pair run their very first user testing session.</p>
+      <p>The prototype performed well. Users responded immediately to the single-screen layout and the PDF export. Consolidating what had been multiple pages into one was the thing they'd wanted without knowing how to ask for it.</p>
+      <div style="border-left:3px solid var(--lime);padding:14px 18px;margin:20px 0;background:var(--surface);border-radius:0 10px 10px 0">
+        <p style="font-family:'Hedvig Letters Serif',serif;font-size:20px;font-weight:400;color:var(--ink);margin:0 0 8px">"I never knew it could look this simple."</p>
+        <p style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:1px;margin:0">User testing participant</p>
+      </div>
+      <p class="mut">With validated designs and a field mapping diagram to show engineers how fields from multiple database tables would consolidate, we moved to build.</p>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Build &amp; measure</h2></div>
+      <p>New software was in users' hands 12 weeks after kickoff. The team used the <b>Strangler pattern</b> — keeping the existing application operational while introducing new features, then directing users to the new surface via links in key places.</p>
+      <p>We instrumented the new features with analytics and set an explicit adoption goal. We thought it was ambitious. We were right to be ambitious.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0">
+        <div style="background:var(--surface);border:0.5px solid var(--line);border-radius:12px;padding:18px 20px">
+          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted2);margin-bottom:10px">The goal</div>
+          <p style="font-family:'Hedvig Letters Serif',serif;font-size:30px;-webkit-text-stroke:0.5px var(--ink);paint-order:stroke fill;color:var(--ink);margin:0 0 4px">20 users</p>
+          <p style="font-size:13px;color:var(--muted);margin:0">unique "Export" clicks in 30 days</p>
+        </div>
+        <div style="background:var(--lime);border-radius:12px;padding:18px 20px">
+          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#203E44;opacity:.65;margin-bottom:10px">The result</div>
+          <p style="font-family:'Hedvig Letters Serif',serif;font-size:30px;-webkit-text-stroke:0.5px #203E44;paint-order:stroke fill;color:#203E44;margin:0 0 4px">36 users</p>
+          <p style="font-size:13px;color:#203E44;margin:0">engaged in the first week</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Next iteration</h2></div>
+      <p>We moved on to the next problem: putting customer data entry in the hands of salespeople. The risk was immediate — no one on the team had ever spoken to salespeople. Would they be willing to take on data entry at all?</p>
+      <p>We validated the assumption. Salespeople weren't just willing — they were enthusiastic. Before my involvement, no one on the client team had considered this possible. It opened a path to eliminating a painful administrative process entirely and giving salespeople ownership over the accuracy of their own records.</p>
+      <div style="border-left:3px solid var(--lime);padding:14px 18px;margin:20px 0;background:var(--surface);border-radius:0 10px 10px 0">
+        <p style="font-family:'Hedvig Letters Serif',serif;font-size:20px;font-weight:400;color:var(--ink);margin:0 0 8px">"This is way better than what we have now."</p>
+        <p style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:1px;margin:0">Salesperson — user testing</p>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Mentorship</h2></div>
+      <p>Simultaneously with everything above, I was teaching my pair how to be a full-stack product designer from scratch. He started by observing. I taught him Figma, how to conduct user research, and exposed him to lean and user-centered design processes. By the end of the engagement, he was driving our pairing sessions — creating mockups, running user interviews.</p>
+      <p class="mut">Months later I caught up with him. He was taking initiative to drive responsive design improvements in the application on his own. His individual growth is probably what I'm proudest of from this engagement — more than any feature or metric.</p>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Outcomes</h2></div>
+      <div class="outcomes">
+        <div class="oc"><p class="ot">Shipped in 12 weeks</p><p>New software in users' hands from kickoff to launch, on an aggressive timeline with a new team.</p></div>
+        <div class="oc"><p class="ot">36 users in week one</p><p>Exceeded the 30-day adoption goal of 20 users within the first week after release.</p></div>
+        <div class="oc"><p class="ot">Monthly → 2× weekly</p><p>Release cadence improved from monthly to twice weekly during the engagement.</p></div>
+        <div class="oc"><p class="ot">A practice built</p><p>Client team ended the engagement focused on user value, evangelizing UCD to the rest of Michelin.</p></div>
+      </div>
+      <p class="mut" style="margin-top:24px">This project was a reminder of the power of user-centered design. Often, clients aren't aware of the "art of the possible." By the end, clients and stakeholders were focused on high-value user experiences over useless features — and carrying these ideas back to the rest of their organization. That mindset shift was, to me, more valuable than any single feature we shipped.</p>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>What it taught me</h2></div>
+      <p class="pull">The most valuable thing you can give a client isn't a feature — it's a <span class="uline">way of seeing</span>.</p>
+      <p class="mut">When a team starts trusting research over assumption, the roadmap changes — not just once, but permanently. Getting the team to that shift was the real deliverable.</p>
+    </div>
+
+    <p class="safe-note">Note: interface descriptions are illustrative and recreated for portfolio purposes. Research participants and client stakeholders are anonymized; no proprietary code, internal documents, or client screenshots are included.</p>
+
+    <div class="nextnav">
+      <div><div class="lbl">Next case study</div><a href="kohls.html"><span class="t">Kohl's — self-checkout rewards →</span></a></div>
+      <a class="back" href="index.html#more">All work</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Designing how people and <span class="hl">agents</span> build software together.</div>
+    <div style="margin-top:10px"><a href="mailto:anne@moderne.io">anne@moderne.io</a></div>
+    <div class="fmeta">© 2026 Annie Rimbach · Staff product designer, AX</div>
+  </div>
+</footer>
+
+<script src="case.js"></script>
+</body>
+</html>
