@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trigrep — Natural-language code search · Annie Rimbach</title>
+<meta name="description" content="Case study: designing an AI assistant as the front door to a powerful code-search engine. Research, interaction design, and prototyping.">
+<meta name="theme-color" content="#15302A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="case.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="brand" href="index.html">Annie Rimbach</a>
+    <div class="navright">
+      <a class="back" href="index.html#work">← All work</a>
+      <button class="toggle" id="themeToggle" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="chero">
+    <span class="kicker">Case study · AI &amp; developer tools</span>
+    <h1>Trigrep — natural-language code search</h1>
+    <p class="summary">An AI assistant as the <span class="hl">front door</span> to a powerful code-search engine — so engineers could ask for what they wanted in plain language instead of memorizing query syntax.</p>
+    <div class="metabar">
+      <div><div class="k">Role</div><div class="v">Lead product designer — research, interaction design, prototyping</div></div>
+      <div><div class="k">Context</div><div class="v">Enterprise developer-tools platform</div></div>
+      <div><div class="k">Focus</div><div class="v">Research → interaction model → shipped UI</div></div>
+      <div><div class="k">Collaboration</div><div class="v">Engineering, product, design system</div></div>
+    </div>
+    <a class="proto-link" href="https://moderneinc.github.io/prototypes/moddy-trigrep-revised.html" target="_blank" rel="noopener">View public prototype ↗</a>
+  </div>
+
+  <div class="cbody">
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>The problem</h2></div>
+      <p>The search engine underneath was genuinely powerful — but wielding it meant knowing exact syntax, scopes, and filters. That put the most capable tool in the platform out of reach for the people who needed it most in the moment. The opportunity: let an assistant translate plain-language intent into a precise, trustworthy search.</p>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Constraints</h2></div>
+      <ul>
+        <li><b>Trust and accuracy.</b> In an enterprise engineering context, a confident-but-wrong answer is worse than no answer.</li>
+        <li><b>Explainability.</b> Results had to show <em>why</em> they matched, not just <em>that</em> they matched.</li>
+        <li><b>Fit the existing workflow.</b> The assistant couldn't be a walled garden — it needed a path into the full-power search surface.</li>
+        <li><b>Speed expectations.</b> Engineers expect search to feel instant.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>How I worked</h2></div>
+      <p class="mut">I started from explicit assumptions, tested them with real engineers, and let what I heard reshape the interaction model before any UI was finalized.</p>
+      <div class="steps">
+        <div class="step s1"><div class="bar"></div><span class="sn">01</span><h3>Research</h3><p>Logged assumptions, then ran two rounds of interviews with engineers — including at a large enterprise customer — to learn how people actually phrase intent.</p></div>
+        <div class="step s2"><div class="bar"></div><span class="sn">02</span><h3>Interaction model</h3><p>Designed the conversational entry point and a results surface that stays explainable, with a path into full-power search.</p></div>
+        <div class="step s3"><div class="bar"></div><span class="sn">03</span><h3>Prototype &amp; ship</h3><p>Iterated a working prototype against feedback, then partnered with engineering to ship the assistant's component suite.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>The interaction model</h2></div>
+      <p>Two surfaces, one path between them: a conversational assistant for intent, and a traditional split-panel search for power and precision. You can start by asking, then "open in search" to refine with filters — or skip straight to the power tool.</p>
+      <div class="illus">
+        <div style="background:var(--bg);border:0.5px solid var(--line);border-radius:11px;padding:16px">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);border:0.5px solid var(--line);border-radius:24px;padding:9px 14px;display:flex;justify-content:space-between;align-items:center">
+            <span>where is the user service configured?</span><span style="color:var(--node)">ask ↵</span>
+          </div>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
+            <div style="background:var(--surface);border-radius:9px;padding:11px 13px;display:flex;justify-content:space-between;align-items:center">
+              <span style="font-family:'Space Mono',monospace;font-size:12px;color:var(--ink)">service/config · settings file</span>
+              <span style="font-family:'Space Mono',monospace;font-size:10px;color:#203E44;background:var(--lime);border-radius:4px;padding:3px 7px">match</span>
+            </div>
+            <div style="background:var(--surface);border-radius:9px;padding:11px 13px;display:flex;justify-content:space-between;align-items:center">
+              <span style="font-family:'Space Mono',monospace;font-size:12px;color:var(--ink)">service/readme · documentation</span>
+              <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2)">related</span>
+            </div>
+          </div>
+          <div style="margin-top:12px;font-family:'Space Mono',monospace;font-size:10px;color:var(--node)">open in search to refine →</div>
+        </div>
+        <div class="cap">Illustrative — recreated for portfolio; not the production UI</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Key decisions &amp; tradeoffs</h2></div>
+      <ul>
+        <li><b>Assistant <em>and</em> power tool, not either/or.</b> Rather than replace search with chat, I connected them — intent up front, precision on demand.</li>
+        <li><b>Explainability over magic.</b> Showing why a result matched cost some visual simplicity but bought the trust the context demanded.</li>
+        <li><b>Progressive disclosure.</b> Start simple, reveal filters and scope only when someone reaches for them.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Outcomes</h2></div>
+      <div class="outcomes">
+        <div class="oc"><p class="ot">A validated model</p><p>Two research rounds turned assumptions into an interaction model the team had confidence to build.</p></div>
+        <div class="oc"><p class="ot">Shipped to production</p><p>The work shipped as a reusable component suite for the assistant.</p></div>
+        <div class="oc"><p class="ot">Drove decisions</p><p>Research directly shaped engineering and product direction beyond the UI itself.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>What it taught me</h2></div>
+      <p class="pull">The fastest way to earn trust in an AI feature isn't to hide the machinery — it's to <span class="uline">show the working</span>.</p>
+      <p class="mut">Plain-language input is only half the job. The other half is making the system's reasoning legible enough that an expert will actually rely on it.</p>
+    </div>
+
+    <p class="safe-note">Note: interface shown is illustrative and recreated for portfolio purposes. Research participants and customers are anonymized; no proprietary code, internal documents, or internal screenshots are included.</p>
+
+    <div class="nextnav">
+      <div><div class="lbl">Next case study</div><a href="neo.html"><span class="t">NEO — building a design system →</span></a></div>
+      <a class="back" href="index.html#work">All work</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Designing how people and <span class="hl">agents</span> build software together.</div>
+    <div style="margin-top:10px"><a href="mailto:anne@moderne.io">anne@moderne.io</a></div>
+    <div class="fmeta">© 2026 Annie Rimbach · Staff product designer, AX</div>
+  </div>
+</footer>
+
+<script src="case.js"></script>
+</body>
+</html>
