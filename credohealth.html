@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credo Health — AI &amp; Design Ops · Annie Rimbach</title>
+<meta name="description" content="Case study: building Credo Health's design system from scratch, designing an AI feedback loop with clinicians, and growing from contractor to Director of Design.">
+<meta name="theme-color" content="#15302A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="case.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="brand" href="index.html">Annie Rimbach</a>
+    <div class="navright">
+      <a class="back" href="index.html#more">← All work</a>
+      <button class="toggle" id="themeToggle" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="chero">
+    <span class="kicker">Case study · Design systems &amp; AI/ML</span>
+    <h1>Credo Health — AI &amp; design ops</h1>
+    <p class="summary">Joined as a contractor, left as Director of Design. Built the <span class="hl">design system from scratch</span>, designed an AI feedback loop with clinicians, and shipped the core product — a chart-auditing platform that helps healthcare organizations capture every valid diagnosis.</p>
+    <div class="metabar">
+      <div><div class="k">Role</div><div class="v">Contractor → Director of Design</div></div>
+      <div><div class="k">Context</div><div class="v">Healthcare · AI-assisted risk adjustment</div></div>
+      <div><div class="k">Focus</div><div class="v">Design ops · AI/ML · Product design · Design systems</div></div>
+      <div><div class="k">Collaboration</div><div class="v">Clinicians, risk adjusters, engineering, ML</div></div>
+    </div>
+  </div>
+
+  <div class="cbody">
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>The product</h2></div>
+      <p>Credo Health built PreDx — a platform that helps healthcare organizations with risk adjustment coding. In short: when a patient has documented medical conditions, those diagnoses need to be captured accurately for insurance reimbursement. If they're missed, the organization loses revenue and patients may receive less appropriate care.</p>
+      <p class="mut">PreDx uses machine learning to read patient medical records — PDFs of charts, discharge summaries, lab results, consult notes — and surface potential ICD-10 diagnosis codes with supporting evidence. Clinicians and risk adjusters then review, validate, and complete the audit. The product reduces the manual work of reading thousands of pages per patient while keeping clinicians in control of every decision.</p>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>The design challenge</h2></div>
+      <p>The core tension: AI suggestions are only useful if clinicians trust them. In a clinical context, a confident-but-wrong code suggestion isn't just unhelpful — it can cause real harm. Every design decision about how suggestions were surfaced, what evidence was shown, and how feedback was collected had to work for skeptical, expert users who would not tolerate a system that felt like a black box.</p>
+      <ul>
+        <li><b>Trust and evidence.</b> Every suggested code needed to link directly to the supporting evidence in the source document — the specific page, the specific section.</li>
+        <li><b>Clinician control.</b> Accept, edit, or reject — always. The AI accelerates; the clinician decides.</li>
+        <li><b>Speed at scale.</b> Risk adjusters process large volumes of charts. The interface had to support efficient review without cutting corners on accuracy.</li>
+        <li><b>No prior design system.</b> When I joined, there were no reusable components, no shared styles, no documented patterns.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>How I worked</h2></div>
+      <p class="mut">Three tracks, all interdependent — the design system made the product work faster; the product shipped the AI loop; the AI loop surfaced what to build next.</p>
+      <div class="steps">
+        <div class="step s1"><div class="bar"></div><span class="sn">01</span><h3>Design ops</h3><p>Built the design system from scratch — components, tokens, and process — so the team could ship consistently and iterate without rebuilding from scratch each time.</p></div>
+        <div class="step s2"><div class="bar"></div><span class="sn">02</span><h3>Core product</h3><p>Designed and shipped the chart audit flow: patient list, file review, ICD-10 code panel, evidence linking, and audit completion.</p></div>
+        <div class="step s3"><div class="bar"></div><span class="sn">03</span><h3>AI feedback loop</h3><p>Designed the ML document summary feature and a structured feedback mechanism — so clinician reactions could feed back into model improvement.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Building the design system</h2></div>
+      <p>When I joined there was no shared component library. I built the Credo Design Library from the ground up — colors, typography, spacing tokens, and a full component set: buttons, text fields, tooltips, chips, dropdowns, evidence placeholders, and icons.</p>
+      <p class="mut">The evidence placeholder component was specific to the product: a pattern for surfacing a snippet of source document (a page screenshot, a highlighted section) alongside a diagnosis code suggestion. Getting that component right meant thinking through the AI-to-clinician handoff at the component level, not just the page level.</p>
+      <div class="illus">
+        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Design system — component surface area</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-family:'Space Mono',monospace;font-size:10px;border:0.5px solid var(--line);border-radius:20px;padding:5px 11px;color:var(--ink)">Buttons</span>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;border:0.5px solid var(--line);border-radius:20px;padding:5px 11px;color:var(--ink)">Text fields</span>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;border:0.5px solid var(--line);border-radius:20px;padding:5px 11px;color:var(--ink)">Dropdowns</span>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;border:0.5px solid var(--line);border-radius:20px;padding:5px 11px;color:var(--ink)">Chips</span>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;border:0.5px solid var(--line);border-radius:20px;padding:5px 11px;color:var(--ink)">Tooltips</span>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;border:0.5px solid var(--line);border-radius:20px;padding:5px 11px;color:var(--ink)">Icons</span>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;background:var(--lime);color:#203E44;border-radius:20px;padding:5px 11px">Evidence placeholder</span>
+        </div>
+        <div class="cap">Credo Design Library — built from scratch</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>The chart audit flow</h2></div>
+      <p>The core product experience: a risk adjuster or clinician opens a patient, sees their chart files (organized by type, specialty, location, and date), and works through the audit. The AI surfaces potential ICD-10 codes in a sidebar, each linked to the specific evidence page in the document.</p>
+      <div class="illus">
+        <div style="display:grid;grid-template-columns:1fr 220px;gap:10px;font-size:13px">
+          <div style="background:var(--bg);border:0.5px solid var(--line);border-radius:8px;padding:12px">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px">Patient charts — Leon Montana, M · 1/26/1965</div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:0.5px solid var(--line)">
+                <span style="color:var(--ink)">Continuity of Care Document</span>
+                <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2)">20 pp</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:0.5px solid var(--line)">
+                <span style="color:var(--ink)">Discharge Summary</span>
+                <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2)">6 pp</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0">
+                <span style="color:var(--ink)">Consult · Cardiology</span>
+                <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2)">7 pp</span>
+              </div>
+            </div>
+          </div>
+          <div style="background:var(--bg);border:0.5px solid var(--line);border-radius:8px;padding:12px">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px">Code panel</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="border:0.5px solid var(--line);border-radius:6px;padding:8px">
+                <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--node);margin-bottom:4px">E1129</div>
+                <div style="font-size:12px;color:var(--ink);line-height:1.4">Type 2 diabetes with kidney complication</div>
+                <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-top:4px">Assessment &amp; Plan · p. 8</div>
+              </div>
+              <div style="border:0.5px solid var(--line);border-radius:6px;padding:8px">
+                <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--node);margin-bottom:4px">N1831</div>
+                <div style="font-size:12px;color:var(--ink);line-height:1.4">Chronic kidney disease, stage 3a</div>
+                <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-top:4px">Lab Results · p. 6</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cap">Illustrative — recreated for portfolio; not the production UI</div>
+      </div>
+      <p class="mut">Key decisions in this flow: sticky sidebar header/footer so actions are always reachable; file sorted by type, specialty, location, and date so auditors could navigate without reading every document; page count instead of file size because that's what matters when you're deciding which documents to open first.</p>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>The AI feedback loop</h2></div>
+      <p>One of the highest-stakes features I designed was the ML document summary — an AI-generated plain-language summary of each patient chart document, surfaced as a beta feature alongside the raw document. The goal: help clinicians orient faster so they could spend their attention on the complex judgment calls, not on decoding a 25-page discharge summary.</p>
+      <p>The trust problem was real. In a clinical context, an AI summary that gets something wrong and isn't caught could be worse than no summary. I designed the feature with explicit uncertainty signals — a "BETA" label, a clear "AI generated summary" attribution, and a structured feedback mechanism (thumbs up/down) to let clinicians flag summaries that felt inaccurate.</p>
+      <div class="illus">
+        <div style="background:var(--bg);border:0.5px solid var(--line);border-radius:8px;padding:14px;margin-bottom:2px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+            <div style="font-size:13px;font-weight:500;color:var(--ink)">Summarize Document</div>
+            <span style="font-family:'Space Mono',monospace;font-size:9px;color:var(--node);border:0.5px solid var(--node);border-radius:4px;padding:2px 6px">BETA</span>
+          </div>
+          <p style="font-size:13px;color:var(--muted);margin:0 0 12px;line-height:1.6">Patient presented for annual physical. Stable hypertension managed with Lisinopril 10mg. Occasional headaches and mild fatigue attributed to lifestyle. Vitals stable. Labs ordered. Follow-up in one year.</p>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="display:flex;gap:8px">
+              <button style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border:0.5px solid var(--line);border-radius:6px;background:transparent;cursor:pointer;color:var(--muted)">↑</button>
+              <button style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border:0.5px solid var(--line);border-radius:6px;background:transparent;cursor:pointer;color:var(--muted)">↓</button>
+            </div>
+            <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2)">AI generated summary</span>
+          </div>
+        </div>
+        <div class="cap">Illustrative — recreated for portfolio; not the production UI</div>
+      </div>
+      <p class="mut">The feedback data fed back to the ML team to improve model quality — a loop where the clinicians using the product were actively shaping the AI behind it. Getting clinicians to engage with that feedback required the design to make it feel low-effort and meaningful, not just a checkbox.</p>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>What I shipped</h2></div>
+      <p class="mut">A partial list of features designed and delivered across the engagement:</p>
+      <ul>
+        <li><b>Chart audit flow.</b> Patient list, file viewer, ICD-10 code panel with evidence linking, audit start/finish.</li>
+        <li><b>ML document summary.</b> AI-generated summaries with structured clinician feedback (thumbs up/down).</li>
+        <li><b>Internal document search.</b> Keyword search within patient charts, with empty states and loading patterns.</li>
+        <li><b>FHIR data tabs.</b> Medications, labs, and vitals tabs populated from structured FHIR data alongside uploaded documents.</li>
+        <li><b>Patient request flow (PreHx).</b> Form for requesting new patient records — with address, NPI, encounter type/location, org selection, and validation states.</li>
+        <li><b>Account creation &amp; authentication.</b> Sign-up, login, forgot password, Doximity SSO, and click-wrap flows.</li>
+        <li><b>Credo Design Library.</b> Full component set built from scratch and maintained throughout the engagement.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Outcomes</h2></div>
+      <div class="outcomes">
+        <div class="oc"><p class="ot">Contractor → Director</p><p>Joined as a contractor. Grew into the Director of Design role as the product and team scaled.</p></div>
+        <div class="oc"><p class="ot">Design system built</p><p>Full component library built from zero — shared tokens, reusable components, documented patterns.</p></div>
+        <div class="oc"><p class="ot">AI loop shipped</p><p>ML document summaries with clinician feedback live in production — a direct data feed back to the ML team.</p></div>
+        <div class="oc"><p class="ot">Full product delivered</p><p>Chart audit, patient request, account flows, FHIR tabs, search — the core product shipped end to end.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>What it taught me</h2></div>
+      <p class="pull">In a clinical AI product, trust isn't a feature — it's the <span class="uline">foundation everything else sits on</span>.</p>
+      <p class="mut">Transparency about what the AI is doing, explicit uncertainty markers, and giving experts a clear path to override aren't constraints on the product — they're what makes the product usable. Designing that feedback loop well meant the AI could get better without asking clinicians to trust something they couldn't see.</p>
+    </div>
+
+    <p class="safe-note">Note: interface shown is illustrative and recreated for portfolio purposes. Patient data is entirely fictional. Research participants and clinical users are anonymized; no proprietary code, clinical records, or internal screenshots are included.</p>
+
+    <div class="nextnav">
+      <div><div class="lbl">More work</div><a href="index.html#more"><span class="t">Back to all work →</span></a></div>
+      <a class="back" href="index.html#more">All work</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Designing how people and <span class="hl">agents</span> build software together.</div>
+    <div style="margin-top:10px"><a href="mailto:anne@moderne.io">anne@moderne.io</a></div>
+    <div class="fmeta">© 2026 Annie Rimbach · Staff product designer, AX</div>
+  </div>
+</footer>
+
+<script src="case.js"></script>
+</body>
+</html>
