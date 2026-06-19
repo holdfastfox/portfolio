@@ -23,7 +23,7 @@
   body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .35s ease,color .35s ease}
   .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4.5vw,56px)}
   a{color:inherit;text-decoration:none}
-  .hl{background:var(--lime);color:#203E44;padding:0.03em 0.3em;border-radius:5px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+  .hl{background:var(--lime);color:#203E44;padding:0.03em 0.3em;border-radius:5px;-webkit-box-decoration-break:clone;box-decoration-break:clone;border:1px solid color-mix(in srgb,black 20%,var(--lime) 80%)}
   .uline{background:linear-gradient(var(--lime),var(--lime)) no-repeat;background-position:0 92%;background-size:100% 0.18em}
 
   /* NAV */
@@ -38,15 +38,14 @@
   .toggle svg{width:16px;height:16px}
 
   /* HERO */
-  .hero{padding:84px 0 70px}
+  .hero{padding-top:84px;padding-bottom:70px}
   .kicker{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
-  .hero h1{font-family:'Hedvig Letters Serif',serif;-webkit-text-stroke:1px var(--ink);paint-order:stroke fill;font-weight:400;font-size:clamp(40px,7.2vw,76px);line-height:1.32;letter-spacing:-0.6px;margin:20px 0 26px}
+  .hero h1{font-family:'Hedvig Letters Serif',serif;-webkit-text-stroke:1px var(--ink);paint-order:stroke fill;font-weight:400;font-size:clamp(40px,7.2vw,76px);line-height:1.45;letter-spacing:-0.6px;margin:20px 0 26px}
   .hero p.sub{font-size:clamp(16px,2.1vw,19px);color:var(--muted);max-width:620px;margin:0 0 18px}
-  .procline{display:block;margin:6px 0 28px}
   .btns{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
   .btn{display:inline-flex;gap:8px;align-items:center;background:var(--ink);color:var(--btnText);font-size:14px;font-weight:500;padding:12px 22px;border-radius:26px;transition:transform .15s ease}
   .btn:hover{transform:translateY(-1px)}
-  .btn.ghost{background:transparent;color:var(--ink);border:0.5px solid var(--line)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--muted2)}
 
   /* SECTION */
   section{padding:58px 0;border-top:0.5px solid var(--line)}
@@ -68,14 +67,10 @@
   .work .wlinks{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
   .work .wlinks a{font-family:'Space Mono',monospace;font-size:11px;color:var(--ink);border:0.5px solid var(--line);border-radius:20px;padding:6px 13px;transition:.15s}
   .work .wlinks a:hover{border-color:var(--node);color:var(--node)}
-  .work .wlinks a.prime{background:var(--lime);color:#203E44;border-color:var(--lime)}
-
   /* MORE WORK GRID */
   .more{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
   .mrow{background:var(--surface);border:0.5px solid var(--line);border-radius:13px;padding:18px 20px;transition:.16s;position:relative;overflow:hidden}
-  .mrow::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--lime);transform:translateX(-4px);transition:transform .18s}
   .mrow:hover{transform:translateY(-2px)}
-  .mrow:hover::before{transform:translateX(0)}
   .mrow h4{font-family:'Hedvig Letters Serif',serif;font-weight:400;font-size:18px;-webkit-text-stroke:0.3px var(--ink);paint-order:stroke fill;margin:0}
   .mrow p{font-size:13.5px;color:var(--muted);margin:7px 0 0}
   .mrow .t{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.5px;text-transform:uppercase;color:var(--muted2);margin-top:10px}
@@ -98,7 +93,6 @@
   .chip{font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:1px;border:0.5px solid var(--line);border-radius:30px;padding:7px 13px;color:var(--ink)}
 
   footer{border-top:0.5px solid var(--line);padding:46px 0 60px}
-  .lff{display:block;margin-bottom:30px;opacity:.9}
   .fgrid{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
   .fbig{font-family:'Hedvig Letters Serif',serif;-webkit-text-stroke:0.7px var(--ink);paint-order:stroke fill;font-size:clamp(24px,4vw,34px);line-height:1.3;letter-spacing:-0.3px;max-width:520px}
   .fcontact a{font-family:'Space Mono',monospace;font-size:13px;color:var(--ink)}
@@ -143,12 +137,6 @@
     <span class="kicker">Staff product designer · Moderne</span>
     <h1>Serious design,<br><span class="hl">Seriously curious.</span></h1>
     <p class="sub">Process-led design for agent experiences, developer platforms, and design systems — focused on solving real problems for real users at enterprise scale.</p>
-    <svg class="procline" viewBox="0 0 460 40" width="340" height="32" aria-hidden="true">
-      <polyline points="6,28 96,28 128,12 250,12 282,28 454,28" fill="none" stroke="var(--ink)" stroke-width="1.4"/>
-      <circle cx="96" cy="28" r="3.4" fill="var(--ink)"/>
-      <circle cx="250" cy="12" r="4.8" fill="var(--lime)" stroke="var(--ink)" stroke-width="1"/>
-      <circle cx="454" cy="28" r="3.4" fill="var(--ink)"/>
-    </svg>
     <div class="btns">
       <a class="btn" href="#work">Selected work →</a>
       <a class="btn ghost" href="mailto:anne@moderne.io">Get in touch</a>
@@ -327,11 +315,6 @@
 
 <footer>
   <div class="wrap">
-    <svg class="lff" viewBox="0 0 980 22" width="100%" height="16" preserveAspectRatio="none" aria-hidden="true">
-      <defs><pattern id="lff1" width="9" height="22" patternUnits="userSpaceOnUse"><line x1="0" y1="2" x2="0" y2="20" stroke="var(--line)" stroke-width="1"/></pattern></defs>
-      <rect x="0" y="0" width="980" height="22" fill="url(#lff1)"/>
-      <rect x="0" y="0" width="150" height="22" fill="var(--lime)" opacity="0.55"/>
-    </svg>
     <div class="fgrid">
       <div class="fbig">Let's design how people and <span class="hl">agents</span> build software together.</div>
       <div class="fcontact">
