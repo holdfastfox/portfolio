@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Annie Rimbach — Product Designer, AX</title>
+<meta name="description" content="Annie Rimbach is a staff product designer at Moderne working at the frontier of agent experience (AX), developer platforms, and design systems — solving real problems for real users.">
+<meta name="theme-color" content="#203E44">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F7F4; --surface:#E9EDE8; --ink:#203E44; --muted:#5E726E; --muted2:#8A988F;
+    --line:#E2E7E1; --lime:#DEFD7C; --node:#3E9E84; --btnText:#F5F7F4;
+  }
+  [data-theme="dark"]{
+    --bg:#203E44; --surface:#2A4D52; --ink:#EAF1EC; --muted:#9FBDB2; --muted2:#6E8C82;
+    --line:#34565B; --lime:#DEFD7C; --node:#7FD8B8; --btnText:#203E44;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .35s ease,color .35s ease}
+  .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4.5vw,56px)}
+  a{color:inherit;text-decoration:none}
+  .hl{background:var(--lime);color:#203E44;padding:0.03em 0.3em;border-radius:5px;-webkit-box-decoration-break:clone;box-decoration-break:clone;border:1px solid color-mix(in srgb,black 20%,var(--lime) 80%)}
+  .uline{background:linear-gradient(var(--lime),var(--lime)) no-repeat;background-position:0 92%;background-size:100% 0.18em}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);background:color-mix(in srgb,var(--bg) 86%,transparent);border-bottom:0.5px solid var(--line)}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:15px 0}
+  .brand{font-family:'Hedvig Letters Serif',serif;font-size:17px;-webkit-text-stroke:0.55px var(--ink);paint-order:stroke fill}
+  .navright{display:flex;align-items:center;gap:22px}
+  .navlinks{display:flex;gap:20px;font-size:13.5px;color:var(--muted)}
+  .navlinks a:hover{color:var(--ink)}
+  .toggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:0.5px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);cursor:pointer}
+  .toggle:hover{background:var(--surface)}
+  .toggle svg{width:16px;height:16px}
+
+  /* HERO */
+  .hero{padding-top:46px;padding-bottom:36px}
+  .kicker{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+  .hero h1{font-family:'Hedvig Letters Serif',serif;-webkit-text-stroke:0.7px var(--ink);paint-order:stroke fill;font-weight:400;font-size:clamp(30px,4.4vw,50px);line-height:1.45;letter-spacing:-0.5px;margin:14px 0 16px}
+  .hero p.sub{font-size:clamp(15px,1.8vw,17px);color:var(--muted);max-width:600px;margin:0 0 18px}
+  .btns{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .btn{display:inline-flex;gap:8px;align-items:center;background:var(--ink);color:var(--btnText);font-size:14px;font-weight:500;padding:12px 22px;border-radius:26px;transition:transform .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--muted2)}
+
+  /* SECTION */
+  section{padding:58px 0;border-top:0.5px solid var(--line)}
+  .shead{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .shead .tick{width:26px;height:6px;border-radius:3px;background:var(--lime);flex-shrink:0}
+  .shead .n{font-family:'Space Mono',monospace;font-size:12px;color:var(--node)}
+  .shead h2{font-family:'Space Mono',monospace;font-weight:400;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin:0}
+  .stitle{font-family:'Hedvig Letters Serif',serif;-webkit-text-stroke:0.7px var(--ink);paint-order:stroke fill;font-weight:400;font-size:clamp(26px,4vw,38px);line-height:1.3;letter-spacing:-0.3px;margin:0 0 8px;max-width:700px}
+  .sintro{color:var(--muted);max-width:580px;margin:0 0 30px}
+
+  /* FEATURED WORK — card grid */
+  .pgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:8px}
+  .pcard{grid-column:span 2;background:var(--surface);border:0.5px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .16s ease,border-color .16s ease}
+  .pcard:nth-child(n+4){grid-column:span 3}
+  .pcard:hover{transform:translateY(-3px);border-color:var(--node)}
+  .pthumb{aspect-ratio:16/10;background:var(--bg);border-bottom:0.5px solid var(--line);display:flex;align-items:center;justify-content:center;padding:14px}
+  .pthumb svg{width:100%;height:100%}
+  .pbody{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+  .pnum{font-family:'Space Mono',monospace;font-size:11px;color:var(--node);margin-bottom:8px}
+  .pt{font-family:'Hedvig Letters Serif',serif;font-size:20px;-webkit-text-stroke:0.3px var(--ink);paint-order:stroke fill;line-height:1.22;margin:0 0 6px}
+  .ptags{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:0.5px;text-transform:uppercase;color:var(--muted2);margin:0 0 10px}
+  .pd{font-size:13.5px;color:var(--muted);margin:0 0 14px}
+  .plink{font-family:'Space Mono',monospace;font-size:11px;color:var(--node);margin-top:auto}
+  .pcard:hover .plink{text-decoration:underline}
+
+  /* MORE WORK GRID */
+  .more{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+  .mrow{background:var(--surface);border:0.5px solid var(--line);border-radius:13px;padding:18px 20px;transition:transform .16s ease,border-color .16s ease}
+  .mrow:hover{transform:translateY(-3px);border-color:var(--node)}
+  .mrow h4{font-family:'Hedvig Letters Serif',serif;font-weight:400;font-size:18px;-webkit-text-stroke:0.3px var(--ink);paint-order:stroke fill;margin:0}
+  .mrow p{font-size:13.5px;color:var(--muted);margin:7px 0 0}
+  .mrow .t{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.5px;text-transform:uppercase;color:var(--muted2);margin-top:10px}
+  .mrow a.full{font-family:'Space Mono',monospace;font-size:11px;color:var(--node);display:inline-block;margin-top:10px}
+
+  /* PROCESS */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .step .bar{height:2px;background:var(--line);position:relative;margin-bottom:14px}
+  .step .bar::before{content:"";position:absolute;left:0;top:-1px;width:34px;height:4px;border-radius:2px;background:var(--node)}
+  .step.s2 .bar::before{left:50%;transform:translateX(-50%)}
+  .step.s3 .bar::before{left:auto;right:0}
+  .step .sn{font-family:'Space Mono',monospace;font-size:12px;color:var(--node)}
+  .step h3{font-family:'Hedvig Letters Serif',serif;font-weight:400;font-size:21px;-webkit-text-stroke:0.4px var(--ink);paint-order:stroke fill;margin:10px 0 6px}
+  .step p{font-size:14px;color:var(--muted);margin:0}
+
+  /* ABOUT */
+  .about .lead{font-family:'Hedvig Letters Serif',serif;font-weight:400;font-size:clamp(20px,3vw,26px);line-height:1.5;-webkit-text-stroke:0.3px var(--ink);paint-order:stroke fill;max-width:740px;margin:0 0 18px}
+  .about p.body{color:var(--muted);max-width:660px;margin:0 0 10px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+  .chip{font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:1px;border:0.5px solid var(--line);border-radius:30px;padding:7px 13px;color:var(--ink)}
+
+  footer{border-top:0.5px solid var(--line);padding:46px 0 60px}
+  .fgrid{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .fbig{font-family:'Hedvig Letters Serif',serif;-webkit-text-stroke:0.7px var(--ink);paint-order:stroke fill;font-size:clamp(24px,4vw,34px);line-height:1.3;letter-spacing:-0.3px;max-width:520px}
+  .fcontact a{font-family:'Space Mono',monospace;font-size:13px;color:var(--ink)}
+  .fcontact a:hover{color:var(--node)}
+  .fmeta{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);letter-spacing:0.5px;margin-top:24px;text-transform:uppercase}
+
+  @media(max-width:860px){
+    .pgrid{grid-template-columns:1fr}
+    .pcard,.pcard:nth-child(n+4){grid-column:auto}
+  }
+  @media(max-width:680px){
+    .navlinks{display:none}
+    .hero{padding-top:44px;padding-bottom:40px}
+    .steps{grid-template-columns:1fr;gap:26px}
+    .more{grid-template-columns:1fr}
+  }
+  @media print{
+    :root,[data-theme="dark"]{--bg:#F5F7F4;--surface:#E9EDE8;--ink:#203E44;--muted:#5E726E;--muted2:#8A988F;--line:#E2E7E1;--lime:#DEFD7C;--node:#3E9E84;--btnText:#F5F7F4}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    header,.btns{display:none}
+    .hero{padding:8px 0 22px}
+    section{padding:24px 0}
+    .pgrid{grid-template-columns:1fr 1fr;gap:12px}
+    .pcard,.pcard:nth-child(n+4){grid-column:auto}
+    .more{grid-template-columns:1fr 1fr}
+    .pcard,.mrow,.step{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="brand">Annie Rimbach</a>
+      <div class="navright">
+        <div class="navlinks">
+          <a href="#work">Work</a>
+          <a href="#process">Process</a>
+          <a href="#about">About</a>
+          <a href="mailto:rimbachak@gmail.com">Contact</a>
+        </div>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<main>
+  <!-- HERO -->
+  <div class="wrap hero">
+    <span class="kicker">Product designer</span>
+    <h1>Serious design,<br><span class="hl">Seriously curious.</span></h1>
+    <p class="sub">Process-led design focused on solving real problems for real users at enterprise&nbsp;scale.</p>
+    <div class="btns">
+      <a class="btn" href="#work">Current work →</a>
+      <a class="btn ghost" href="mailto:rimbachak@gmail.com">Get in touch</a>
+    </div>
+  </div>
+
+  <!-- FEATURED WORK -->
+  <section id="work" class="work">
+    <div class="wrap">
+      <div class="shead"><span class="tick"></span><span class="n">01</span><h2>Current work</h2></div>
+      <p class="stitle">Case studies on the systems behind the screens.</p>
+      <p class="sintro">Each one is framed as a process — the real problem, the decisions, the tradeoffs, and what it taught me. All from Moderne, where I design automated code-refactoring tools for humans and AI agents.</p>
+
+      <div class="pgrid">
+
+        <a class="pcard" href="trigrep.html">
+          <div class="pthumb">
+            <svg viewBox="0 0 200 120" aria-hidden="true">
+              <rect x="16" y="20" width="168" height="22" rx="11" style="fill:none;stroke:var(--ink);stroke-width:1.2;opacity:0.55"/>
+              <circle cx="30" cy="31" r="3" fill="#DEFD7C"/>
+              <rect x="38" y="28" width="70" height="6" rx="3" style="fill:var(--ink);opacity:0.4"/>
+              <rect x="16" y="54" width="168" height="20" rx="6" style="fill:var(--ink);opacity:0.07"/>
+              <rect x="24" y="61" width="78" height="6" rx="3" style="fill:var(--ink);opacity:0.5"/>
+              <rect x="150" y="59" width="28" height="10" rx="5" fill="#DEFD7C"/>
+              <rect x="16" y="80" width="168" height="20" rx="6" style="fill:var(--ink);opacity:0.07"/>
+              <rect x="24" y="87" width="104" height="6" rx="3" style="fill:var(--ink);opacity:0.32"/>
+            </svg>
+          </div>
+          <div class="pbody">
+            <div class="pnum">01</div>
+            <p class="pt">Trigrep — natural-language code search</p>
+            <p class="ptags">Research · IxD · Prototyping</p>
+            <p class="pd">An AI assistant as the front door to a powerful code-search engine — research to a validated model to shipped UI.</p>
+            <span class="plink">Read case study →</span>
+          </div>
+        </a>
+
+        <a class="pcard" href="neo.html">
+          <div class="pthumb">
+            <svg viewBox="0 0 200 120" aria-hidden="true">
+              <rect x="22" y="34" width="52" height="22" rx="11" style="fill:var(--ink)"/>
+              <rect x="82" y="34" width="58" height="22" rx="11" style="fill:none;stroke:var(--ink);stroke-width:1.2"/>
+              <rect x="22" y="64" width="46" height="22" rx="11" fill="#DEFD7C"/>
+              <rect x="76" y="64" width="30" height="22" rx="11" style="fill:var(--ink);opacity:0.12"/>
+              <circle cx="162" cy="45" r="11" style="fill:var(--ink);opacity:0.12"/>
+              <circle cx="162" cy="75" r="11" fill="#DEFD7C"/>
+            </svg>
+          </div>
+          <div class="pbody">
+            <div class="pnum">02</div>
+            <p class="pt">NEO — building a design system</p>
+            <p class="ptags">Design systems · Figma ↔ code</p>
+            <p class="pd">Audited, refactored, and rolled out an enterprise design system so design and code told the same story.</p>
+            <span class="plink">Read case study →</span>
+          </div>
+        </a>
+
+        <a class="pcard" href="devcenter.html">
+          <div class="pthumb">
+            <svg viewBox="0 0 200 120" aria-hidden="true">
+              <line x1="20" y1="94" x2="184" y2="94" style="stroke:var(--ink);stroke-width:1;opacity:0.3"/>
+              <rect x="22" y="22" width="44" height="9" rx="4" style="fill:var(--ink);opacity:0.1"/>
+              <polyline points="26,84 58,72 90,76 122,56 154,50 180,34" fill="none" style="stroke:var(--ink);stroke-width:2;opacity:0.7"/>
+              <circle cx="154" cy="50" r="5" fill="#DEFD7C" style="stroke:var(--ink);stroke-width:1.2"/>
+            </svg>
+          </div>
+          <div class="pbody">
+            <div class="pnum">03</div>
+            <p class="pt">DevCenter — engineering-health reporting</p>
+            <p class="ptags">UX research · Data viz</p>
+            <p class="pd">Turned several enterprise customers' feedback into a clear reporting product, then rebuilt it to last.</p>
+            <span class="plink">Read case study →</span>
+          </div>
+        </a>
+
+        <a class="pcard" href="organizations.html">
+          <div class="pthumb">
+            <svg viewBox="0 0 200 120" aria-hidden="true">
+              <rect x="30" y="24" width="140" height="22" rx="7" style="fill:none;stroke:var(--ink);stroke-width:1.2;opacity:0.5"/>
+              <rect x="40" y="32" width="62" height="6" rx="3" style="fill:var(--ink);opacity:0.45"/>
+              <rect x="30" y="56" width="140" height="50" rx="7" style="fill:var(--ink);opacity:0.06"/>
+              <rect x="40" y="65" width="54" height="5" rx="2.5" style="fill:var(--ink);opacity:0.5"/>
+              <rect x="48" y="79" width="48" height="5" rx="2.5" style="fill:var(--ink);opacity:0.34"/>
+              <rect x="56" y="93" width="40" height="5" rx="2.5" style="fill:var(--ink);opacity:0.34"/>
+              <circle cx="150" cy="67" r="4" fill="#DEFD7C"/>
+            </svg>
+          </div>
+          <div class="pbody">
+            <div class="pnum">04</div>
+            <p class="pt">Organizations — the scoping model</p>
+            <p class="ptags">Interaction · Shipped UI</p>
+            <p class="pd">The selector and scoping model that decides what every user sees — built to survive deep hierarchies and messy edge cases.</p>
+            <span class="plink">Read case study →</span>
+          </div>
+        </a>
+
+        <a class="pcard" href="cli.html">
+          <div class="pthumb">
+            <svg viewBox="0 0 200 120" aria-hidden="true">
+              <rect x="24" y="22" width="152" height="76" rx="9" style="fill:none;stroke:var(--ink);stroke-width:1.2;opacity:0.5"/>
+              <circle cx="36" cy="34" r="2.6" style="fill:var(--ink);opacity:0.4"/>
+              <circle cx="45" cy="34" r="2.6" style="fill:var(--ink);opacity:0.4"/>
+              <circle cx="54" cy="34" r="2.6" style="fill:var(--ink);opacity:0.4"/>
+              <rect x="36" y="50" width="74" height="5" rx="2.5" style="fill:var(--ink);opacity:0.55"/>
+              <rect x="36" y="63" width="52" height="5" rx="2.5" fill="#DEFD7C"/>
+              <rect x="36" y="76" width="96" height="5" rx="2.5" style="fill:var(--ink);opacity:0.32"/>
+              <rect x="36" y="88" width="44" height="5" rx="2.5" style="fill:var(--ink);opacity:0.32"/>
+            </svg>
+          </div>
+          <div class="pbody">
+            <div class="pnum">05</div>
+            <p class="pt">Moderne CLI — the command line</p>
+            <p class="ptags">Developer-tool UX</p>
+            <p class="pd">Designing a developer command-line tool for humans and AI agents — onboarding, tool discovery, and observability you can trust.</p>
+            <span class="plink">Read case study →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE WORK -->
+  <section id="more">
+    <div class="wrap">
+      <div class="shead"><span class="tick"></span><span class="n">02</span><h2>More work</h2></div>
+      <div class="more">
+        <div class="mrow">
+          <h4>Kohl's — self-checkout rewards</h4>
+          <p>In-store research, validated in user testing, then shipped to a flagship in-store concept.</p>
+          <div class="t">Strategy · UI/UX · Research</div>
+          <a class="full" href="https://annierimbach.com/p/02125df9" target="_blank" rel="noopener">Full case study ↗</a>
+        </div>
+        <div class="mrow">
+          <h4>Credo Health</h4>
+          <p>Design ops and an AI feedback loop with clinicians. Contractor → Director.</p>
+          <div class="t">Design systems · AI/ML</div>
+          <a class="full" href="https://annierimbach.com/p/02331882" target="_blank" rel="noopener">Full case study ↗</a>
+        </div>
+        <div class="mrow">
+          <h4>Michelin — BibTread</h4>
+          <p>Modernizing decades-old software around user flows; building a product team.</p>
+          <div class="t">Strategy · Research · Mentorship</div>
+          <a class="full" href="https://annierimbach.com/p/06c72d3e" target="_blank" rel="noopener">Full case study ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="wrap">
+      <div class="shead"><span class="tick"></span><span class="n">03</span><h2>How I work</h2></div>
+      <p class="stitle">Working across strategy, design, and engineering to deliver the <span class="uline">most value</span> to users.</p>
+      <p class="sintro" style="margin-bottom:36px">I care as much about why we're building, and whether we can build it, as I do about the craft of the design itself.</p>
+      <div class="steps">
+        <div class="step s1">
+          <div class="bar"></div>
+          <span class="sn">01</span>
+          <h3>Strategy first</h3>
+          <p>Start from product strategy and the real user problem — not a feature request handed down.</p>
+        </div>
+        <div class="step s2">
+          <div class="bar"></div>
+          <span class="sn">02</span>
+          <h3>Engineering reality</h3>
+          <p>Partner closely with engineering to understand what's possible, and what it costs to build.</p>
+        </div>
+        <div class="step s3">
+          <div class="bar"></div>
+          <span class="sn">03</span>
+          <h3>Ship, then iterate</h3>
+          <p>Work doesn't stop at the first build — I go back to users, learn what's working (and what's not), and keep iterating.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="wrap">
+      <div class="shead"><span class="tick"></span><span class="n">04</span><h2>About</h2></div>
+      <p class="lead">I'm Annie — a staff product designer at Moderne, working at the frontier of agent experience, developer platforms, and design systems.</p>
+      <p class="body">I pair user research with interaction design and design systems, and partner closely with engineering to bring the work to life. I care about the thinking behind the screens — the real problem, the system, and the decisions that get a team to a good answer together — and I bring a curious, slightly playful approach to serious software.</p>
+      <div class="chips">
+        <span class="chip">Process-led</span>
+        <span class="chip">Curious by default</span>
+        <span class="chip">AX-native</span>
+        <span class="chip">Research → systems → shipped</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbig">Let's design how people and <span class="hl">agents</span> build software together.</div>
+      <div class="fcontact">
+        <div><a href="mailto:rimbachak@gmail.com">rimbachak@gmail.com</a></div>
+        <div style="margin-top:8px"><a href="Annie-Rimbach-Portfolio.pptx" download>Portfolio deck (.pptx) ↓</a></div>
+      </div>
+    </div>
+    <div class="fmeta">© 2026 Annie Rimbach · Product designer · Available for select work</div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('themeToggle');
+    var sun='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+    var moon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    var saved=null; try{saved=localStorage.getItem('ar-theme');}catch(e){}
+    if(!saved){saved=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}
+    apply(saved);
+    btn.addEventListener('click',function(){apply(root.getAttribute('data-theme')==='dark'?'light':'dark');});
+    function apply(t){root.setAttribute('data-theme',t);btn.innerHTML=(t==='dark')?sun:moon;try{localStorage.setItem('ar-theme',t);}catch(e){}}
+  })();
+</script>
+</body>
+</html>

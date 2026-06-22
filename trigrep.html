@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trigrep — Natural-language code search · Annie Rimbach</title>
 <meta name="description" content="Case study: designing an AI assistant as the front door to a powerful code-search engine. Research, interaction design, and prototyping.">
-<meta name="theme-color" content="#15302A">
+<meta name="theme-color" content="#203E44">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -15,9 +15,9 @@
 
 <header>
   <nav>
-    <a class="brand" href="index.html">Annie Rimbach</a>
+    <a class="brand" href="annie-rimbach-portfolio.html">Annie Rimbach</a>
     <div class="navright">
-      <a class="back" href="index.html#work">← All work</a>
+      <a class="back" href="annie-rimbach-portfolio.html#work">← All work</a>
       <button class="toggle" id="themeToggle" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
   </nav>
@@ -67,22 +67,33 @@
       <div class="shead"><span class="tick"></span><h2>The interaction model</h2></div>
       <p>Two surfaces, one path between them: a conversational assistant for intent, and a traditional split-panel search for power and precision. You can start by asking, then "open in search" to refine with filters — or skip straight to the power tool.</p>
       <div class="illus">
-        <div style="background:var(--bg);border:0.5px solid var(--line);border-radius:11px;padding:16px">
-          <div style="font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);border:0.5px solid var(--line);border-radius:24px;padding:9px 14px;display:flex;justify-content:space-between;align-items:center">
-            <span>where is the user service configured?</span><span style="color:var(--node)">ask ↵</span>
-          </div>
-          <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
-            <div style="background:var(--surface);border-radius:9px;padding:11px 13px;display:flex;justify-content:space-between;align-items:center">
-              <span style="font-family:'Space Mono',monospace;font-size:12px;color:var(--ink)">service/config · settings file</span>
-              <span style="font-family:'Space Mono',monospace;font-size:10px;color:#203E44;background:var(--lime);border-radius:4px;padding:3px 7px">match</span>
-            </div>
-            <div style="background:var(--surface);border-radius:9px;padding:11px 13px;display:flex;justify-content:space-between;align-items:center">
-              <span style="font-family:'Space Mono',monospace;font-size:12px;color:var(--ink)">service/readme · documentation</span>
-              <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2)">related</span>
-            </div>
-          </div>
-          <div style="margin-top:12px;font-family:'Space Mono',monospace;font-size:10px;color:var(--node)">open in search to refine →</div>
-        </div>
+        <svg class="ill" viewBox="0 0 680 300" role="img" aria-label="Illustrative natural-language code search interface with filters, an assistant prompt, and ranked results">
+          <rect class="win" x="8" y="8" width="664" height="284" rx="16"/>
+          <circle class="mut2" cx="30" cy="32" r="4"/><circle class="mut2" cx="44" cy="32" r="4"/><circle class="mut2" cx="58" cy="32" r="4"/>
+          <text class="mono mut" x="80" y="36">code search</text>
+          <line class="ln" x1="8" y1="52" x2="672" y2="52"/>
+          <line class="ln" x1="196" y1="52" x2="196" y2="292"/>
+          <text class="mono mut2 s10" x="28" y="80">FILTERS</text>
+          <rect class="bgp" x="28" y="90" width="140" height="26" rx="13"/><text class="mut" x="42" y="107">Language · Java</text>
+          <rect class="bgp" x="28" y="122" width="150" height="26" rx="13"/><text class="mono mut" x="42" y="139">important:true</text>
+          <rect class="bgp" x="28" y="154" width="120" height="26" rx="13"/><text class="mut" x="42" y="171">topic · backend</text>
+          <text class="mono mut2 s10" x="28" y="212">SCOPE</text>
+          <rect class="bgp" x="28" y="222" width="150" height="26" rx="13"/><text class="mut" x="42" y="239">20 repositories</text>
+          <rect class="bgp" x="216" y="68" width="440" height="34" rx="17"/>
+          <text class="ink" x="234" y="89">where is the user service configured?</text>
+          <text class="mono nodef" x="600" y="89">ask ↵</text>
+          <text class="mono nodef s10" x="216" y="126">ASSISTANT</text>
+          <text class="mut" x="284" y="126">ranked 2 matches by config relevance</text>
+          <rect class="bgp" x="216" y="136" width="440" height="58" rx="10"/>
+          <text class="mono ink" x="232" y="158">service/config · settings</text>
+          <rect class="limef" x="232" y="166" width="214" height="16" rx="3"/>
+          <text class="mono dk" x="238" y="178">userService { port: 8080 }</text>
+          <rect class="limef" x="574" y="146" width="66" height="20" rx="10"/><text class="mono dk" x="585" y="160">match</text>
+          <rect class="bgp" x="216" y="202" width="440" height="44" rx="10"/>
+          <text class="mono ink" x="232" y="228">service/readme · docs</text>
+          <text class="mono mut2" x="574" y="228">related</text>
+          <text class="mono nodef s10" x="216" y="276">open in search to refine →</text>
+        </svg>
         <div class="cap">Illustrative — recreated for portfolio; not the production UI</div>
       </div>
     </div>
@@ -111,11 +122,11 @@
       <p class="mut">Plain-language input is only half the job. The other half is making the system's reasoning legible enough that an expert will actually rely on it.</p>
     </div>
 
-    <p class="safe-note">Note: interface shown is illustrative and recreated for portfolio purposes. Research participants and customers are anonymized; no proprietary code, internal documents, or internal screenshots are included.</p>
+    <p class="safe-note">This case study generalizes proprietary work into a portfolio-safe narrative. No source code, customer data, internal screenshots, or non-public metrics appear. The focus is on design thinking, decisions, tradeoffs, and outcomes, not on reproducing what employers own. Any interface shown is conceptual and illustrative.</p>
 
     <div class="nextnav">
       <div><div class="lbl">Next case study</div><a href="neo.html"><span class="t">NEO — building a design system →</span></a></div>
-      <a class="back" href="index.html#work">All work</a>
+      <a class="back" href="annie-rimbach-portfolio.html#work">All work</a>
     </div>
   </div>
 </main>
@@ -123,8 +134,8 @@
 <footer>
   <div class="wrap">
     <div>Designing how people and <span class="hl">agents</span> build software together.</div>
-    <div style="margin-top:10px"><a href="mailto:anne@moderne.io">anne@moderne.io</a></div>
-    <div class="fmeta">© 2026 Annie Rimbach · Staff product designer, AX</div>
+    <div style="margin-top:10px"><a href="mailto:rimbachak@gmail.com">rimbachak@gmail.com</a></div>
+    <div class="fmeta">© 2026 Annie Rimbach · Product designer</div>
   </div>
 </footer>
 

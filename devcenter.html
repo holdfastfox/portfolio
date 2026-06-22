@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DevCenter — Engineering-health reporting · Annie Rimbach</title>
 <meta name="description" content="Case study: turning scattered customer feedback into a clear engineering-health reporting product, and rebuilding it into a modular app.">
-<meta name="theme-color" content="#15302A">
+<meta name="theme-color" content="#203E44">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -15,9 +15,9 @@
 
 <header>
   <nav>
-    <a class="brand" href="index.html">Annie Rimbach</a>
+    <a class="brand" href="annie-rimbach-portfolio.html">Annie Rimbach</a>
     <div class="navright">
-      <a class="back" href="index.html#work">← All work</a>
+      <a class="back" href="annie-rimbach-portfolio.html#work">← All work</a>
       <button class="toggle" id="themeToggle" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
   </nav>
@@ -64,18 +64,33 @@
       <div class="shead"><span class="tick"></span><h2>Making the data make sense</h2></div>
       <p>Two moves did most of the work: adding a <em>time dimension</em> so teams could see trends rather than a single snapshot, and pairing every metric with a plain-language explainer so people trusted what they were looking at.</p>
       <div class="illus">
-        <div style="background:var(--bg);border:0.5px solid var(--line);border-radius:11px;padding:18px">
-          <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:6px">
-            <span style="font-family:'Hedvig Letters Serif',serif;font-size:18px;color:var(--ink)">Code health over time</span>
-            <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--node)">trend ↗</span>
-          </div>
-          <svg viewBox="0 0 520 120" width="100%" height="110" aria-hidden="true">
-            <polyline points="10,96 90,84 170,88 250,64 330,58 410,40 500,30" fill="none" stroke="var(--node)" stroke-width="2"/>
-            <circle cx="410" cy="40" r="4.5" fill="var(--lime)" stroke="var(--ink)" stroke-width="1"/>
-            <line x1="10" y1="110" x2="510" y2="110" stroke="var(--line)" stroke-width="1"/>
-          </svg>
-          <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-top:6px">illustrative trend · placeholder data</div>
-        </div>
+        <svg class="ill" viewBox="0 0 680 300" role="img" aria-label="Illustrative engineering-health dashboard with a trend chart and qualitative status tiles, placeholder data">
+          <rect class="win" x="8" y="8" width="664" height="284" rx="16"/>
+          <circle class="mut2" cx="30" cy="32" r="4"/><circle class="mut2" cx="44" cy="32" r="4"/><circle class="mut2" cx="58" cy="32" r="4"/>
+          <text class="mono mut" x="80" y="36">engineering health</text>
+          <text class="mono nodef s10" x="560" y="36">last 6 months</text>
+          <line class="ln" x1="8" y1="52" x2="672" y2="52"/>
+          <rect class="bg" x="28" y="68" width="196" height="56" rx="10"/>
+          <text class="h ink" x="44" y="100" style="font-size:20px">Improving</text>
+          <text class="mono mut2 s10" x="44" y="116">code health</text>
+          <rect class="bg" x="234" y="68" width="196" height="56" rx="10"/>
+          <text class="h ink" x="250" y="100" style="font-size:20px">Trending up</text>
+          <text class="mono mut2 s10" x="250" y="116">test coverage</text>
+          <rect class="bg" x="440" y="68" width="204" height="56" rx="10"/>
+          <text class="h ink" x="456" y="100" style="font-size:20px">On track</text>
+          <text class="mono mut2 s10" x="456" y="116">tech debt</text>
+          <rect class="bg" x="28" y="136" width="616" height="140" rx="10"/>
+          <text class="h ink s14" x="46" y="162">Code health over time</text>
+          <text class="mono nodef s10" x="566" y="161">trend ↗</text>
+          <line class="ln" x1="46" y1="188" x2="624" y2="188"/>
+          <line class="ln" x1="46" y1="216" x2="624" y2="216"/>
+          <line class="ln" x1="46" y1="244" x2="624" y2="244"/>
+          <polyline class="nodes" points="60,242 152,226 244,230 336,202 428,196 520,172 600,160"/>
+          <circle class="limef" cx="520" cy="172" r="5" style="stroke:var(--ink);stroke-width:1"/>
+          <rect class="surf" x="486" y="142" width="96" height="24" rx="6"/>
+          <text class="mono ink s10" x="498" y="158">trend ▲ up</text>
+          <text class="mono mut2 s10" x="58" y="266">Jan</text><text class="mono mut2 s10" x="150" y="266">Feb</text><text class="mono mut2 s10" x="242" y="266">Mar</text><text class="mono mut2 s10" x="334" y="266">Apr</text><text class="mono mut2 s10" x="426" y="266">May</text><text class="mono mut2 s10" x="516" y="266">Jun</text>
+        </svg>
         <div class="cap">Illustrative — recreated for portfolio; not the production UI or real customer data</div>
       </div>
     </div>
@@ -103,11 +118,11 @@
       <p class="pull">Data only helps when people <span class="uline">trust and understand it</span> — the explainer is part of the design, not an afterthought.</p>
     </div>
 
-    <p class="safe-note">Note: charts and figures shown are illustrative with placeholder data, recreated for portfolio purposes. Customers are anonymized; no proprietary code, internal documents, real customer data, or internal screenshots are included.</p>
+    <p class="safe-note">This case study generalizes proprietary work into a portfolio-safe narrative. No source code, customer data, internal screenshots, or non-public metrics appear. The focus is on design thinking, decisions, tradeoffs, and outcomes, not on reproducing what employers own. Any interface or chart shown is conceptual and illustrative with placeholder data.</p>
 
     <div class="nextnav">
       <div><div class="lbl">Next case study</div><a href="organizations.html"><span class="t">Organizations — the scoping model →</span></a></div>
-      <a class="back" href="index.html#work">All work</a>
+      <a class="back" href="annie-rimbach-portfolio.html#work">All work</a>
     </div>
   </div>
 </main>
@@ -115,8 +130,8 @@
 <footer>
   <div class="wrap">
     <div>Designing how people and <span class="hl">agents</span> build software together.</div>
-    <div style="margin-top:10px"><a href="mailto:anne@moderne.io">anne@moderne.io</a></div>
-    <div class="fmeta">© 2026 Annie Rimbach · Staff product designer, AX</div>
+    <div style="margin-top:10px"><a href="mailto:rimbachak@gmail.com">rimbachak@gmail.com</a></div>
+    <div class="fmeta">© 2026 Annie Rimbach · Product designer</div>
   </div>
 </footer>
 

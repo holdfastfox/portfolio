@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Organizations — The scoping model that runs the platform · Annie Rimbach</title>
 <meta name="description" content="Case study: designing the organization selector and scoping model that governs an enterprise platform, and making it resilient to deep hierarchies and edge cases.">
-<meta name="theme-color" content="#15302A">
+<meta name="theme-color" content="#203E44">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -15,9 +15,9 @@
 
 <header>
   <nav>
-    <a class="brand" href="index.html">Annie Rimbach</a>
+    <a class="brand" href="annie-rimbach-portfolio.html">Annie Rimbach</a>
     <div class="navright">
-      <a class="back" href="index.html#work">← All work</a>
+      <a class="back" href="annie-rimbach-portfolio.html#work">← All work</a>
       <button class="toggle" id="themeToggle" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
   </nav>
@@ -65,17 +65,33 @@
       <div class="shead"><span class="tick"></span><h2>Designing the edges, not just the happy path</h2></div>
       <p>The interesting design work in a selector like this isn't the default — it's everything that happens when the data is slow, missing, deeply nested, or named something forty characters long. Designing those states deliberately is what made the control feel trustworthy.</p>
       <div class="illus">
-        <div style="background:var(--bg);border:0.5px solid var(--line);border-radius:11px;padding:14px;max-width:340px">
-          <div style="font-family:'Inter';font-size:13px;font-weight:500;color:var(--ink);border:0.5px solid var(--line);border-radius:9px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center">
-            <span>Acme Group · Platform</span><span style="color:var(--node)">▾</span>
-          </div>
-          <div style="margin-top:8px;display:flex;flex-direction:column;gap:2px">
-            <div style="font-family:'Inter';font-size:13px;color:var(--ink);padding:8px 12px;background:var(--surface);border-radius:7px">Acme Group</div>
-            <div style="font-family:'Inter';font-size:13px;color:var(--muted);padding:8px 12px 8px 26px">Platform</div>
-            <div style="font-family:'Inter';font-size:13px;color:var(--muted);padding:8px 12px 8px 40px">Payments — EU…</div>
-            <div style="font-family:'Space Mono',monospace;font-size:11px;color:var(--muted2);padding:8px 12px 8px 26px;display:flex;align-items:center;gap:8px"><span style="width:30px;height:6px;background:var(--line);border-radius:3px;display:inline-block"></span> loading…</div>
-          </div>
-        </div>
+        <svg class="ill" viewBox="0 0 680 300" role="img" aria-label="Illustrative organization selector showing a nested hierarchy plus the designed loading, error, empty, and truncation states">
+          <rect class="win" x="8" y="8" width="664" height="284" rx="16"/>
+          <circle class="mut2" cx="30" cy="32" r="4"/><circle class="mut2" cx="44" cy="32" r="4"/><circle class="mut2" cx="58" cy="32" r="4"/>
+          <text class="mono mut" x="80" y="36">organization</text>
+          <line class="ln" x1="8" y1="52" x2="672" y2="52"/>
+          <line class="ln" x1="356" y1="52" x2="356" y2="292"/>
+          <rect class="bg" x="28" y="70" width="300" height="38" rx="9"/>
+          <text class="ink" x="46" y="94">Acme Group · Platform</text>
+          <text class="mono nodef" x="302" y="95">▾</text>
+          <rect class="bg" x="28" y="116" width="300" height="160" rx="10"/>
+          <rect class="surf" x="34" y="122" width="288" height="30" rx="6"/>
+          <text class="ink" x="50" y="142">Acme Group</text>
+          <text class="nodef mono" x="298" y="142">✓</text>
+          <text class="mut" x="66" y="172">Platform</text>
+          <text class="mut" x="84" y="198">Payments — EU</text>
+          <text class="mut" x="84" y="224">Payments — APAC (long na…)</text>
+          <rect class="surf" x="66" y="238" width="120" height="10" rx="5"/>
+          <text class="mono mut2 s10" x="196" y="247">loading…</text>
+          <text class="mono" x="50" y="268" style="fill:var(--node)">! couldn't load 1 unit · retry</text>
+          <text class="mono mut2 s10" x="380" y="84">DESIGNED STATES</text>
+          <circle class="nodef" cx="388" cy="110" r="4"/><text class="mut" x="404" y="114">Loaded · nested</text>
+          <circle class="limef" cx="388" cy="140" r="4"/><text class="mut" x="404" y="144">Loading · skeleton</text>
+          <circle class="mut2" cx="388" cy="170" r="4"/><text class="mut" x="404" y="174">Empty</text>
+          <circle cx="388" cy="200" r="4" style="fill:var(--node)"/><text class="mut" x="404" y="204">Error · retry</text>
+          <circle class="mut2" cx="388" cy="230" r="4"/><text class="mut" x="404" y="234">Long-name truncation</text>
+          <text class="mono mut2 s10" x="380" y="270">small control · big consequences</text>
+        </svg>
         <div class="cap">Illustrative — recreated for portfolio; placeholder names, not the production UI</div>
       </div>
     </div>
@@ -103,11 +119,11 @@
       <p class="pull">A control this small touches everything — the <span class="uline">edge cases are the design</span>.</p>
     </div>
 
-    <p class="safe-note">Note: interface shown is illustrative with placeholder names, recreated for portfolio purposes. No proprietary code, internal documents, exported design files, or internal screenshots are included.</p>
+    <p class="safe-note">This case study generalizes proprietary work into a portfolio-safe narrative. No source code, customer data, internal screenshots, or non-public metrics appear. The focus is on design thinking, decisions, tradeoffs, and outcomes, not on reproducing what employers own. Any interface shown is conceptual and illustrative with placeholder names.</p>
 
     <div class="nextnav">
       <div><div class="lbl">Next case study</div><a href="cli.html"><span class="t">Moderne CLI — designing for the command line →</span></a></div>
-      <a class="back" href="index.html#work">All work</a>
+      <a class="back" href="annie-rimbach-portfolio.html#work">All work</a>
     </div>
   </div>
 </main>
@@ -115,8 +131,8 @@
 <footer>
   <div class="wrap">
     <div>Designing how people and <span class="hl">agents</span> build software together.</div>
-    <div style="margin-top:10px"><a href="mailto:anne@moderne.io">anne@moderne.io</a></div>
-    <div class="fmeta">© 2026 Annie Rimbach · Staff product designer, AX</div>
+    <div style="margin-top:10px"><a href="mailto:rimbachak@gmail.com">rimbachak@gmail.com</a></div>
+    <div class="fmeta">© 2026 Annie Rimbach · Product designer</div>
   </div>
 </footer>
 

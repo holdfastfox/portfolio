@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NEO — Building a design system · Annie Rimbach</title>
 <meta name="description" content="Case study: auditing, refactoring, and rolling out an enterprise design system so design and code told the same story.">
-<meta name="theme-color" content="#15302A">
+<meta name="theme-color" content="#203E44">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -15,9 +15,9 @@
 
 <header>
   <nav>
-    <a class="brand" href="index.html">Annie Rimbach</a>
+    <a class="brand" href="annie-rimbach-portfolio.html">Annie Rimbach</a>
     <div class="navright">
-      <a class="back" href="index.html#work">← All work</a>
+      <a class="back" href="annie-rimbach-portfolio.html#work">← All work</a>
       <button class="toggle" id="themeToggle" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
   </nav>
@@ -64,13 +64,34 @@
       <div class="shead"><span class="tick"></span><h2>From sprawl to system</h2></div>
       <p>The clearest win was variant discipline: the most overloaded components had ballooned into dozens of near-duplicate options. Reducing them to a small, intentional set made the system easier to learn, easier to maintain, and far more consistent in the product.</p>
       <div class="illus">
-        <div style="background:var(--bg);border:0.5px solid var(--line);border-radius:11px;padding:18px;display:flex;flex-wrap:wrap;gap:10px;align-items:center">
-          <span style="font-family:'Inter';font-size:13px;font-weight:500;color:var(--btnText);background:var(--ink);border-radius:22px;padding:8px 16px">Primary</span>
-          <span style="font-family:'Inter';font-size:13px;font-weight:500;color:var(--ink);background:transparent;border:0.5px solid var(--line);border-radius:22px;padding:8px 16px">Secondary</span>
-          <span style="font-family:'Inter';font-size:13px;font-weight:500;color:#203E44;background:var(--lime);border-radius:22px;padding:8px 16px">Accent</span>
-          <span style="font-family:'Inter';font-size:13px;color:var(--muted);padding:8px 6px">Text</span>
-          <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);margin-left:auto">one role · one component</span>
-        </div>
+        <svg class="ill" viewBox="0 0 680 300" role="img" aria-label="Illustrative design-system component sheet: buttons, input, banners, tokens, and type">
+          <rect class="win" x="8" y="8" width="664" height="284" rx="16"/>
+          <text class="mono mut2 s10" x="28" y="38">DESIGN SYSTEM · COMPONENTS</text>
+          <line class="ln" x1="8" y1="52" x2="672" y2="52"/>
+          <line class="ln" x1="372" y1="52" x2="372" y2="292"/>
+          <text class="mono mut s10" x="28" y="84">Buttons</text>
+          <rect class="ink" x="28" y="92" width="92" height="34" rx="17"/><text class="bgp" x="47" y="114">Primary</text>
+          <rect class="bg" x="130" y="92" width="108" height="34" rx="17"/><text class="ink" x="150" y="114">Secondary</text>
+          <rect class="limef" x="248" y="92" width="84" height="34" rx="17"/><text class="dk" x="266" y="114">Accent</text>
+          <text class="mono mut s10" x="28" y="160">Input</text>
+          <rect class="bg" x="28" y="168" width="304" height="34" rx="8"/><text class="mut" x="44" y="189">name@company.com</text>
+          <text class="mono mut s10" x="28" y="236">Tokens</text>
+          <rect class="dk" x="28" y="244" width="30" height="30" rx="6"/>
+          <rect class="limef" x="64" y="244" width="30" height="30" rx="6"/>
+          <rect class="nodef" x="100" y="244" width="30" height="30" rx="6"/>
+          <rect class="bg" x="136" y="244" width="30" height="30" rx="6"/>
+          <text class="mono mut2 s10" x="178" y="263">color · type · space</text>
+          <text class="mono mut s10" x="396" y="84">Banner / Alert</text>
+          <rect class="bg" x="396" y="92" width="248" height="46" rx="9"/>
+          <circle class="nodef" cx="418" cy="115" r="6"/>
+          <text class="ink" x="436" y="111">Success</text><text class="mut s11" x="436" y="128">Changes saved.</text>
+          <rect class="bg" x="396" y="146" width="248" height="46" rx="9"/>
+          <rect class="limef" x="396" y="148" width="4" height="42"/>
+          <text class="ink" x="416" y="166">Info</text><text class="mut s11" x="416" y="183">Heads up — review needed.</text>
+          <text class="mono mut s10" x="396" y="236">Type</text>
+          <text class="h ink" x="396" y="270" style="font-size:24px">Aa</text>
+          <text class="mut s11" x="438" y="270">Hedvig · Inter · Mono</text>
+        </svg>
         <div class="cap">Illustrative — recreated for portfolio; not the production library</div>
       </div>
     </div>
@@ -98,11 +119,11 @@
       <p class="pull">A design system isn't documentation — it's <span class="uline">governance</span>. Its real job is to make the right thing the easy thing.</p>
     </div>
 
-    <p class="safe-note">Note: components shown are illustrative and recreated for portfolio purposes. No proprietary code, internal documents, exported design files, or internal screenshots are included; metrics are described as relative outcomes.</p>
+    <p class="safe-note">This case study generalizes proprietary work into a portfolio-safe narrative. No source code, customer data, internal screenshots, or non-public metrics appear. The focus is on design thinking, decisions, tradeoffs, and outcomes, not on reproducing what employers own. Any interface shown is conceptual and illustrative.</p>
 
     <div class="nextnav">
       <div><div class="lbl">Next case study</div><a href="devcenter.html"><span class="t">DevCenter — engineering-health reporting →</span></a></div>
-      <a class="back" href="index.html#work">All work</a>
+      <a class="back" href="annie-rimbach-portfolio.html#work">All work</a>
     </div>
   </div>
 </main>
@@ -110,8 +131,8 @@
 <footer>
   <div class="wrap">
     <div>Designing how people and <span class="hl">agents</span> build software together.</div>
-    <div style="margin-top:10px"><a href="mailto:anne@moderne.io">anne@moderne.io</a></div>
-    <div class="fmeta">© 2026 Annie Rimbach · Staff product designer, AX</div>
+    <div style="margin-top:10px"><a href="mailto:rimbachak@gmail.com">rimbachak@gmail.com</a></div>
+    <div class="fmeta">© 2026 Annie Rimbach · Product designer</div>
   </div>
 </footer>
 

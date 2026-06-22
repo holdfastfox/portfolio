@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Moderne CLI — Designing for the command line · Annie Rimbach</title>
 <meta name="description" content="Case study: bringing product-design rigor to a developer command-line tool — onboarding, tool discovery, and observability for humans and AI agents.">
-<meta name="theme-color" content="#15302A">
+<meta name="theme-color" content="#203E44">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -15,9 +15,9 @@
 
 <header>
   <nav>
-    <a class="brand" href="index.html">Annie Rimbach</a>
+    <a class="brand" href="annie-rimbach-portfolio.html">Annie Rimbach</a>
     <div class="navright">
-      <a class="back" href="index.html#work">← All work</a>
+      <a class="back" href="annie-rimbach-portfolio.html#work">← All work</a>
       <button class="toggle" id="themeToggle" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
   </nav>
@@ -65,13 +65,27 @@
       <div class="shead"><span class="tick"></span><h2>Making automated work legible</h2></div>
       <p>The heart of the work was observability: when a tool runs, you should be able to follow the trace — what ran, in what order, and what happened — whether you're a developer scanning output or an agent reasoning over it. Legibility <em>is</em> the trust.</p>
       <div class="illus">
-        <div style="background:#15302A;border-radius:11px;padding:16px;font-family:'Space Mono',monospace;font-size:12px;line-height:1.7">
-          <div style="color:#9FBDB2">$ mod run · build trace</div>
-          <div style="color:#EAF1EC;margin-top:6px"><span style="color:#DEFD7C">●</span> resolve workspace <span style="color:#7FD8B8">done</span></div>
-          <div style="color:#EAF1EC"><span style="color:#DEFD7C">●</span> build sources <span style="color:#7FD8B8">done</span></div>
-          <div style="color:#EAF1EC"><span style="color:#DEFD7C">◐</span> run analysis <span style="color:#9FBDB2">in progress…</span></div>
-          <div style="color:#6E8C82">○ summarize results</div>
-        </div>
+        <svg viewBox="0 0 680 300" width="100%" style="display:block;height:auto" role="img" aria-label="Illustrative build trace shown both as a readable terminal trace and as a structured view legible to AI agents">
+          <rect x="8" y="8" width="664" height="284" rx="16" fill="#13241F"/>
+          <circle cx="30" cy="32" r="4" fill="#3A5C52"/><circle cx="44" cy="32" r="4" fill="#3A5C52"/><circle cx="58" cy="32" r="4" fill="#3A5C52"/>
+          <text x="82" y="36" style="font-family:'Space Mono',monospace;font-size:11px;fill:#9FBDB2">moderne · run</text>
+          <line x1="8" y1="52" x2="672" y2="52" stroke="#27433B"/>
+          <text x="28" y="82" style="font-family:'Space Mono',monospace;font-size:12px;fill:#9FBDB2">$ mod run organize-imports</text>
+          <text x="28" y="112" style="font-family:'Space Mono',monospace;font-size:12px;fill:#DEFD7C">●</text><text x="46" y="112" style="font-family:'Space Mono',monospace;font-size:12px;fill:#EAF1EC">resolve workspace</text><text x="292" y="112" style="font-family:'Space Mono',monospace;font-size:12px;fill:#7FD8B8">done</text>
+          <text x="28" y="138" style="font-family:'Space Mono',monospace;font-size:12px;fill:#DEFD7C">●</text><text x="46" y="138" style="font-family:'Space Mono',monospace;font-size:12px;fill:#EAF1EC">build sources</text><text x="292" y="138" style="font-family:'Space Mono',monospace;font-size:12px;fill:#7FD8B8">done</text>
+          <text x="28" y="164" style="font-family:'Space Mono',monospace;font-size:12px;fill:#DEFD7C">◐</text><text x="46" y="164" style="font-family:'Space Mono',monospace;font-size:12px;fill:#EAF1EC">run analysis</text><text x="292" y="164" style="font-family:'Space Mono',monospace;font-size:12px;fill:#9FBDB2">running…</text>
+          <text x="28" y="190" style="font-family:'Space Mono',monospace;font-size:12px;fill:#3A5C52">○</text><text x="46" y="190" style="font-family:'Space Mono',monospace;font-size:12px;fill:#6E8C82">summarize results</text><text x="292" y="190" style="font-family:'Space Mono',monospace;font-size:12px;fill:#6E8C82">queued</text>
+          <text x="28" y="240" style="font-family:'Space Mono',monospace;font-size:10px;fill:#9FBDB2">human view · readable trace</text>
+          <rect x="372" y="66" width="284" height="196" rx="10" fill="#172C26" stroke="#27433B"/>
+          <text x="388" y="92" style="font-family:'Space Mono',monospace;font-size:10px;fill:#7FD8B8">AGENT VIEW · STRUCTURED</text>
+          <text x="388" y="118" style="font-family:'Space Mono',monospace;font-size:11px;fill:#C9DAD2">{</text>
+          <text x="402" y="140" style="font-family:'Space Mono',monospace;font-size:11px;fill:#C9DAD2">"step": "run analysis",</text>
+          <text x="402" y="162" style="font-family:'Space Mono',monospace;font-size:11px;fill:#C9DAD2">"status": <tspan style="fill:#DEFD7C">"in_progress"</tspan>,</text>
+          <text x="402" y="184" style="font-family:'Space Mono',monospace;font-size:11px;fill:#C9DAD2">"items": 12,</text>
+          <text x="402" y="206" style="font-family:'Space Mono',monospace;font-size:11px;fill:#C9DAD2">"trace": <tspan style="fill:#DEFD7C">"live"</tspan></text>
+          <text x="388" y="228" style="font-family:'Space Mono',monospace;font-size:11px;fill:#C9DAD2">}</text>
+          <text x="388" y="250" style="font-family:'Space Mono',monospace;font-size:10px;fill:#9FBDB2">same run · legible to agents</text>
+        </svg>
         <div class="cap">Illustrative — recreated for portfolio; placeholder commands, not the production CLI</div>
       </div>
     </div>
@@ -99,11 +113,11 @@
       <p class="pull">When your users include AI agents, <span class="uline">legibility is the whole product</span>.</p>
     </div>
 
-    <p class="safe-note">Note: terminal output shown is illustrative with placeholder commands, recreated for portfolio purposes. No proprietary code, internal documents, or internal screenshots are included.</p>
+    <p class="safe-note">This case study generalizes proprietary work into a portfolio-safe narrative. No source code, customer data, internal screenshots, or non-public metrics appear. The focus is on design thinking, decisions, tradeoffs, and outcomes, not on reproducing what employers own. Any interface or output shown is conceptual and illustrative with placeholder commands.</p>
 
     <div class="nextnav">
       <div><div class="lbl">Back to the start</div><a href="trigrep.html"><span class="t">Trigrep — natural-language code search →</span></a></div>
-      <a class="back" href="index.html#work">All work</a>
+      <a class="back" href="annie-rimbach-portfolio.html#work">All work</a>
     </div>
   </div>
 </main>
@@ -111,8 +125,8 @@
 <footer>
   <div class="wrap">
     <div>Designing how people and <span class="hl">agents</span> build software together.</div>
-    <div style="margin-top:10px"><a href="mailto:anne@moderne.io">anne@moderne.io</a></div>
-    <div class="fmeta">© 2026 Annie Rimbach · Staff product designer, AX</div>
+    <div style="margin-top:10px"><a href="mailto:rimbachak@gmail.com">rimbachak@gmail.com</a></div>
+    <div class="fmeta">© 2026 Annie Rimbach · Product designer</div>
   </div>
 </footer>
 
