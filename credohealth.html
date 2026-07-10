@@ -40,13 +40,13 @@
 
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>The product</h2></div>
-      <p>Credo Health built PreDx — a platform that helps healthcare organizations with risk adjustment coding. In short: when a patient has documented medical conditions, those diagnoses need to be captured accurately for insurance reimbursement. If they're missed, the organization loses revenue and patients may receive less appropriate care.</p>
-      <p class="mut">PreDx uses machine learning to read patient medical records — PDFs of charts, discharge summaries, lab results, consult notes — and surface potential ICD-10 diagnosis codes with supporting evidence. Clinicians and risk adjusters then review, validate, and complete the audit. The product reduces the manual work of reading thousands of pages per patient while keeping clinicians in control of every decision.</p>
+      <p>Credo Health built PreDx — a platform for healthcare risk adjustment coding. When a patient has documented conditions, those diagnoses need to be captured accurately for insurance reimbursement. Missed diagnoses mean lost revenue and potentially worse care.</p>
+      <p class="mut">PreDx uses machine learning to read patient charts (discharge summaries, lab results, consult notes) and surface potential ICD-10 codes with supporting evidence. Clinicians review, validate, and complete the audit. The product reduces manual work while keeping clinicians in control of every decision.</p>
     </div>
 
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>The design challenge</h2></div>
-      <p>The core tension: AI suggestions are only useful if clinicians trust them. In a clinical context, a confident-but-wrong code suggestion isn't just unhelpful — it can cause real harm. Every design decision about how suggestions were surfaced, what evidence was shown, and how feedback was collected had to work for skeptical, expert users who would not tolerate a system that felt like a black box.</p>
+      <p>The core tension: AI suggestions are only useful if clinicians trust them. In a clinical context, a confident-but-wrong code suggestion isn't just unhelpful — it can cause real harm. Every decision about how suggestions were surfaced, what evidence was shown, and how feedback was collected had to work for skeptical, expert users.</p>
       <ul>
         <li><b>Trust and evidence.</b> Every suggested code needed to link directly to the supporting evidence in the source document — the specific page, the specific section.</li>
         <li><b>Clinician control.</b> Accept, edit, or reject — always. The AI accelerates; the clinician decides.</li>
@@ -67,8 +67,8 @@
 
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>Building the design system</h2></div>
-      <p>When I joined there was no shared component library. I built the Credo Design Library from the ground up — colors, typography, spacing tokens, and a full component set: buttons, text fields, tooltips, chips, dropdowns, evidence placeholders, and icons.</p>
-      <p class="mut">The evidence placeholder component was specific to the product: a pattern for surfacing a snippet of source document (a page screenshot, a highlighted section) alongside a diagnosis code suggestion. Getting that component right meant thinking through the AI-to-clinician handoff at the component level, not just the page level.</p>
+      <p>No shared component library when I joined. I built the Credo Design Library from scratch — colors, typography, spacing tokens, and a full component set: buttons, text fields, tooltips, chips, dropdowns, evidence placeholders, and icons.</p>
+      <p class="mut">The evidence placeholder was specific to the product: surfacing a snippet of source document alongside a diagnosis code suggestion. Getting it right meant thinking through the AI-to-clinician handoff at the component level.</p>
       <div class="illus">
         <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Design system — component surface area</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
@@ -124,13 +124,13 @@
         </div>
         <div class="cap">Illustrative — recreated for portfolio; not the production UI</div>
       </div>
-      <p class="mut">Key decisions in this flow: sticky sidebar header/footer so actions are always reachable; file sorted by type, specialty, location, and date so auditors could navigate without reading every document; page count instead of file size because that's what matters when you're deciding which documents to open first.</p>
+      <p class="mut">Key decisions: sticky sidebar so actions were always reachable; files sorted by type, specialty, location, and date so auditors could navigate without reading everything; page count instead of file size, because that's what matters when deciding which documents to open.</p>
     </div>
 
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>The AI feedback loop</h2></div>
-      <p>One of the highest-stakes features I designed was the ML document summary — an AI-generated plain-language summary of each patient chart document, surfaced as a beta feature alongside the raw document. The goal: help clinicians orient faster so they could spend their attention on the complex judgment calls, not on decoding a 25-page discharge summary.</p>
-      <p>The trust problem was real. In a clinical context, an AI summary that gets something wrong and isn't caught could be worse than no summary. I designed the feature with explicit uncertainty signals — a "BETA" label, a clear "AI generated summary" attribution, and a structured feedback mechanism (thumbs up/down) to let clinicians flag summaries that felt inaccurate.</p>
+      <p>One of the highest-stakes features was the ML document summary — an AI-generated summary of each patient chart, surfaced as a beta feature alongside the raw document. The goal: help clinicians orient faster and spend their attention on judgment calls, not on decoding a 25-page discharge summary.</p>
+      <p>The trust problem was real. An AI summary that gets something wrong and isn't caught could be worse than no summary. I designed it with explicit uncertainty signals — a "BETA" label, "AI generated summary" attribution, and a feedback mechanism (thumbs up/down) to let clinicians flag inaccurate summaries.</p>
       <div class="illus">
         <div style="background:var(--bg);border:0.5px solid var(--line);border-radius:8px;padding:14px;margin-bottom:2px">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
@@ -148,7 +148,7 @@
         </div>
         <div class="cap">Illustrative — recreated for portfolio; not the production UI</div>
       </div>
-      <p class="mut">The feedback data fed back to the ML team to improve model quality — a loop where the clinicians using the product were actively shaping the AI behind it. Getting clinicians to engage with that feedback required the design to make it feel low-effort and meaningful, not just a checkbox.</p>
+      <p class="mut">The feedback fed back to the ML team — clinicians actively shaping the model they relied on. Getting them to engage required the design to feel low-effort and meaningful, not a checkbox.</p>
     </div>
 
     <div class="block">
@@ -178,7 +178,7 @@
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>What it taught me</h2></div>
       <p class="pull">In a clinical AI product, trust isn't a feature — it's the <span class="uline">foundation everything else sits on</span>.</p>
-      <p class="mut">Transparency about what the AI is doing, explicit uncertainty markers, and giving experts a clear path to override aren't constraints on the product — they're what makes the product usable. Designing that feedback loop well meant the AI could get better without asking clinicians to trust something they couldn't see.</p>
+      <p class="mut">Transparency about what the AI is doing, explicit uncertainty markers, and letting experts override — these aren't constraints on the product, they're what makes it usable. Designing the feedback loop well meant the AI could get better without asking clinicians to trust a black box.</p>
     </div>
 
     <p class="safe-note">Note: interface shown is illustrative and recreated for portfolio purposes. Patient data is entirely fictional. Research participants and clinical users are anonymized; no proprietary code, clinical records, or internal screenshots are included.</p>

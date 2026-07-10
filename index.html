@@ -23,6 +23,8 @@
   body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .35s ease,color .35s ease}
   .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4.5vw,56px)}
   a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4,h5{text-wrap:balance}
+  p,li{text-wrap:pretty}
   .hl{background:var(--lime);color:#203E44;padding:0.03em 0.3em;border-radius:5px;-webkit-box-decoration-break:clone;box-decoration-break:clone;border:1px solid color-mix(in srgb,black 20%,var(--lime) 80%)}
   .uline{background:linear-gradient(var(--lime),var(--lime)) no-repeat;background-position:0 92%;background-size:100% 0.18em}
 
@@ -136,7 +138,7 @@
   <div class="wrap hero">
     <span class="kicker">Staff product designer · Moderne</span>
     <h1>Serious design,<br><span class="hl">Seriously curious.</span></h1>
-    <p class="sub">I design for agent experiences, developer platforms, and design systems — solving real problems for real users at enterprise scale, not just shipping pretty screens. (Pretty helps. It's not the point.)</p>
+    <p class="sub">I design for agent experiences, developer platforms, and design systems — process-led work at enterprise scale.</p>
     <div class="btns">
       <a class="btn" href="#work">Selected work →</a>
       <a class="btn ghost" href="mailto:anne@moderne.io">Get in touch</a>
@@ -148,14 +150,14 @@
     <div class="wrap">
       <div class="shead"><span class="tick"></span><span class="n">01</span><h2>Selected work</h2></div>
       <p class="stitle">Case studies on the systems behind the screens.</p>
-      <p class="sintro">Each one is a process I can walk you through — the real problem, the decisions, the tradeoffs, and what it taught me. Spanning developer tools, design systems, and enterprise products.</p>
+      <p class="sintro">The real problem, the decisions, the tradeoffs — spanning developer tools, design systems, and enterprise products.</p>
 
       <div class="row">
         <span class="wn">01</span>
         <div>
           <p class="wt">Trigrep — Natural-language code search</p>
           <p class="wtags">Research · Interaction design · Prototyping</p>
-          <p class="wd">I designed an AI assistant as the front door to a powerful code-search engine — not because AI was the goal, but because plain-text search wasn't cutting it for the questions engineers actually asked. Two rounds of research got us to a validated interaction model and a shipped UI. <b>Outcome:</b> it drove engineering decisions and shipped a full component suite for the assistant.</p>
+          <p class="wd">I designed an AI assistant for a code-search engine — two research rounds to a shipped interaction model. <b>Outcome:</b> drove engineering decisions and a shipped component suite.</p>
           <div class="wlinks">
             <a href="trigrep.html">Read case study →</a>
             <a href="https://moderneinc.github.io/prototypes/moddy-trigrep-revised.html" target="_blank" rel="noopener">Public prototype ↗</a>
@@ -168,7 +170,7 @@
         <div>
           <p class="wt">NEO — building a design system</p>
           <p class="wtags">Design systems · Figma ↔ code</p>
-          <p class="wd">I audited an enterprise design system that had quietly become unmanageable, then drove its first real rollout into the product. It wasn't a small lift. <b>Outcome:</b> collapsed the most overloaded components by roughly four-fifths, connected the full library to code, and shipped dozens of design fixes along the way.</p>
+          <p class="wd">I audited and refactored an enterprise design system, then drove its first rollout into the product. <b>Outcome:</b> collapsed the most overloaded components by roughly four-fifths, connected the library to code, shipped dozens of fixes.</p>
           <div class="wlinks"><a href="neo.html">Read case study →</a></div>
         </div>
       </div>
@@ -178,7 +180,7 @@
         <div>
           <p class="wt">DevCenter — engineering-health reporting</p>
           <p class="wtags">UX research · Data visualization</p>
-          <p class="wd">I pulled feedback from several enterprise customers — some of it contradictory — into a single product direction, then shipped it. <b>Outcome:</b> the in-production time-dimension view, metric explainers, and a safe dry-run path.</p>
+          <p class="wd">I synthesized feedback across several enterprise customers into a product direction, then shipped it. <b>Outcome:</b> the in-production time-dimension view, metric explainers, and a safe dry-run path.</p>
           <div class="wlinks"><a href="devcenter.html">Read case study →</a></div>
         </div>
       </div>
@@ -192,39 +194,45 @@
       <div class="more">
         <div class="mrow">
           <h4>Kohl's — self-checkout rewards</h4>
-          <p>I ran the in-store research myself, validated it in testing, then watched it ship to a flagship store concept.</p>
+          <p>I ran the in-store research, validated it in testing, then shipped to a flagship store concept.</p>
           <div class="t">Strategy · UI/UX · Research</div>
           <a class="full" href="kohls.html">Read case study →</a>
         </div>
         <div class="mrow">
           <h4>Michelin — BibTread</h4>
-          <p>Twenty-year-old software, rebuilt around how people actually used it — and a product team I helped build along the way.</p>
+          <p>Twenty-year-old software, rebuilt around how people actually used it — and a product team built alongside it.</p>
           <div class="t">Strategy · Research · Mentorship</div>
           <a class="full" href="michelin.html">Read case study →</a>
         </div>
         <div class="mrow">
           <h4>Email &amp; in-product notifications</h4>
-          <p>I built one notification pattern instead of three — toast, banner, and inline alerts, consistent across email and in-product surfaces.</p>
+          <p>I unified the notification pattern — toast, banner, inline — across email and in-product surfaces.</p>
           <div class="t">Design systems · Patterns</div>
           <a class="full" href="#">Case study →</a>
         </div>
         <div class="mrow">
           <h4>Organizations</h4>
-          <p>I redesigned the org-picker — loading states, error states, hierarchies several levels deep, and a management page it never had before.</p>
+          <p>I redesigned the org-picker: loading states, error states, deep hierarchies, a management page.</p>
           <div class="t">Interaction · Shipped UI</div>
           <a class="full" href="organizations.html">Read case study →</a>
         </div>
         <div class="mrow">
           <h4>Moderne CLI</h4>
-          <p>I designed onboarding that works whether a human or an AI agent is the one running the CLI, plus the guidelines and prototypes that came with it.</p>
+          <p>I designed CLI onboarding for humans and AI agents — plus the guidelines and prototypes.</p>
           <div class="t">Developer-tool UX</div>
           <a class="full" href="cli.html">Read case study →</a>
         </div>
         <div class="mrow">
           <h4>Credo Health</h4>
-          <p>I started as a contractor and ended up Director, building design ops and an AI feedback loop with actual clinicians in the room.</p>
+          <p>Design ops and an AI feedback loop with clinicians. Contractor → Director.</p>
           <div class="t">Design systems · AI/ML</div>
           <a class="full" href="credohealth.html">Read case study →</a>
+        </div>
+        <div class="mrow" style="grid-column:1/-1">
+          <h4>Prompt craft — how I work with AI</h4>
+          <p>A working reference of prompting techniques from real Cowork sessions: Claude Code handoffs, steering technical explanations, designing CLI docs for agent consumers, and catching scope problems before they land.</p>
+          <div class="t">Prompt engineering · AI collaboration</div>
+          <a class="full" href="prompts.html">View showcase →</a>
         </div>
       </div>
     </div>
@@ -235,33 +243,33 @@
     <div class="wrap">
       <div class="shead"><span class="tick"></span><span class="n">03</span><h2>Brand &amp; freelance work</h2></div>
       <p class="stitle">Identity, e-commerce, and enterprise design — outside Moderne.</p>
-      <p class="sintro" style="margin-bottom:30px">The freelance and contract side of the work — logo systems, e-commerce UX, and a few large-scale redesigns I said yes to because the problem was too good to pass up.</p>
+      <p class="sintro" style="margin-bottom:30px">The freelance and contract side of the work — logo systems, e-commerce UX, and large-scale redesigns.</p>
       <div class="more">
         <div class="mrow">
           <h4>Jingle Bell Productions — logo redesign</h4>
-          <p>A music producer needed a logo that didn't look like it was made in 2003 (his words, more or less). I sketched, revised, and landed on a mark that works as both a full logo and a watermark.</p>
+          <p>A music producer needed a logo that didn't look like 2003. I sketched, revised, and landed on a mark that works as a full logo and a watermark.</p>
           <div class="t">Brand identity · Logo design</div>
           <a class="full" href="https://annierimbach.com/p/04a7dafc" target="_blank" rel="noopener">Full case study ↗</a>
         </div>
         <div class="mrow">
           <h4>Yankee Candle — UI/UX &amp; analytics</h4>
-          <p>I redesigned the shipping-options step and A/B tested it rather than just trusting my gut. <b>Outcome:</b> +7% desktop / +2% mobile conversion.</p>
+          <p>I redesigned the shipping-options step, A/B tested. <b>Outcome:</b> +7% desktop / +2% mobile conversion.</p>
           <div class="t">E-commerce · UI/UX · A/B testing</div>
           <a class="full" href="https://annierimbach.com/p/06f891b5" target="_blank" rel="noopener">Full case study ↗</a>
         </div>
         <div class="mrow">
           <h4>Marmot — product page redesign</h4>
-          <p>Contracted to redesign Marmot's desktop product pages — clearer product information, a smoother path to purchase. <em>[Outcome — add when known.]</em></p>
+          <p>Contracted to redesign Marmot's desktop product pages — clearer information, smoother path to purchase. <em>[Outcome TBD.]</em></p>
           <div class="t">Contracted · E-commerce · UI/UX</div>
         </div>
         <div class="mrow">
           <h4>Wellstar — website redesign</h4>
-          <p>Wellstar is a large Georgia hospital system, which meant patient-facing clarity had to coexist with enterprise-healthcare scale and compliance. I redesigned the website around that tension. <em>[Outcome — add when known.]</em></p>
+          <p>Contracted to redesign the Wellstar website — patient-facing clarity at enterprise-healthcare scale. <em>[Outcome TBD.]</em></p>
           <div class="t">Contracted · Healthcare · Strategy · UI/UX</div>
         </div>
         <div class="mrow" style="grid-column:1/-1">
           <h4>Hello Divorce — website, portal &amp; landing pages</h4>
-          <p>I redesigned the marketing website and the client-facing portal behind it, plus a handful of social-media landing pages, for a legal services company. Clarity wasn't a nice-to-have here — people using the product were already dealing with enough. <em>[Outcome — add when known.]</em></p>
+          <p>Marketing website, client portal, and social-media landing pages for a legal services company. Clarity was the whole brief. <em>[Outcome TBD.]</em></p>
           <div class="t">Contracted · Strategy · UI/UX</div>
         </div>
       </div>
@@ -279,7 +287,7 @@
           <div class="bar"></div>
           <span class="sn">01</span>
           <h3>Understand</h3>
-          <p>I pair user research with whatever was actually asked for — not always the same thing — and make the complexity legible before I design anything.</p>
+          <p>I pair user research with the real request and make the complexity legible before designing anything.</p>
         </div>
         <div class="step s2">
           <div class="bar"></div>
@@ -302,7 +310,7 @@
     <div class="wrap">
       <div class="shead"><span class="tick"></span><span class="n">05</span><h2>About</h2></div>
       <p class="lead">I'm Annie — a staff product designer at Moderne, working at the frontier of agent experience, developer platforms, and design systems.</p>
-      <p class="body">I pair user research with interaction design and design systems, and I partner closely with engineering because design that doesn't ship isn't really design. I care about the thinking behind the screens — the real problem, the system, the decisions that get a team to a good answer together — and I bring a curious, slightly playful approach to software that's otherwise pretty serious about itself. On the side, I still take freelance brand and identity work: logo systems, e-commerce UX, small-business rebrands. Old habits.</p>
+      <p class="body">I pair user research with interaction design and design systems, and partner closely with engineering — design that doesn't ship isn't really design. I care about the thinking behind the screens: the real problem, the decisions, what it takes to get a team to a good answer. I bring a curious, slightly playful approach to software that's pretty serious about itself. On the side: logo systems, e-commerce UX, small-business rebrands. Old habits.</p>
       <div class="chips">
         <span class="chip">Process-led</span>
         <span class="chip">Curious by default</span>
