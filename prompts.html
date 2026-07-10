@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt craft — how I work with AI · Annie Rimbach</title>
+<meta name="description" content="A working reference of AI prompting techniques from real Cowork sessions: Claude Code handoffs, steering technical explanations, designing CLI docs for agent consumers, and catching scope problems before they land.">
+<meta name="theme-color" content="#203E44">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="case.css" rel="stylesheet">
+<style>
+  /* Prompt block */
+  .pquote {
+    background: var(--surface);
+    border-left: 3px solid var(--node);
+    border-radius: 0 8px 8px 0;
+    padding: 13px 18px;
+    margin: 12px 0 8px;
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  /* Spec / code block */
+  .pcode {
+    background: var(--surface);
+    border: 0.5px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    color: var(--muted);
+    margin: 10px 0 14px;
+    overflow-x: auto;
+  }
+  /* Section label above example */
+  .ptag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--node);
+    margin: 0 0 8px;
+    display: block;
+  }
+  /* Inline "reconstructed" badge */
+  .recon {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted2);
+    border: 0.5px solid var(--line);
+    border-radius: 20px;
+    padding: 2px 9px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 8px;
+    position: relative;
+    top: -1px;
+  }
+  /* Sub-example container */
+  .example {
+    padding: 24px 0;
+    border-top: 0.5px solid var(--line);
+  }
+  .example h3 {
+    font-family: 'Hedvig Letters Serif', serif;
+    font-weight: 400;
+    font-size: 19px;
+    -webkit-text-stroke: 0.3px var(--ink);
+    paint-order: stroke fill;
+    margin: 0 0 10px;
+    line-height: 1.3;
+  }
+  .example p { margin: 0 0 10px; }
+  /* Note beneath a prompt quote */
+  .pnote {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 4px 0 12px;
+  }
+  .pnote code {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+  }
+  /* Patterns grid */
+  .plist {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .plist li {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 16px 18px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .plist li b {
+    display: block;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 14.5px;
+  }
+  /* Numbered chain list for escalation */
+  .chain {
+    list-style: none;
+    padding: 0;
+    margin: 14px 0 6px;
+    counter-reset: chain;
+  }
+  .chain > li {
+    position: relative;
+    padding-left: 34px;
+    margin-bottom: 16px;
+    counter-increment: chain;
+  }
+  .chain > li::before {
+    content: counter(chain);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--node);
+    background: var(--surface);
+    border: 0.5px solid var(--line);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chain > li p { margin: 0; color: var(--muted); font-size: 14.5px; }
+  .chain > li .pquote { margin: 8px 0 4px; }
+  .chain > li .pnote { margin: 2px 0 0; }
+
+  @media(max-width:680px){
+    .plist { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="brand" href="index.html">Annie Rimbach</a>
+    <div class="navright">
+      <a class="back" href="index.html">← Home</a>
+      <button class="toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="chero">
+    <span class="kicker">Prompt craft · Cowork · 2026</span>
+    <h1>How I prompt AI to do <span class="hl">real work</span></h1>
+    <p class="summary">Not tutorials. A working reference of prompting techniques from actual Cowork sessions — Claude Code handoffs, steering technical explanations, designing CLI docs for agent consumers, and catching scope problems before they land.</p>
+    <div class="metabar">
+      <div><div class="k">Tool</div><div class="v">Cowork (Anthropic)</div></div>
+      <div><div class="k">Context</div><div class="v">Moderne product design work</div></div>
+      <div><div class="k">Techniques</div><div class="v">Four, from real sessions</div></div>
+      <div><div class="k">Sourcing</div><div class="v">Session history; some reconstructed</div></div>
+    </div>
+  </div>
+
+  <div class="cbody">
+
+    <!-- Patterns -->
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Patterns worth stealing</h2></div>
+      <p class="mut">Six recurring moves that show up across all four techniques. Each one keeps the work grounded and the scope honest.</p>
+      <ul class="plist">
+        <li><b>Ground it in reality.</b> Verify against real source material before deciding — don't let it guess.</li>
+        <li><b>Supply your own taxonomy.</b> State your mental model directly instead of waiting for it to be inferred.</li>
+        <li><b>Question your own conclusions.</b> Re-open settled decisions with a quick "is this actually true?"</li>
+        <li><b>Show, don't describe.</b> Point at a real example instead of describing your style in adjectives.</li>
+        <li><b>Full version first, then narrow it.</b> Nail the complete spec, then extract the scoped slice.</li>
+        <li><b>Compress with a guardrail.</b> Say what must survive the cut when asking for shorter.</li>
+      </ul>
+    </div>
+
+    <!-- 01 Claude Code handoffs -->
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>01 — Claude Code handoff prompts</h2></div>
+      <p class="mut">The common thread: research or design rationale first, then an explicit, scoped, paste-ready spec — never asking Claude Code to make the design decisions itself.</p>
+
+      <div class="example">
+        <span class="ptag">Email template kit → GitHub Pages</span>
+        <h3>The most complete example: a full handoff package, not just a prompt</h3>
+        <p class="mut">Started with a single prompt to assemble everything needed for a Claude Code build, then refined it live with one follow-up constraint about GitHub Pages.</p>
+        <div class="pquote">Can you give me all of this to give to claude code to build an html page or folder for this?</div>
+        <div class="pquote">Assume I'm already connected to gh pages in Claude Code.</div>
+        <p class="pnote">That second prompt rewrote BUILD.md to auto-derive the Pages URL from <code>git remote</code> instead of prompting for username and repo. The full package: <code>BUILD.md</code> (executable spec), <code>README.md</code> (human fallback), <code>design-tokens.md</code> (colors and type so nothing gets reinvented), plus source templates and assets.</p>
+        <span class="ptag" style="color:var(--muted2)">Reconstructed spec · BUILD.md</span>
+        <pre class="pcode">Goal: Host this email kit's assets on GitHub Pages and wire the
+send-ready templates to reference the hosted URLs.
+
+Constraints (do not violate):
+- Do not restyle or redesign the email templates
+- Keep all templates as inline-styled HTML tables (email-client requirement)
+- Repo must be public
+- Only touch image src attributes and "View in Browser" links
+
+Steps: derive Pages URL from git remote → host assets → find/replace
+placeholder URLs → build browser-view pages + gallery → wire "View in
+Browser" → commit, push → verify deployed URLs resolve.</pre>
+      </div>
+
+      <div class="example">
+        <span class="ptag">Search syntax prototype · three-prompt chain</span>
+        <h3>Build → anchor/QA → scope down</h3>
+        <p class="mut">The third prompt in the chain told Claude Code exactly what to remove, what to keep, and what to build — grounded in research on how Sourcegraph, GitLab, Linear, and Honeycomb have approached LLM query parsing.</p>
+        <div class="pquote">Assume the two prompts have been built. Write a new prompt that updates the prototype with these changes.</div>
+        <p class="pnote">Result: a scoped update spec listing removals (prose parser, concept index, stemming, telemetry), preservations (canonicalizer, happy-path templates), and new builds (autocomplete, tokenized filter pills, silent reformulation on zero results). The research was baked in so Claude Code didn't have to re-derive it.</p>
+      </div>
+
+      <div class="example">
+        <span class="ptag">Status page — column merge &amp; scope-down <span class="recon">reconstructed</span></span>
+        <h3>Broad spec → single component</h3>
+        <p class="mut">After settling on the design rationale (Sync as quiet text vs. State as the primary badge), two prompts — one for the full change, one narrowed down to a single component.</p>
+        <div class="pquote">Okay let's get a prompt for the existing page that makes this change.</div>
+        <div class="pquote">Write this as just the info for the popover.</div>
+        <p class="pnote">The second prompt is a pattern worth internalizing: scope a broad handoff down to a smaller one after the design rationale is settled. Claude Code never has to re-derive what the component is for.</p>
+      </div>
+
+      <div class="example">
+        <span class="ptag">Color tokens audit → design-system tool <span class="recon">reconstructed</span></span>
+        <h3>Audit findings packaged for implementation</h3>
+        <p class="mut">After an OKLCH ramp rebuild and APCA contrast audit in Cowork, one prompt turned the findings into an implementation-ready handoff.</p>
+        <div class="pquote">I want to use your audit findings to implement changes to our internal design-system tool via Claude Code. Can you write markdown to prompt this?</div>
+        <p class="pnote">Output: one file, nine sections — ramp replacements, dark-mode defaults, a CVD-enforcement script, an explicitly flagged open design call on an APCA gap, and a "what to leave alone" section. Built so Claude Code wouldn't need to re-derive any value.</p>
+      </div>
+    </div>
+
+    <!-- 02 Progressive explanation -->
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>02 — Progressive &amp; disambiguating technical explanation</h2></div>
+      <p class="mut">A different skill from handoff prompts: steering an explanation in real time, one constraint at a time, until the mental model is exactly right — then packaging the result. The underlying subject here is internal Moderne architecture, so specifics are intentionally omitted; the value is the technique.</p>
+
+      <div class="example">
+        <span class="ptag">Escalating plainness, same content</span>
+        <h3>Four levels of abstraction from a single starting point</h3>
+        <ol class="chain">
+          <li><p>Full technical pass — the real internal mechanics, in engineering terms.</p></li>
+          <li>
+            <div class="pquote">Explain it to me like I'm 5.</div>
+            <p class="pnote">Same ideas, a plain-language analogy, zero jargon.</p>
+          </li>
+          <li>
+            <div class="pquote">Can you illustrate this for me?</div>
+            <p class="pnote">Turned the analogy into an actual before/after diagram.</p>
+          </li>
+          <li>
+            <div class="pquote">Can you put this visual and the plain-language summary you did in a quick google doc.</div>
+            <p class="pnote">Deliverable assembly — packaging what was already right.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="example">
+        <span class="ptag">Disambiguating a state model through pointed follow-ups</span>
+        <h3>Questions that restructure the answer</h3>
+        <p class="mut">Each of these was a single question that restructured the model — not a new instruction, a pointed check on whether the current answer was actually true.</p>
+        <div class="pquote">So in this case wouldn't evicted and not built mean the same thing since a user has to rebuild anything evicted anyway?</div>
+        <p class="pnote">Collapsed two proposed states into one, with the reasoning made explicit instead of implied.</p>
+        <div class="pquote">I think we're talking about two different things. For the CLI, I think one simple state makes sense. But for the platform side, I think a small set of distinct states are the right things?</div>
+        <p class="pnote">Supplied the actual taxonomy split — CLI vs. platform — and had it propagated through the diagram, doc, and panel copy simultaneously.</p>
+        <div class="pquote">Can you clean up the 'where the UI status is unclear' — it feels redundant with the blueprint?</div>
+        <p class="pnote">A trim prompt against prior output. Not a rewrite request — a specific redundancy catch.</p>
+      </div>
+    </div>
+
+    <!-- 03 CLI docs -->
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>03 — Designing CLI docs for humans <em>and</em> agents</h2></div>
+      <p class="mut">Distinct from everything above: not a spec for an agent to execute, but a design exercise in making the CLI itself legible to agents as a first-class consumer — alongside humans. This is prompting for agent-readable <em>product surfaces</em>, not just prompting an agent to build something.</p>
+
+      <div class="example">
+        <span class="ptag">Moderne CLI · help-text optimization <span class="recon">reconstructed prompt sequence</span></span>
+        <h3>Audit → rewrite → bundle for both audiences</h3>
+        <p class="mut">Audited the Moderne CLI's <code style="font-family:'Space Mono',monospace;font-size:11px">-h</code> output and error messages against GitHub's Primer CLI Design Guidelines, verified against real CLI 4.1.6 behavior — not assumed output.</p>
+        <pre class="pcode">1. "Audit the Moderne CLI's -h help text against GitHub's Primer CLI
+   Design Guidelines. Pull the actual current output from cli-reference.md
+   and CLI 4.1.6 — don't guess at what it says."
+
+2. "Rewrite the setup flow as an ordered, scannable table: step, command,
+   purpose, required vs. conditional."
+
+3. "Do the same for common errors — pull real error strings and pair each
+   with the exact fix command, not a description of the fix."
+
+4. "This CLI increasingly gets driven by coding agents, not just humans.
+   Propose a 'bundled docs' concept that works for both audiences —
+   machine-parseable but still human-readable."
+
+5. "Package this as a prototype page with the -h rewrites, the
+   cli-reference.md preamble, and the bundled docs concept as separate
+   sections."</pre>
+        <p class="pnote">Produced a setup table (step / command / purpose / required-or-conditional), a common-errors-and-fixes table using real error strings (<code style="font-family:'Space Mono',monospace;font-size:11px">PKIX path building failed</code>, <code style="font-family:'Space Mono',monospace;font-size:11px">401 Unauthorized</code>), and a "bundled docs" concept — <code style="font-family:'Space Mono',monospace;font-size:11px">TROUBLESHOOTING.md</code>, <code style="font-family:'Space Mono',monospace;font-size:11px">SETUP-CHECKLIST.md</code>, <code style="font-family:'Space Mono',monospace;font-size:11px">CONFIG-TEMPLATE.yaml</code> shipped at <code style="font-family:'Space Mono',monospace;font-size:11px">~/.moderne/docs/</code> — structured so both a human debugging a setup failure and a coding agent parsing for context can use the same files.</p>
+        <a class="proto-link" href="https://moderneinc.github.io/prototypes/CLI-rewrites.html" target="_blank" rel="noopener">View prototype ↗</a>
+      </div>
+    </div>
+
+    <!-- 04 Pressure-testing -->
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>04 — Pressure-testing and scope discipline</h2></div>
+      <p class="mut">A different skill from writing specs: interrogating your own prior conclusions and catching scope problems in real time, through short, pointed follow-ups rather than new instructions.</p>
+
+      <div class="example">
+        <span class="ptag">Pressure-testing your own prior conclusions</span>
+        <h3>Questions that make the model re-derive instead of defend</h3>
+        <div class="pquote">Is the 'army' problem really a problem…</div>
+        <p class="pnote">A prior thread had established that many simultaneous spinners were bad UX. Instead of accepting that as settled, questioning it made Claude re-derive the answer (it's about phase, size, and contrast — not raw count) rather than defend the earlier take.</p>
+        <div class="pquote">What if I'm syncing — the progress spinners will be impossible?</div>
+        <p class="pnote">Pressure-tested the locked-in spec against a real engineering constraint. Produced a clean fallback contract: spin only if you can sync; if you can't, ship static.</p>
+        <div class="pquote">COULD the sequencing bars work per row? If there were less bars?</div>
+        <p class="pnote">Steelmanning an option that had already been ruled out, rather than moving on. The side-by-side comparison confirmed the original call was right — for reasons that hadn't been stated yet (motion count, no static form, no subitize-collapse).</p>
+      </div>
+
+      <div class="example">
+        <span class="ptag">Catching scope creep before it lands</span>
+        <h3>Two questions that killed a todo</h3>
+        <div class="pquote">Gap 2 seems like a huge engineering lift?</div>
+        <div class="pquote">It seems like Gap 2 is scope-creep for the initial issue as well?</div>
+        <p class="pnote">Two follow-ups, back to back, that got a "todo" item downgraded to investigation-only and then removed from the active checklist entirely. Neither was an instruction — both were noticing something felt off and making Claude justify or correct it.</p>
+      </div>
+
+      <div class="example">
+        <span class="ptag">Grounding a design assumption in real data</span>
+        <div class="pquote">Would the failure reason for the LST artifact only live with the sync statuses?</div>
+        <p class="pnote">Sent Claude to Slack to check against what engineers actually said, rather than accepting an assumed answer — surfaced a real, acknowledged bug that changed the design brief.</p>
+      </div>
+
+      <div class="example">
+        <span class="ptag">Style transfer via reference, not description</span>
+        <div class="pquote">Let's simplify the shit out of this. You can look at [a past issue I filed] as an example of how I write issues.</div>
+        <p class="pnote">Instead of describing a writing style abstractly, pointing at a real artifact lets Claude extract the pattern — higher fidelity than adjectives like "concise" or "direct."</p>
+      </div>
+
+      <div class="example">
+        <span class="ptag">Compression with an explicit guardrail</span>
+        <div class="pquote">Can you make the to-do list even more succinct.</div>
+        <div class="pquote">I don't want you to get rid of important to-dos though.</div>
+        <p class="pnote">Paired instructions: compress, but verify nothing substantive was lost. Claude had to show its work (confirmed all 10 original items survived, just merged) rather than produce a shorter list on faith.</p>
+      </div>
+
+      <div class="example">
+        <span class="ptag">Scope control mid-conversation</span>
+        <div class="pquote">The ask is to just do this. I just want feedback on how to make this look better.</div>
+        <p class="pnote">Cut off a design-rationale re-litigation and redirected to tactical execution — controlling what <em>kind</em> of help is being asked for, not just what the output should be.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div style="padding:4px 0 22px;display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap">
+      <div style="font-family:'Hedvig Letters Serif',serif;-webkit-text-stroke:0.4px var(--ink);paint-order:stroke fill;font-size:clamp(20px,3vw,26px);line-height:1.4;max-width:500px">Prompts are design briefs in conversation form. The thinking happens before you type.</div>
+      <div style="font-family:'Space Mono',monospace;font-size:12px">
+        <div><a href="mailto:anne@moderne.io" style="color:var(--ink)">anne@moderne.io</a></div>
+        <div style="margin-top:10px"><a href="index.html" style="color:var(--node)">← Back to all work</a></div>
+      </div>
+    </div>
+    <div class="fmeta">Compiled from Cowork session history, July 2026 · © 2026 Annie Rimbach</div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var root=document.documentElement,btn=document.getElementById('themeToggle');
+    var sun='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+    var moon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    var saved=null;
+    try{saved=localStorage.getItem('ar-theme');}catch(e){}
+    if(!saved){saved=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+    apply(saved);
+    btn.addEventListener('click',function(){apply(root.getAttribute('data-theme')==='dark'?'light':'dark');});
+    function apply(t){root.setAttribute('data-theme',t);btn.innerHTML=(t==='dark')?sun:moon;try{localStorage.setItem('ar-theme',t);}catch(e){}}
+  })();
+</script>
+</body>
+</html>
