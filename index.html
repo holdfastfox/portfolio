@@ -11,17 +11,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#F5F7F4; --surface:#E9EDE8; --ink:#203E44; --muted:#5E726E; --muted2:#8A988F;
-    --line:#E2E7E1; --lime:#DEFD7C; --node:#3E9E84; --btnText:#F5F7F4;
+    --bg:#F5F7F4; --surface:#E9EDE8; --ink:#203E44; --muted:#5E726E; --muted2:#69746D;
+    --line:#E2E7E1; --lime:#DEFD7C; --node:#317E6A; --btnText:#F5F7F4;
   }
   [data-theme="dark"]{
-    --bg:#15302A; --surface:#1C3A33; --ink:#EAF1EC; --muted:#9FBDB2; --muted2:#6E8C82;
+    --bg:#15302A; --surface:#1C3A33; --ink:#EAF1EC; --muted:#9FBDB2; --muted2:#8EA9A0;
     --line:#2A463F; --lime:#DEFD7C; --node:#7FD8B8; --btnText:#15302A;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .35s ease,color .35s ease}
-  .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4.5vw,56px)}
+  .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,6vw,56px)}
   a{color:inherit;text-decoration:none}
   h1,h2,h3,h4,h5{text-wrap:balance}
   p,li{text-wrap:pretty}
@@ -51,23 +51,25 @@
 
   /* SECTION */
   section{padding:58px 0;border-top:0.5px solid var(--line)}
-  .shead{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-  .shead .tick{width:26px;height:6px;border-radius:3px;background:var(--lime);flex-shrink:0}
-  .shead .n{font-family:'Space Mono',monospace;font-size:12px;color:var(--node)}
+  .shead{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .shead .tick{display:none}
+  .shead .n{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#203E44;background:var(--lime);border-radius:5px;padding:3px 8px;flex-shrink:0}
   .shead h2{font-family:'Space Mono',monospace;font-weight:400;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin:0}
   .stitle{font-family:'Hedvig Letters Serif',serif;-webkit-text-stroke:0.7px var(--ink);paint-order:stroke fill;font-weight:400;font-size:clamp(26px,4vw,38px);line-height:1.3;letter-spacing:-0.3px;margin:0 0 8px;max-width:700px}
   .sintro{color:var(--muted);max-width:580px;margin:0 0 30px}
 
   /* FEATURED WORK */
-  .work .row{display:grid;grid-template-columns:46px 1fr;gap:20px;align-items:start;padding:26px 0;border-top:0.5px solid var(--line)}
-  .work .row:last-child{border-bottom:0.5px solid var(--line)}
-  .work .wn{font-family:'Space Mono',monospace;font-size:13px;color:var(--node);padding-top:6px}
-  .work .wt{font-family:'Hedvig Letters Serif',serif;font-size:clamp(21px,3vw,27px);-webkit-text-stroke:0.4px var(--ink);paint-order:stroke fill;line-height:1.25;margin:0 0 4px}
-  .work .wtags{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.5px;color:var(--muted2);text-transform:uppercase;margin:0 0 10px}
-  .work .wd{font-size:14.5px;color:var(--muted);max-width:620px;margin:0 0 6px}
-  .work .wd b{color:var(--ink);font-weight:500}
-  .work .wlinks{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-  .work .wlinks a{font-family:'Space Mono',monospace;font-size:11px;color:var(--ink);border:0.5px solid var(--line);border-radius:20px;padding:6px 13px;transition:.15s}
+  .work .wgrid{border-top:0.5px solid var(--line);margin-top:8px}
+  .work .wpair{display:grid;grid-template-columns:1fr 1fr;gap:0 52px}
+  .work .wpair+.wpair{border-top:0.5px solid var(--line)}
+  .work .row{display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:start;padding:22px 0}
+  .work .wn{font-family:'Space Mono',monospace;font-size:13px;color:var(--node);padding-top:4px}
+  .work .wt{font-family:'Hedvig Letters Serif',serif;font-size:clamp(17px,2vw,21px);-webkit-text-stroke:0.4px var(--ink);paint-order:stroke fill;line-height:1.25;margin:0 0 4px}
+  .work .wtags{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.5px;color:var(--muted2);text-transform:uppercase;margin:0 0 8px}
+  .work .wd{font-size:13.5px;color:var(--muted);margin:0}
+  .work .woc{font-family:'Space Mono',monospace;font-size:13px;color:var(--node);margin:6px 0 0}
+  .work .wlinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .work .wlinks a{font-family:'Space Mono',monospace;font-size:11px;color:var(--ink);border:0.5px solid var(--line);border-radius:20px;padding:5px 12px;transition:.15s}
   .work .wlinks a:hover{border-color:var(--node);color:var(--node)}
   /* MORE WORK GRID */
   .more{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
@@ -75,37 +77,36 @@
   .mrow:hover{transform:translateY(-2px)}
   .mrow h4{font-family:'Hedvig Letters Serif',serif;font-weight:400;font-size:18px;-webkit-text-stroke:0.3px var(--ink);paint-order:stroke fill;margin:0}
   .mrow p{font-size:13.5px;color:var(--muted);margin:7px 0 0}
-  .mrow .t{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.5px;text-transform:uppercase;color:var(--muted2);margin-top:10px}
-  .mrow a.full{font-family:'Space Mono',monospace;font-size:11px;color:var(--node);display:inline-block;margin-top:10px}
+  .mrow .t{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;color:var(--muted2);margin-top:10px}
+  .mrow a.full{font-family:'Space Mono',monospace;font-size:13px;color:var(--node);display:inline-block;margin-top:10px}
 
-  /* PROCESS */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .step .sn{font-family:'Space Mono',monospace;font-size:12px;color:var(--node)}
-  .step h3{font-family:'Hedvig Letters Serif',serif;font-weight:400;font-size:21px;-webkit-text-stroke:0.4px var(--ink);paint-order:stroke fill;margin:10px 0 6px}
-  .step p{font-size:14px;color:var(--muted);margin:0}
-  .step .bar{height:2px;background:var(--line);position:relative;margin-bottom:14px}
-  .step .bar::before{content:"";position:absolute;left:0;top:-1px;width:34px;height:4px;border-radius:2px;background:var(--node)}
-  .step.s2 .bar::before{left:33%}
-  .step.s3 .bar::before{left:66%}
+  /* BRAND LIST */
+  .blist{border-top:0.5px solid var(--line);margin-top:20px}
+  .bitem{padding:16px 0;border-bottom:0.5px solid var(--line)}
+  .bitem h4{font-family:'Hedvig Letters Serif',serif;font-weight:400;font-size:17px;-webkit-text-stroke:0.3px var(--ink);paint-order:stroke fill;margin:0 0 5px}
+  .bitem p{font-size:13.5px;color:var(--muted);margin:0 0 8px}
+  .bitem .t{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;color:var(--muted2)}
 
   /* ABOUT */
   .about .lead{font-family:'Hedvig Letters Serif',serif;font-weight:400;font-size:clamp(20px,3vw,26px);line-height:1.5;-webkit-text-stroke:0.3px var(--ink);paint-order:stroke fill;max-width:740px;margin:0 0 18px}
   .about p.body{color:var(--muted);max-width:660px;margin:0 0 10px}
   .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
-  .chip{font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:1px;border:0.5px solid var(--line);border-radius:30px;padding:7px 13px;color:var(--ink)}
+  .chip{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:1px;border:0.5px solid var(--line);border-radius:30px;padding:7px 13px;color:var(--ink)}
 
   footer{border-top:0.5px solid var(--line);padding:46px 0 60px}
   .fgrid{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
   .fbig{font-family:'Hedvig Letters Serif',serif;-webkit-text-stroke:0.7px var(--ink);paint-order:stroke fill;font-size:clamp(24px,4vw,34px);line-height:1.3;letter-spacing:-0.3px;max-width:520px}
   .fcontact a{font-family:'Space Mono',monospace;font-size:13px;color:var(--ink)}
   .fcontact a:hover{color:var(--node)}
-  .fmeta{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);letter-spacing:0.5px;margin-top:24px;text-transform:uppercase}
+  .fmeta{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted2);letter-spacing:0.5px;margin-top:24px;text-transform:uppercase}
 
+  @media(max-width:860px){
+    .more{grid-template-columns:1fr}
+    .work .wpair{grid-template-columns:1fr}
+  }
   @media(max-width:680px){
     .navlinks{display:none}
-    .hero{padding:54px 0 48px}
-    .steps{grid-template-columns:1fr;gap:26px}
-    .more{grid-template-columns:1fr}
+    .hero{padding-top:54px;padding-bottom:48px}
   }
 </style>
 </head>
@@ -119,7 +120,6 @@
         <div class="navlinks">
           <a href="#work">Work</a>
           <a href="#brand">Brand</a>
-          <a href="#process">Process</a>
           <a href="#about">About</a>
           <a href="mailto:rimbachak@gmail.com">Contact</a>
         </div>
@@ -148,39 +148,54 @@
   <section id="work" class="work">
     <div class="wrap">
       <div class="shead"><span class="tick"></span><span class="n">01</span><h2>Selected work</h2></div>
-      <p class="stitle">Case studies on the systems behind the screens.</p>
-      <p class="sintro">The real problem, the decisions, the tradeoffs — spanning developer tools, design systems, and enterprise products.</p>
 
-      <div class="row">
-        <span class="wn">01</span>
-        <div>
-          <p class="wt">Trigrep — Natural-language code search</p>
-          <p class="wtags">Research · Interaction design · Prototyping</p>
-          <p class="wd">I designed an AI assistant for a code-search engine — two research rounds to a shipped interaction model. <b>Outcome:</b> drove engineering decisions and a shipped component suite.</p>
-          <div class="wlinks">
-            <a href="trigrep.html">Read case study →</a>
-            <a href="https://moderneinc.github.io/prototypes/moddy-trigrep-revised.html" target="_blank" rel="noopener">Public prototype ↗</a>
+      <div class="wgrid">
+        <div class="wpair">
+          <div class="row">
+            <span class="wn">01</span>
+            <div>
+              <p class="wt">Trigrep — Natural-language code search</p>
+              <p class="wtags">Research · Interaction design · Prototyping</p>
+              <p class="wd">I designed an AI assistant for a code-search engine — two research rounds to a shipped interaction model.</p>
+              <p class="woc">Drove engineering decisions and a shipped component suite.</p>
+              <div class="wlinks">
+                <a href="trigrep.html">Read case study →</a>
+                <a href="https://moderneinc.github.io/prototypes/moddy-trigrep-revised.html" target="_blank" rel="noopener">Public prototype ↗</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <span class="wn">02</span>
+            <div>
+              <p class="wt">NEO — building a design system</p>
+              <p class="wtags">Design systems · Figma ↔ code</p>
+              <p class="wd">I audited and refactored an enterprise design system, then drove its first rollout into the product.</p>
+              <p class="woc">Collapsed the most overloaded components by roughly four-fifths, connected the library to code, shipped dozens of fixes.</p>
+              <div class="wlinks"><a href="neo.html">Read case study →</a></div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="row">
-        <span class="wn">02</span>
-        <div>
-          <p class="wt">NEO — building a design system</p>
-          <p class="wtags">Design systems · Figma ↔ code</p>
-          <p class="wd">I audited and refactored an enterprise design system, then drove its first rollout into the product. <b>Outcome:</b> collapsed the most overloaded components by roughly four-fifths, connected the library to code, shipped dozens of fixes.</p>
-          <div class="wlinks"><a href="neo.html">Read case study →</a></div>
-        </div>
-      </div>
-
-      <div class="row">
-        <span class="wn">03</span>
-        <div>
-          <p class="wt">DevCenter — engineering-health reporting</p>
-          <p class="wtags">UX research · Data visualization</p>
-          <p class="wd">I synthesized feedback across several enterprise customers into a product direction, then shipped it. <b>Outcome:</b> the in-production time-dimension view, metric explainers, and a safe dry-run path.</p>
-          <div class="wlinks"><a href="devcenter.html">Read case study →</a></div>
+        <div class="wpair">
+          <div class="row">
+            <span class="wn">03</span>
+            <div>
+              <p class="wt">DevCenter — engineering-health reporting</p>
+              <p class="wtags">UX research · Data visualization</p>
+              <p class="wd">I synthesized feedback across several enterprise customers into a product direction, then shipped it.</p>
+              <p class="woc">The in-production time-dimension view, metric explainers, and a safe dry-run path.</p>
+              <div class="wlinks"><a href="devcenter.html">Read case study →</a></div>
+            </div>
+          </div>
+          <div class="row">
+            <span class="wn">04</span>
+            <div>
+              <p class="wt">Moderne CLI — agent-ready onboarding</p>
+              <p class="wtags">Developer tools · AX · Prototyping</p>
+              <p class="wd">I designed CLI onboarding and tool discovery for humans and AI agents — command patterns, progressive help text, and interaction prototypes for a non-visual medium.</p>
+              <p class="woc">A gentler day zero, a discoverable toolbox, and a trust model for automated runs.</p>
+              <div class="wlinks"><a href="cli.html">Read case study →</a></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -204,22 +219,10 @@
           <a class="full" href="michelin.html">Read case study →</a>
         </div>
         <div class="mrow">
-          <h4>Email &amp; in-product notifications</h4>
-          <p>I unified the notification pattern — toast, banner, inline — across email and in-product surfaces.</p>
-          <div class="t">Design systems · Patterns</div>
-          <a class="full" href="#">Case study →</a>
-        </div>
-        <div class="mrow">
           <h4>Organizations</h4>
           <p>I redesigned the org-picker: loading states, error states, deep hierarchies, a management page.</p>
           <div class="t">Interaction · Shipped UI</div>
           <a class="full" href="organizations.html">Read case study →</a>
-        </div>
-        <div class="mrow">
-          <h4>Moderne CLI</h4>
-          <p>I designed CLI onboarding for humans and AI agents — plus the guidelines and prototypes.</p>
-          <div class="t">Developer-tool UX</div>
-          <a class="full" href="cli.html">Read case study →</a>
         </div>
         <div class="mrow">
           <h4>Credo Health</h4>
@@ -241,73 +244,40 @@
   <section id="brand">
     <div class="wrap">
       <div class="shead"><span class="tick"></span><span class="n">03</span><h2>Brand &amp; freelance work</h2></div>
-      <p class="stitle">Identity, e-commerce, and enterprise design — outside Moderne.</p>
-      <p class="sintro" style="margin-bottom:30px">The freelance and contract side of the work — logo systems, e-commerce UX, and large-scale redesigns.</p>
-      <div class="more">
-        <div class="mrow">
+      <div class="blist">
+        <div class="bitem">
           <h4>Jingle Bell Productions — logo redesign</h4>
           <p>A music producer needed a logo that didn't look like 2003. I sketched, revised, and landed on a mark that works as a full logo and a watermark.</p>
           <div class="t">Brand identity · Logo design</div>
-          <a class="full" href="https://annierimbach.com/p/04a7dafc" target="_blank" rel="noopener">Full case study ↗</a>
         </div>
-        <div class="mrow">
+        <div class="bitem">
           <h4>Yankee Candle — UI/UX &amp; analytics</h4>
-          <p>I redesigned the shipping-options step, A/B tested. <b>Outcome:</b> +7% desktop / +2% mobile conversion.</p>
+          <p>I redesigned the shipping-options step, A/B tested. Outcome: +7% desktop / +2% mobile conversion.</p>
           <div class="t">E-commerce · UI/UX · A/B testing</div>
-          <a class="full" href="https://annierimbach.com/p/06f891b5" target="_blank" rel="noopener">Full case study ↗</a>
         </div>
-        <div class="mrow">
+        <div class="bitem">
           <h4>Marmot — product page redesign</h4>
-          <p>Contracted to redesign Marmot's desktop product pages — clearer information, smoother path to purchase. <em>[Outcome TBD.]</em></p>
+          <p>Contracted to redesign Marmot's desktop product pages — clearer information, smoother path to purchase.</p>
           <div class="t">Contracted · E-commerce · UI/UX</div>
         </div>
-        <div class="mrow">
+        <div class="bitem">
           <h4>Wellstar — website redesign</h4>
-          <p>Contracted to redesign the Wellstar website — patient-facing clarity at enterprise-healthcare scale. <em>[Outcome TBD.]</em></p>
+          <p>Contracted to redesign the Wellstar website — patient-facing clarity at enterprise-healthcare scale.</p>
           <div class="t">Contracted · Healthcare · Strategy · UI/UX</div>
         </div>
-        <div class="mrow" style="grid-column:1/-1">
+        <div class="bitem">
           <h4>Hello Divorce — website, portal &amp; landing pages</h4>
-          <p>Marketing website, client portal, and social-media landing pages for a legal services company. Clarity was the whole brief. <em>[Outcome TBD.]</em></p>
+          <p>Marketing website, client portal, and social-media landing pages for a legal services company. Clarity was the whole brief.</p>
           <div class="t">Contracted · Strategy · UI/UX</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section id="process">
-    <div class="wrap">
-      <div class="shead"><span class="tick"></span><span class="n">04</span><h2>How I work</h2></div>
-      <p class="stitle">Start from the <span class="uline">real problem</span>. Design the whole system. Ship with curiosity intact.</p>
-      <p class="sintro" style="margin-bottom:36px">A process that holds up at enterprise scale, and stays human anyway.</p>
-      <div class="steps">
-        <div class="step s1">
-          <div class="bar"></div>
-          <span class="sn">01</span>
-          <h3>Understand</h3>
-          <p>I pair user research with the real request and make the complexity legible before designing anything.</p>
-        </div>
-        <div class="step s2">
-          <div class="bar"></div>
-          <span class="sn">02</span>
-          <h3>Design the system</h3>
-          <p>Interaction models and design systems, not isolated screens. I show my work as I go, mess and all.</p>
-        </div>
-        <div class="step s3">
-          <div class="bar"></div>
-          <span class="sn">03</span>
-          <h3>Ship &amp; learn</h3>
-          <p>I partner with engineering to prototype, test, and ship — and curiosity doesn't clock out at launch.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
+<!-- ABOUT -->
   <section id="about" class="about">
     <div class="wrap">
-      <div class="shead"><span class="tick"></span><span class="n">05</span><h2>About</h2></div>
+      <div class="shead"><span class="tick"></span><span class="n">04</span><h2>About</h2></div>
       <p class="lead">I'm Annie — a staff product designer at Moderne, working at the frontier of agent experience, developer platforms, and design systems.</p>
       <p class="body">I pair user research with interaction design and design systems, and partner closely with engineering — design that doesn't ship isn't really design. I care about the thinking behind the screens: the real problem, the decisions, what it takes to get a team to a good answer. I bring a curious, slightly playful approach to software that's pretty serious about itself. On the side: logo systems, e-commerce UX, small-business rebrands. Old habits.</p>
       <div class="chips">
