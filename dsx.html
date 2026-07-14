@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Language Staging — Color at the foundation · Annie Rimbach</title>
+<meta name="description" content="Case study: re-founding an enterprise design language's color tokens on ten tonal ramps when brand-exact hex values failed at accessibility.">
+<meta name="theme-color" content="#203E44">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="case.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="brand" href="index.html">Annie Rimbach</a>
+    <div class="navright">
+      <a class="back" href="index.html#work">← All work</a>
+      <button class="toggle" id="themeToggle" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="chero">
+    <span class="kicker">Case study · Design systems</span>
+    <h1>Design Language Staging — color at the foundation</h1>
+    <p class="summary">Color tokens pinned to brand hex couldn't clear WCAG in light mode. <span class="hl">One pull request</span> re-founded the system on ten tonal ramps — and the structure outlasted the project.</p>
+    <div class="metabar">
+      <div><div class="k">Role</div><div class="v">Product designer — color systems, documentation</div></div>
+      <div><div class="k">Context</div><div class="v">Enterprise SaaS platform design language</div></div>
+      <div><div class="k">Focus</div><div class="v">Color architecture → semantic re-aliasing → documentation</div></div>
+      <div><div class="k">Collaboration</div><div class="v">With a collaborating designer</div></div>
+    </div>
+  </div>
+
+  <div class="cbody">
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>The project</h2></div>
+      <p>The Design System Explorer was a staging ground — a live, themeable gallery for testing a new visual direction before committing engineering time to it. A collaborating designer built the machine: a multi-page component gallery with a top-bar theme builder, shareable URL state, and light and dark mode. Thirty-five pull requests over three weeks.</p>
+      <p>I came in when light mode landed. The problem was immediate.</p>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>The problem</h2></div>
+      <p>Color tokens were pinned to brand-exact hex values. Brand hex is chosen for aesthetics. It doesn't guarantee legibility. In light mode, the success color couldn't clear WCAG. Info and Active were on the wrong stops. The middle of every ramp was hard to work with. The system needed to be re-founded on ramps.</p>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Constraints</h2></div>
+      <ul>
+        <li><b>Work inside a fast cadence.</b> My collaborator was shipping 35 PRs in three weeks. The work had to land without breaking his flow.</li>
+        <li><b>Clear WCAG in both modes.</b> Every status semantic — success, info, active, danger — had to pass AA in light and dark.</li>
+        <li><b>Don't break what's downstream.</b> Tokens feed base styles, which feed components. Wrong tokens break everything they touch.</li>
+        <li><b>Move fast.</b> This was a staging ground. It needed to work, not be perfect.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>How I worked</h2></div>
+      <div class="steps">
+        <div class="step s1"><div class="bar"></div><span class="sn">01</span><h3>Map the failures</h3><p>Identified where brand hex was causing accessibility gaps and where semantic tokens were on the wrong stops in light mode.</p></div>
+        <div class="step s2"><div class="bar"></div><span class="sn">02</span><h3>Build the ramps</h3><p>Ten ramps — neutral, warm-grey, blue, teal, green, lime, violet, magenta, red, gold — each running 50 to 900 in ten stops. Brand hues anchored to specific stops, marked in documentation.</p></div>
+        <div class="step s3"><div class="bar"></div><span class="sn">03</span><h3>Re-alias and document</h3><p>Semantic tokens re-pointed from raw hex to ramp stops. A standalone color documentation page with contrast badges on every stop, mode-gated status chips, and a proposed-vs-current comparison table.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Ten ramps, re-founded semantics</h2></div>
+      <p>Brand hues landed on specific stops inside each ramp — marked as anchor points in the documentation. Semantic tokens pointed at those stops, not raw hex. Success shifted two steps darker in light mode to clear AA. Info moved off the brand anchor to a blue ramp stop that passed. Active moved to a violet stop. Danger stayed on a red stop that cleared AA as a white-text fill. The product-surface categorical color set was collapsed into a six-strand system shared across all surfaces.</p>
+      <div class="illus">
+        <svg class="ill" viewBox="0 0 680 300" role="img" aria-label="Illustrative color ramp grid showing tonal stops with contrast badges and brand anchor markers, alongside a semantic token before-and-after table">
+          <rect class="win" x="8" y="8" width="664" height="284" rx="16"/>
+          <circle class="mut2" cx="30" cy="32" r="4"/><circle class="mut2" cx="44" cy="32" r="4"/><circle class="mut2" cx="58" cy="32" r="4"/>
+          <text class="mono mut" x="80" y="36">foundations · colors</text>
+          <line class="ln" x1="8" y1="52" x2="672" y2="52"/>
+          <line class="ln" x1="356" y1="52" x2="356" y2="292"/>
+
+          <!-- Left: color ramp swatches -->
+          <text class="mono mut2 s10" x="28" y="76">RAMP · GREEN · 10 STOPS</text>
+          <!-- Stop 50 -->
+          <rect x="28" y="84" width="52" height="76" rx="5" fill="#f0fdf4"/>
+          <text x="34" y="100" style="font-family:'Space Mono',monospace;font-size:9px;fill:#166534;font-weight:600">50</text>
+          <rect x="30" y="149" width="48" height="9" rx="2" fill="#0f7a3a"/>
+          <text x="34" y="157" style="font-family:'Space Mono',monospace;font-size:7.5px;fill:#fff;font-weight:700">AAA</text>
+          <!-- Stop 300 -->
+          <rect x="86" y="84" width="52" height="76" rx="5" fill="#86efac"/>
+          <text x="92" y="100" style="font-family:'Space Mono',monospace;font-size:9px;fill:#14532d;font-weight:600">300</text>
+          <rect x="88" y="149" width="48" height="9" rx="2" fill="#255bb0"/>
+          <text x="92" y="157" style="font-family:'Space Mono',monospace;font-size:7.5px;fill:#fff;font-weight:700">AA</text>
+          <!-- Stop 500 — BRIGHT anchor -->
+          <rect x="144" y="84" width="52" height="76" rx="5" fill="#22c55e" style="outline:1.5px solid #fff;outline-offset:-2px"/>
+          <rect x="144" y="84" width="52" height="14" rx="0" fill="#fff" style="border-radius:5px 5px 0 0"/>
+          <text x="154" y="95" style="font-family:'Space Mono',monospace;font-size:7.5px;fill:#0b0c0e;font-weight:800;letter-spacing:.1em">BRIGHT</text>
+          <text x="150" y="112" style="font-family:'Space Mono',monospace;font-size:9px;fill:#fff;font-weight:600">500</text>
+          <rect x="146" y="149" width="48" height="9" rx="2" fill="rgba(20,22,30,.3)"/>
+          <text x="150" y="157" style="font-family:'Space Mono',monospace;font-size:7.5px;fill:#e0e0e0;font-weight:700">AA-L</text>
+          <!-- Stop 700 — DEEP anchor -->
+          <rect x="202" y="84" width="52" height="76" rx="5" fill="#15803d" style="outline:1.5px solid #fff;outline-offset:-2px"/>
+          <rect x="202" y="84" width="52" height="14" rx="0" fill="#fff" style="border-radius:5px 5px 0 0"/>
+          <text x="214" y="95" style="font-family:'Space Mono',monospace;font-size:7.5px;fill:#0b0c0e;font-weight:800;letter-spacing:.1em">DEEP</text>
+          <text x="208" y="112" style="font-family:'Space Mono',monospace;font-size:9px;fill:#fff;font-weight:600">700</text>
+          <rect x="204" y="149" width="48" height="9" rx="2" fill="#0f7a3a"/>
+          <text x="208" y="157" style="font-family:'Space Mono',monospace;font-size:7.5px;fill:#fff;font-weight:700">AAA</text>
+          <!-- Stop 900 -->
+          <rect x="260" y="84" width="52" height="76" rx="5" fill="#14532d"/>
+          <text x="266" y="100" style="font-family:'Space Mono',monospace;font-size:9px;fill:#86efac;font-weight:600">900</text>
+          <rect x="262" y="149" width="48" height="9" rx="2" fill="#0f7a3a"/>
+          <text x="266" y="157" style="font-family:'Space Mono',monospace;font-size:7.5px;fill:#fff;font-weight:700">AAA</text>
+
+          <text class="mono mut2 s10" x="28" y="186">50 → 900 · BRIGHT and DEEP mark brand anchors · contrast badge on every stop</text>
+
+          <!-- Second ramp label -->
+          <text class="mono mut2 s10" x="28" y="210">RAMP · BLUE · 10 STOPS</text>
+          <rect x="28" y="218" width="52" height="32" rx="5" fill="#dbeafe"/>
+          <rect x="86" y="218" width="52" height="32" rx="5" fill="#93c5fd"/>
+          <rect x="144" y="218" width="52" height="32" rx="5" fill="#3b82f6"/>
+          <rect x="144" y="218" width="52" height="10" rx="0" fill="#fff" style="border-radius:5px 5px 0 0"/>
+          <text x="154" y="227" style="font-family:'Space Mono',monospace;font-size:7px;fill:#0b0c0e;font-weight:800;letter-spacing:.08em">BRIGHT</text>
+          <rect x="202" y="218" width="52" height="32" rx="5" fill="#1d4ed8"/>
+          <rect x="260" y="218" width="52" height="32" rx="5" fill="#1e3a8a"/>
+
+          <text class="mono mut2 s10" x="28" y="272">10 ramps total · same structure · same badge system</text>
+
+          <!-- Right: semantic token before/after -->
+          <text class="mono mut2 s10" x="376" y="76">SEMANTIC TOKENS · BEFORE → AFTER</text>
+
+          <rect class="bg" x="376" y="84" width="278" height="40" rx="8"/>
+          <text class="mono mut2 s10" x="392" y="99">success</text>
+          <text class="mono mut" x="392" y="115">brand-hex → green-700 · light mode</text>
+
+          <rect class="bg" x="376" y="130" width="278" height="40" rx="8"/>
+          <text class="mono mut2 s10" x="392" y="145">info</text>
+          <text class="mono mut" x="392" y="161">brand-blue → blue-600 · off brand anchor</text>
+
+          <rect class="bg" x="376" y="176" width="278" height="40" rx="8"/>
+          <text class="mono mut2 s10" x="392" y="191">active</text>
+          <text class="mono mut" x="392" y="207">brand-violet → violet-600 · off brand anchor</text>
+
+          <rect class="bg" x="376" y="222" width="278" height="40" rx="8"/>
+          <text class="mono mut2 s10" x="392" y="237">danger</text>
+          <text class="mono mut" x="392" y="253">red stop · clears AA as white-text fill</text>
+
+          <text class="mono nodef s10" x="376" y="280">each stop chosen to clear AA · not a one-off fix</text>
+        </svg>
+        <div class="cap">Illustrative — recreated for portfolio; placeholder hex values, not the production token set</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Key decisions &amp; tradeoffs</h2></div>
+      <ul>
+        <li><b>Ramps over brand hex.</b> Brand values are chosen for aesthetics, not legibility. Pinning tokens to brand hex makes every mode decision a one-off fix. Ramps give the system a foundation where accessibility is a property of the stop, not a judgment call each time.</li>
+        <li><b>Mode-aware semantic layer.</b> Success in dark mode and success in light mode are not the same color. The semantic layer was designed to make that explicit — each status semantic has a ramp stop for each mode, chosen to clear AA.</li>
+        <li><b>Documentation as part of the work.</b> The color page wasn't an afterthought. Contrast badges on every stop, brand ribbons on anchor stops, mode-gated status chips that show only the current mode's values, a comparison table with mode-tinted cells. The page explains the reasoning, not just the values.</li>
+        <li><b>One token layer, clear seam.</b> The ramp architecture created a clean boundary: I could rewrite the token layer without touching component CSS. My collaborator could keep shipping components without waiting on the color work.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>Outcomes</h2></div>
+      <div class="outcomes">
+        <div class="oc"><p class="ot">One PR, merged same day</p><p>A large single pull request touching dozens of files. My collaborator built on the new ramps the next day without waiting.</p></div>
+        <div class="oc"><p class="ot">WCAG cleared in both modes</p><p>Mode-aware semantic tokens made light-mode accessibility a property of the system — not a manual fix applied stop by stop.</p></div>
+        <div class="oc"><p class="ot">The ramps carried forward</p><p>The project was archived a week later when a different visual direction won. The ten-ramp token structure moved into that direction unchanged.</p></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="shead"><span class="tick"></span><h2>What it taught me</h2></div>
+      <p class="pull">A color system built on brand values is fragile — brand values are chosen for <span class="uline">aesthetics, not legibility</span>.</p>
+      <p class="mut">Ramps are the only foundation that holds. The work also confirmed something about collaboration: clean token seams let two designers work in parallel. I rewrote the token layer; my collaborator built on top of it the next day.</p>
+    </div>
+
+    <p class="safe-note">This case study generalizes proprietary work into a portfolio-safe narrative. No source code, customer data, internal screenshots, non-public metrics, or links to internal tooling appear. Token names, collaborator names, and internal project names have been generalized. The focus is on design thinking, decisions, tradeoffs, and outcomes.</p>
+
+    <div class="nextnav">
+      <div><div class="lbl">Next case study</div><a href="neo.html"><span class="t">NEO — building a design system →</span></a></div>
+      <a class="back" href="index.html#work">All work</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Designing how people and <span class="hl">agents</span> build software together.</div>
+    <div style="margin-top:10px"><a href="mailto:rimbachak@gmail.com">rimbachak@gmail.com</a></div>
+    <div class="fmeta">© 2026 Annie Rimbach · Product designer</div>
+  </div>
+</footer>
+
+<script src="case.js"></script>
+</body>
+</html>
