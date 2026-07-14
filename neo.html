@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NEO — Building a design system · Annie Rimbach</title>
-<meta name="description" content="Case study: auditing, refactoring, and rolling out an enterprise design system so design and code told the same story.">
+<meta name="description" content="Case study: building an enterprise design system from near-zero — 1 incomplete component to 78, with 552 generated tokens, automated design-code parity, and full engineering integration.">
 <meta name="theme-color" content="#203E44">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
   <div class="chero">
     <span class="kicker">Case study · Design systems</span>
     <h1>NEO — building a design system</h1>
-    <p class="summary">Auditing, refactoring, and rolling out a design system so design and code finally told <span class="hl">the same story</span>.</p>
+    <p class="summary">Building an enterprise design system from near-zero — <span class="hl">1 incomplete component</span> to 78, with full engineering integration.</p>
     <div class="metabar">
       <div><div class="k">Role</div><div class="v">Design systems lead — audit, architecture, adoption</div></div>
       <div><div class="k">Context</div><div class="v">Enterprise developer-tools platform</div></div>
@@ -39,7 +39,7 @@
   <div class="cbody">
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>The problem</h2></div>
-      <p>The design system had drifted from the product it was supposed to describe. Components had multiplied into redundant variants, design and code disagreed on the details, and teams couldn't trust the library. The cost: slower work, inconsistent UI, and decisions relitigated over and over.</p>
+      <p>The system existed in name only. One real component — an incomplete Button set — sat in a Figma file alongside ~230 token labels that had never been exported. The bulk of the file was a visual snapshot of the live app, not a design library. Design and code had no connection. Teams built on their best guess.</p>
     </div>
 
     <div class="block">
@@ -54,15 +54,15 @@
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>How I worked</h2></div>
       <div class="steps">
-        <div class="step s1"><div class="bar"></div><span class="sn">01</span><h3>Audit</h3><p>Ran a reality-alignment audit comparing the system to what had actually shipped, surfacing drift and redundancy.</p></div>
-        <div class="step s2"><div class="bar"></div><span class="sn">02</span><h3>Refactor</h3><p>Collapsed redundant variants, defined tokens, and connected components to code so the two stayed in sync.</p></div>
-        <div class="step s3"><div class="bar"></div><span class="sn">03</span><h3>Adoption</h3><p>Wrote pattern documentation and drove the system's first rollout into the product.</p></div>
+        <div class="step s1"><div class="bar"></div><span class="sn">01</span><h3>Audit</h3><p>Mapped what existed against what had shipped. Found one real component (Button, incomplete), ~230 Figma-only token labels, and no code connection anywhere.</p></div>
+        <div class="step s2"><div class="bar"></div><span class="sn">02</span><h3>Build</h3><p>Built 78 components with full state and size matrices. Defined 552 tokens across color, type, spacing, and radius — generated to CSS, JS, and TypeScript on every publish.</p></div>
+        <div class="step s3"><div class="bar"></div><span class="sn">03</span><h3>Integrate</h3><p>Wired the library to code via 61 Code Connect mappings. An automated consistency checker gates PRs, so parity is enforced rather than audited. Shipped as 3 npm packages over ~10 months.</p></div>
       </div>
     </div>
 
     <div class="block">
-      <div class="shead"><span class="tick"></span><h2>From sprawl to system</h2></div>
-      <p>The clearest win was variant discipline: the most overloaded components had ballooned into dozens of near-duplicates. Reducing them to a small, intentional set made the system easier to learn, maintain, and use consistently.</p>
+      <div class="shead"><span class="tick"></span><h2>From file to system</h2></div>
+      <p>The archive's one real component was Button — 11 variants, 2 missing from the matrix. The shipped system has 7 button-family components, each with a complete state and size matrix. The same pattern repeated across 78 components total. Tokens went from ~230 unshipped Figma labels to 552 generated declarations covering color, typography, radius, shadow, spacing, and grid.</p>
       <div class="illus">
         <svg class="ill" viewBox="0 0 680 300" role="img" aria-label="Illustrative design-system component sheet: buttons, input, banners, tokens, and type">
           <rect class="win" x="8" y="8" width="664" height="284" rx="16"/>
@@ -99,18 +99,18 @@
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>Key decisions &amp; tradeoffs</h2></div>
       <ul>
-        <li><b>Fewer variants, more intent.</b> Cutting redundant options trades some edge-case flexibility for clarity and consistency — the right trade for a system meant to scale.</li>
-        <li><b>Code-connect the whole library.</b> Tying components to code made parity self-enforcing instead of a manual chore.</li>
-        <li><b>Docs as governance.</b> Pattern documentation let the system guide teams without a person standing in the way.</li>
+        <li><b>Token pipeline, not token labels.</b> The old labels lived only in Figma and were applied by hand. The new system generates CSS, JS, and TypeScript on every publish. A color change in Figma propagates to code without anyone doing it manually.</li>
+        <li><b>Automated parity over periodic audits.</b> A consistency checker runs on every PR and catches drift before it merges. Design ↔ code parity shifted from a task to a gate.</li>
+        <li><b>Button family as the founding pattern.</b> Rebuilding the one component that existed meant defining what every component would follow: complete matrices, clear naming, a Code Connect mapping for each variant.</li>
       </ul>
     </div>
 
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>Outcomes</h2></div>
       <div class="outcomes">
-        <div class="oc"><p class="ot">Variants, way down</p><p>Collapsed the most overloaded components into a small, intentional set.</p></div>
-        <div class="oc"><p class="ot">Design ↔ code parity</p><p>Connected the full component library to code so the two stayed in sync.</p></div>
-        <div class="oc"><p class="ot">Shipped into product</p><p>Drove the first rollout and shipped dozens of design fixes along the way.</p></div>
+        <div class="oc"><p class="ot">1 component → 78</p><p>Started with one incomplete Button set. Shipped 78 components with full state and size matrices, 71 Storybook stories, and 61 Code Connect mappings.</p></div>
+        <div class="oc"><p class="ot">552 tokens, generated</p><p>From ~230 Figma-only labels to 552 tokens generated to CSS, JS, and TypeScript on every publish — no manual export.</p></div>
+        <div class="oc"><p class="ot">Parity enforced, not checked</p><p>An automated consistency checker gates every PR. Design and code stay in sync without a periodic audit or a person in the loop.</p></div>
       </div>
     </div>
 

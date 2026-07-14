@@ -63,7 +63,7 @@
 
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>Designing the edges, not just the happy path</h2></div>
-      <p>The interesting design work in a selector like this isn't the default — it's everything that happens when the data is slow, missing, deeply nested, or named something forty characters long. Designing those states deliberately is what made the control feel trustworthy.</p>
+      <p>The interesting design work isn't the default — it's everything else. A shorthand label for the global scope looked like a mis-rendered character to real users, so it got replaced with plain language. Error recovery had a subtle trap: dismiss the error modal, reopen the selector, hit the same error again — with no way back to the picker except a buried "switch organizations" link. That path got fixed. Testing with real enterprise organizations surfaced long names that broke the layout; the selector had also been defaulting to a collapsed first node, making users do extra work before they could select anything. Each failure mode became a deliberate design decision.</p>
       <div class="illus">
         <svg class="ill" viewBox="0 0 680 300" role="img" aria-label="Illustrative organization selector showing a nested hierarchy plus the designed loading, error, empty, and truncation states">
           <rect class="win" x="8" y="8" width="664" height="284" rx="16"/>
@@ -100,17 +100,17 @@
       <div class="shead"><span class="tick"></span><h2>Key decisions &amp; tradeoffs</h2></div>
       <ul>
         <li><b>States as first-class.</b> Designing loading, error, and empty up front cost time but removed whole classes of confusion later.</li>
-        <li><b>A dedicated management page.</b> Rather than cram administration into the picker, I split it out — the picker stays fast, management gets room.</li>
-        <li><b>Graceful truncation.</b> Long names get handled predictably instead of breaking the layout.</li>
+        <li><b>A dedicated management page.</b> Enterprise admins running org-scoped deployments needed to filter and clean up items — too much to cram into the picker. Splitting it out gave administration its own space and kept the picker fast.</li>
+        <li><b>Graceful truncation, scoped pragmatically.</b> Long names surfaced from testing with real enterprise organizations. The obvious layout breaks got fixed immediately; longer-term naming convention questions were scoped as a deliberate follow-up, not a blocker.</li>
       </ul>
     </div>
 
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>Outcomes</h2></div>
       <div class="outcomes">
-        <div class="oc"><p class="ot">A resilient selector</p><p>Shipped a selector that holds up under deep hierarchies and the messy real-world edge cases.</p></div>
-        <div class="oc"><p class="ot">Room to administer</p><p>A dedicated management page gave organization administration its own clear home.</p></div>
-        <div class="oc"><p class="ot">Less "where am I?"</p><p>Clearer scoping reduced confusion about what a user was actually looking at.</p></div>
+        <div class="oc"><p class="ot">Edges designed, not deferred</p><p>Skeleton loading, error recovery, empty states, long-name truncation, and default behavior — all designed explicitly and tested against real enterprise hierarchies before shipping.</p></div>
+        <div class="oc"><p class="ot">Administration gets its own home</p><p>Enterprise admins needed to filter and clean up org-scoped deployments — too much for a picker. A dedicated management page gave them the room to do it.</p></div>
+        <div class="oc"><p class="ot">Less "where am I?"</p><p>Modal copy was updated to name the current organization. The default collapsed state — which made users do extra work before selecting — was caught in testing and corrected before launch.</p></div>
       </div>
     </div>
 
