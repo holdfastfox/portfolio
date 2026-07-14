@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Moderne CLI — Designing for the command line · Annie Rimbach</title>
-<meta name="description" content="Case study: bringing product-design rigor to a developer command-line tool — onboarding, tool discovery, and observability for humans and AI agents.">
+<title>Moderne CLI: Designing for the command line · Annie Rimbach</title>
+<meta name="description" content="Case study: bringing product-design rigor to a developer command-line tool: onboarding, tool discovery, and observability for humans and AI agents.">
 <meta name="theme-color" content="#203E44">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,10 +26,10 @@
 <main class="wrap">
   <div class="chero">
     <span class="kicker">Case study · Developer-tool UX</span>
-    <h1>Moderne CLI — designing for the command line</h1>
-    <p class="summary">Bringing product-design rigor to a developer command-line tool — onboarding, tool discovery, and ways to <span class="hl">observe and trust</span> what automated runs are doing, for humans and AI agents alike.</p>
+    <h1>Moderne CLI: designing for the command line</h1>
+    <p class="summary">Bringing product-design rigor to a developer command-line tool: onboarding, tool discovery, and ways to <span class="hl">observe and trust</span> what automated runs are doing, for humans and AI agents alike.</p>
     <div class="metabar">
-      <div><div class="k">Role</div><div class="v">Product designer — developer-tool UX</div></div>
+      <div><div class="k">Role</div><div class="v">Product designer: developer-tool UX</div></div>
       <div><div class="k">Context</div><div class="v">Enterprise developer-tools platform</div></div>
       <div><div class="k">Focus</div><div class="v">Onboarding → discovery → observability</div></div>
       <div><div class="k">Collaboration</div><div class="v">Engineering, developer relations</div></div>
@@ -39,14 +39,14 @@
   <div class="cbody">
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>The problem</h2></div>
-      <p>The tooling was powerful but assumed you were already an expert. The clearest signal from experienced users was blunt: make authentication easier. Some had built their own wrapper scripts just to get through setup. Tool discovery was hard, and automated runs were opaque. And increasingly, the "user" wasn't only a person at a terminal — AI agents were reading and acting on the same output.</p>
+      <p>The tooling was powerful but assumed you were already an expert. The clearest signal from experienced users was blunt: make authentication easier. Some had built their own wrapper scripts just to get through setup. Tool discovery was hard, and automated runs were opaque. And increasingly, the "user" wasn't only a person at a terminal. AI agents were reading and acting on the same output.</p>
     </div>
 
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>Constraints</h2></div>
       <ul>
         <li><b>Two kinds of user.</b> The experience had to work for humans <em>and</em> AI agents reading and acting on the same output.</li>
-        <li><b>Respect the terminal.</b> Developers expect speed, text, and conventions — not a GUI bolted onto a CLI.</li>
+        <li><b>Respect the terminal.</b> Developers expect speed, text, and conventions. Not a GUI bolted onto a CLI.</li>
         <li><b>Make runs observable.</b> Automated work has to be legible enough to trust.</li>
         <li><b>Meet developers where they are.</b> Fit existing workflows instead of demanding new ones.</li>
       </ul>
@@ -55,15 +55,15 @@
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>At a glance</h2></div>
       <div class="steps">
-        <div class="step s1"><div class="bar"></div><span class="sn">01</span><h3>Onboarding</h3><p>Ran guerrilla usability sessions with engineers who'd already set up the CLI. Rebuilt the first-run experience around what actually tripped them up — starting with authentication.</p></div>
+        <div class="step s1"><div class="bar"></div><span class="sn">01</span><h3>Onboarding</h3><p>Ran guerrilla usability sessions with engineers who'd already set up the CLI. Rebuilt the first-run experience around what actually tripped them up, starting with authentication.</p></div>
         <div class="step s2"><div class="bar"></div><span class="sn">02</span><h3>Tool discovery</h3><p>Designed a tool browser to surface what was available in a toolbox that was growing faster than most users could track.</p></div>
-        <div class="step s3"><div class="bar"></div><span class="sn">03</span><h3>Observability</h3><p>Designed trace output to be readable by a developer scanning the terminal and an agent reasoning over structured output — same run, two audiences.</p></div>
+        <div class="step s3"><div class="bar"></div><span class="sn">03</span><h3>Observability</h3><p>Designed trace output to be readable by a developer scanning the terminal and an agent reasoning over structured output. Same run, two audiences.</p></div>
       </div>
     </div>
 
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>Making automated work legible</h2></div>
-      <p>The heart of the work was observability: when a tool runs, you should be able to follow the trace — what ran, in what order, and what happened — whether you're a developer scanning output or an agent reasoning over it. Legibility <em>is</em> the trust.</p>
+      <p>The heart of the work was observability: when a tool runs, you should be able to follow the trace: what ran, in what order, and what happened, whether you're a developer scanning output or an agent reasoning over it. Legibility <em>is</em> the trust.</p>
       <div class="illus">
         <svg viewBox="0 0 680 300" width="100%" style="display:block;height:auto" role="img" aria-label="Illustrative build trace shown both as a readable terminal trace and as a structured view legible to AI agents">
           <rect x="8" y="8" width="664" height="284" rx="16" fill="#13241F"/>
@@ -86,7 +86,7 @@
           <text x="388" y="228" style="font-family:'Space Mono',monospace;font-size:11px;fill:#C9DAD2">}</text>
           <text x="388" y="250" style="font-family:'Space Mono',monospace;font-size:10px;fill:#9FBDB2">same run · legible to agents</text>
         </svg>
-        <div class="cap">Illustrative — recreated for portfolio; placeholder commands, not the production CLI</div>
+        <div class="cap">Illustrative: recreated for portfolio; placeholder commands, not the production CLI</div>
       </div>
     </div>
 
@@ -102,7 +102,7 @@
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>Outcomes</h2></div>
       <div class="outcomes">
-        <div class="oc"><p class="ot">Auth, rebuilt first</p><p>Experienced users had built their own wrapper scripts just to get through setup. Rebuilding first-run around auth got an immediate response from the platform team — engineers asked when it would go live.</p></div>
+        <div class="oc"><p class="ot">Auth, rebuilt first</p><p>Experienced users had built their own wrapper scripts just to get through setup. Rebuilding first-run around auth got an immediate response from the platform team. Engineers asked when it would go live.</p></div>
         <div class="oc"><p class="ot">Discoverable tools</p><p>A tool browser surfaced what was available in a toolbox that was growing faster than most users could track.</p></div>
         <div class="oc"><p class="ot">Legible runs</p><p>Trace output was designed for two audiences: a developer scanning the terminal and an agent reasoning over structured output. Same run, readable by both.</p></div>
       </div>
@@ -116,7 +116,7 @@
     <p class="safe-note">This case study generalizes proprietary work into a portfolio-safe narrative. No source code, customer data, internal screenshots, or non-public metrics appear. The focus is on design thinking, decisions, tradeoffs, and outcomes, not on reproducing what employers own. Any interface or output shown is conceptual and illustrative with placeholder commands.</p>
 
     <div class="nextnav">
-      <div><div class="lbl">Back to the start</div><a href="trigrep.html"><span class="t">Trigrep — natural-language code search →</span></a></div>
+      <div><div class="lbl">Back to the start</div><a href="trigrep.html"><span class="t">Trigrep: natural-language code search →</span></a></div>
       <a class="back" href="index.html#work">All work</a>
     </div>
   </div>

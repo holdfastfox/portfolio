@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Organizations — The scoping model that runs the platform · Annie Rimbach</title>
+<title>Organizations: The scoping model that runs the platform · Annie Rimbach</title>
 <meta name="description" content="Case study: designing the organization selector and scoping model that governs an enterprise platform, and making it resilient to deep hierarchies and edge cases.">
 <meta name="theme-color" content="#203E44">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,10 +26,10 @@
 <main class="wrap">
   <div class="chero">
     <span class="kicker">Case study · Interaction design</span>
-    <h1>Organizations — the scoping model that runs the platform</h1>
-    <p class="summary">Designing the selector and scoping model that decides <span class="hl">what every user sees</span> — and making it hold up under deep, messy hierarchies.</p>
+    <h1>Organizations: the scoping model that runs the platform</h1>
+    <p class="summary">Designing the selector and scoping model that decides <span class="hl">what every user sees</span>, and making it hold up under deep, messy hierarchies.</p>
     <div class="metabar">
-      <div><div class="k">Role</div><div class="v">Product designer — interaction design, shipped UI</div></div>
+      <div><div class="k">Role</div><div class="v">Product designer: interaction design, shipped UI</div></div>
       <div><div class="k">Context</div><div class="v">Enterprise developer-tools platform</div></div>
       <div><div class="k">Focus</div><div class="v">Model → resilient states → shipped UI</div></div>
       <div><div class="k">Collaboration</div><div class="v">Engineering, design system</div></div>
@@ -39,13 +39,13 @@
   <div class="cbody">
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>The problem</h2></div>
-      <p>The organization selector is the lens the entire platform is seen through — it scopes data, permissions, and navigation. It's also tiny and easy to underestimate. As customers grew, their hierarchies got deep and their names got long, and the original selector started to buckle — slow loads, failures, deep nesting, and "wait, which org am I even in?"</p>
+      <p>The organization selector is the lens the entire platform is seen through. It scopes data, permissions, and navigation. It's also tiny and easy to underestimate. As customers grew, their hierarchies got deep and their names got long, and the original selector started to buckle: slow loads, failures, deep nesting, and "wait, which org am I even in?"</p>
     </div>
 
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>Constraints</h2></div>
       <ul>
-        <li><b>It governs everything.</b> A bug here doesn't break one screen — it scopes the whole product wrong.</li>
+        <li><b>It governs everything.</b> A bug here doesn't break one screen. It scopes the whole product wrong.</li>
         <li><b>Hierarchies get deep.</b> The model had to stay legible as organizations nested several levels down.</li>
         <li><b>Resilient by default.</b> Loading, error, and empty states couldn't be afterthoughts.</li>
         <li><b>Small surface, big stakes.</b> Every pixel of a control this central is load-bearing.</li>
@@ -63,7 +63,7 @@
 
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>Designing the edges, not just the happy path</h2></div>
-      <p>The interesting design work isn't the default — it's everything else. A shorthand label for the global scope looked like a mis-rendered character to real users, so it got replaced with plain language. Error recovery had a subtle trap: dismiss the error modal, reopen the selector, hit the same error again — with no way back to the picker except a buried "switch organizations" link. That path got fixed. Testing with real enterprise organizations surfaced long names that broke the layout; the selector had also been defaulting to a collapsed first node, making users do extra work before they could select anything. Each failure mode became a deliberate design decision.</p>
+      <p>The interesting design work isn't the default. It's everything else. A shorthand label for the global scope looked like a mis-rendered character to real users, so it got replaced with plain language. Error recovery had a subtle trap: dismiss the error modal, reopen the selector, hit the same error again, with no way back to the picker except a buried "switch organizations" link. That path got fixed. Testing with real enterprise organizations surfaced long names that broke the layout; the selector had also been defaulting to a collapsed first node, making users do extra work before they could select anything. Each failure mode became a deliberate design decision.</p>
       <div class="illus">
         <svg class="ill" viewBox="0 0 680 300" role="img" aria-label="Illustrative organization selector showing a nested hierarchy plus the designed loading, error, empty, and truncation states">
           <rect class="win" x="8" y="8" width="664" height="284" rx="16"/>
@@ -79,8 +79,8 @@
           <text class="ink" x="50" y="142">Acme Group</text>
           <text class="nodef mono" x="298" y="142">✓</text>
           <text class="mut" x="66" y="172">Platform</text>
-          <text class="mut" x="84" y="198">Payments — EU</text>
-          <text class="mut" x="84" y="224">Payments — APAC (long na…)</text>
+          <text class="mut" x="84" y="198">Payments: EU</text>
+          <text class="mut" x="84" y="224">Payments: APAC (long na…)</text>
           <rect class="surf" x="66" y="238" width="120" height="10" rx="5"/>
           <text class="mono mut2 s10" x="196" y="247">loading…</text>
           <text class="mono" x="50" y="268" style="fill:var(--node)">! couldn't load 1 unit · retry</text>
@@ -92,7 +92,7 @@
           <circle class="mut2" cx="388" cy="230" r="4"/><text class="mut" x="404" y="234">Long-name truncation</text>
           <text class="mono mut2 s10" x="380" y="270">small control · big consequences</text>
         </svg>
-        <div class="cap">Illustrative — recreated for portfolio; placeholder names, not the production UI</div>
+        <div class="cap">Illustrative: recreated for portfolio; placeholder names, not the production UI</div>
       </div>
     </div>
 
@@ -100,7 +100,7 @@
       <div class="shead"><span class="tick"></span><h2>Key decisions &amp; tradeoffs</h2></div>
       <ul>
         <li><b>States as first-class.</b> Designing loading, error, and empty up front cost time but removed whole classes of confusion later.</li>
-        <li><b>A dedicated management page.</b> Enterprise admins running org-scoped deployments needed to filter and clean up items — too much to cram into the picker. Splitting it out gave administration its own space and kept the picker fast.</li>
+        <li><b>A dedicated management page.</b> Enterprise admins running org-scoped deployments needed to filter and clean up items. Too much to cram into the picker. Splitting it out gave administration its own space and kept the picker fast.</li>
         <li><b>Graceful truncation, scoped pragmatically.</b> Long names surfaced from testing with real enterprise organizations. The obvious layout breaks got fixed immediately; longer-term naming convention questions were scoped as a deliberate follow-up, not a blocker.</li>
       </ul>
     </div>
@@ -108,21 +108,21 @@
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>Outcomes</h2></div>
       <div class="outcomes">
-        <div class="oc"><p class="ot">Edges designed, not deferred</p><p>Skeleton loading, error recovery, empty states, long-name truncation, and default behavior — all designed explicitly and tested against real enterprise hierarchies before shipping.</p></div>
-        <div class="oc"><p class="ot">Administration gets its own home</p><p>Enterprise admins needed to filter and clean up org-scoped deployments — too much for a picker. A dedicated management page gave them the room to do it.</p></div>
-        <div class="oc"><p class="ot">Less "where am I?"</p><p>Modal copy was updated to name the current organization. The default collapsed state — which made users do extra work before selecting — was caught in testing and corrected before launch.</p></div>
+        <div class="oc"><p class="ot">Edges designed, not deferred</p><p>Skeleton loading, error recovery, empty states, long-name truncation, and default behavior, all designed explicitly and tested against real enterprise hierarchies before shipping.</p></div>
+        <div class="oc"><p class="ot">Administration gets its own home</p><p>Enterprise admins needed to filter and clean up org-scoped deployments. Too much for a picker. A dedicated management page gave them the room to do it.</p></div>
+        <div class="oc"><p class="ot">Less "where am I?"</p><p>Modal copy was updated to name the current organization. The default collapsed state, which made users do extra work before selecting, was caught in testing and corrected before launch.</p></div>
       </div>
     </div>
 
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>What it taught me</h2></div>
-      <p class="pull">A control this small touches everything — the <span class="uline">edge cases are the design</span>.</p>
+      <p class="pull">A control this small touches everything. The <span class="uline">edge cases are the design</span>.</p>
     </div>
 
     <p class="safe-note">This case study generalizes proprietary work into a portfolio-safe narrative. No source code, customer data, internal screenshots, or non-public metrics appear. The focus is on design thinking, decisions, tradeoffs, and outcomes, not on reproducing what employers own. Any interface shown is conceptual and illustrative with placeholder names.</p>
 
     <div class="nextnav">
-      <div><div class="lbl">Next case study</div><a href="cli.html"><span class="t">Moderne CLI — designing for the command line →</span></a></div>
+      <div><div class="lbl">Next case study</div><a href="cli.html"><span class="t">Moderne CLI: designing for the command line →</span></a></div>
       <a class="back" href="index.html#work">All work</a>
     </div>
   </div>

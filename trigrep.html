@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trigrep — Code search, tested from first principles · Annie Rimbach</title>
+<title>Trigrep: Code search, tested from first principles · Annie Rimbach</title>
 <meta name="description" content="Case study: six enterprise engineering interviews reversed the core assumption about how to design a code search experience. Research, interaction design, and what shipped.">
 <meta name="theme-color" content="#203E44">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,10 +26,10 @@
 <main class="wrap">
   <div class="chero">
     <span class="kicker">Case study · AI &amp; developer tools</span>
-    <h1>Trigrep — code search, tested from first principles</h1>
-    <p class="summary">Six enterprise engineering interviews <span class="hl">reversed the core assumption</span> — natural-language-first wasn't the answer. Here's what the research found, and what shipped instead.</p>
+    <h1>Trigrep: code search, tested from first principles</h1>
+    <p class="summary">Six enterprise engineering interviews <span class="hl">reversed the core assumption</span>: natural-language-first wasn't the answer. Here's what the research found, and what shipped instead.</p>
     <div class="metabar">
-      <div><div class="k">Role</div><div class="v">Lead product designer — research, interaction design, prototyping</div></div>
+      <div><div class="k">Role</div><div class="v">Lead product designer: research, interaction design, prototyping</div></div>
       <div><div class="k">Context</div><div class="v">Enterprise developer-tools platform</div></div>
       <div><div class="k">Focus</div><div class="v">Research → interaction model → shipped UI</div></div>
       <div><div class="k">Collaboration</div><div class="v">Engineering, product, design system</div></div>
@@ -39,7 +39,7 @@
   <div class="cbody">
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>The problem</h2></div>
-      <p>The search engine was powerful — but wielding it meant knowing exact syntax, scopes, and filters. Users had no on-ramp: no syntax examples in-tool, no docs link surfaced at the point of need. The team assumed a natural-language AI assistant would solve this. Research said otherwise.</p>
+      <p>The search engine was powerful, but wielding it meant knowing exact syntax, scopes, and filters. Users had no on-ramp: no syntax examples in-tool, no docs link surfaced at the point of need. The team assumed a natural-language AI assistant would solve this. Research said otherwise.</p>
     </div>
 
     <div class="block">
@@ -47,7 +47,7 @@
       <ul>
         <li><b>Trust and accuracy.</b> In an enterprise engineering context, a confident-but-wrong answer is worse than no answer.</li>
         <li><b>Explainability.</b> Results had to show <em>why</em> they matched, not just <em>that</em> they matched.</li>
-        <li><b>Fit the existing workflow.</b> The assistant couldn't be a walled garden — it needed to connect to full-power search.</li>
+        <li><b>Fit the existing workflow.</b> The assistant couldn't be a walled garden; it needed to connect to full-power search.</li>
         <li><b>Speed expectations.</b> Engineers expect search to feel instant.</li>
       </ul>
     </div>
@@ -57,14 +57,14 @@
       <p class="mut">I logged explicit assumptions first, then tested them before any UI was built. The main assumption: natural language was the right entry point.</p>
       <div class="steps">
         <div class="step s1"><div class="bar"></div><span class="sn">01</span><h3>Research</h3><p>Six interviews across three enterprise engineering organizations. Two rounds: one to test the AI-first hypothesis, one to test the revised direction.</p></div>
-        <div class="step s2"><div class="bar"></div><span class="sn">02</span><h3>Pivot</h3><p>Research reversed the core architecture decision. What started as AI-first split into two tracks — the query interface shipped first; the AI assistant became a parallel path.</p></div>
+        <div class="step s2"><div class="bar"></div><span class="sn">02</span><h3>Pivot</h3><p>Research reversed the core architecture decision. What started as AI-first split into two tracks: the query interface shipped first; the AI assistant became a parallel path.</p></div>
         <div class="step s3"><div class="bar"></div><span class="sn">03</span><h3>Design &amp; ship</h3><p>Shipped the query interface with the critical path built in: search → export to CSV → execute a transformation. Users had no on-ramp to the query syntax; inline hints and examples provided one.</p></div>
       </div>
     </div>
 
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>The initial hypothesis</h2></div>
-      <p>The first prototype led with natural language — ask in plain language, get ranked results, open full search to refine. This is what we took into research.</p>
+      <p>The first prototype led with natural language: ask in plain language, get ranked results, open full search to refine. This is what we took into research.</p>
       <div class="illus">
         <svg class="ill" viewBox="0 0 680 300" role="img" aria-label="Illustrative natural-language code search interface with filters, an assistant prompt, and ranked results">
           <rect class="win" x="8" y="8" width="664" height="284" rx="16"/>
@@ -93,7 +93,7 @@
           <text class="mono mut2" x="574" y="228">related</text>
           <text class="mono nodef s10" x="216" y="276">open in search to refine →</text>
         </svg>
-        <div class="cap">Illustrative — recreated for portfolio; not the production UI</div>
+        <div class="cap">Illustrative: recreated for portfolio; not the production UI</div>
       </div>
     </div>
 
@@ -101,8 +101,8 @@
       <div class="shead"><span class="tick"></span><h2>Key decisions &amp; tradeoffs</h2></div>
       <ul>
         <li><b>Two separate tracks, not one combined surface.</b> Some users wanted natural-language search. Others wanted direct query control. One interface couldn't serve both. We shipped the query interface first; the AI assistant became a parallel path.</li>
-        <li><b>Export and execute as primary actions.</b> Search is never the endpoint — the path is search → export → align → execute a transformation. Both actions had to be prominent in the results view, not buried.</li>
-        <li><b>Inline syntax hints over AI translation.</b> One engineer gave up on their first attempt — no examples, no in-tool guidance. Instead of replacing syntax with natural language, we made it learnable in context: a query-language selector with inline examples.</li>
+        <li><b>Export and execute as primary actions.</b> Search is never the endpoint. The path: search → export → align → execute a transformation. Both actions had to be prominent in the results view, not buried.</li>
+        <li><b>Inline syntax hints over AI translation.</b> One engineer gave up on their first attempt: no examples, no in-tool guidance. Instead of replacing syntax with natural language, we made it learnable in context: a query-language selector with inline examples.</li>
         <li><b>Warm, slightly stale index over rebuild-on-demand.</b> Engineers tolerated 30–60 minute index freshness. We prioritized warm sync. The real investment: making empty-vs-error states clear so a slow search never looks like a failure.</li>
       </ul>
     </div>
@@ -111,21 +111,21 @@
       <div class="shead"><span class="tick"></span><h2>Outcomes</h2></div>
       <div class="outcomes">
         <div class="oc"><p class="ot">Core assumption reversed</p><p>Six interviews across three enterprise engineering organizations disproved the AI-first hypothesis before any production work began.</p></div>
-        <div class="oc"><p class="ot">Shipped the right thing</p><p>The query-based interface shipped first with export and execute as primary actions — the workflow the research said mattered most.</p></div>
-        <div class="oc"><p class="ot">Architecture decision changed</p><p>Research moved AI search and query search from one combined surface to two separate tracks — a product-level decision, not just a UI one.</p></div>
+        <div class="oc"><p class="ot">Shipped the right thing</p><p>The query-based interface shipped first with export and execute as primary actions: the workflow the research said mattered most.</p></div>
+        <div class="oc"><p class="ot">Architecture decision changed</p><p>Research moved AI search and query search from one combined surface to two separate tracks: a product-level decision, not just a UI one.</p></div>
       </div>
     </div>
 
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>What it taught me</h2></div>
       <p class="pull">Research that tells you you're wrong early is the <span class="uline">most useful kind</span>.</p>
-      <p class="mut">The team went in assuming natural language was the answer. Six interviews said otherwise. The biggest output wasn't a design direction — it was an architecture decision.</p>
+      <p class="mut">The team went in assuming natural language was the answer. Six interviews said otherwise. The biggest output wasn't a design direction. It was an architecture decision.</p>
     </div>
 
     <p class="safe-note">This case study generalizes proprietary work into a portfolio-safe narrative. No source code, customer data, internal screenshots, or non-public metrics appear. The focus is on design thinking, decisions, tradeoffs, and outcomes, not on reproducing what employers own. Any interface shown is conceptual and illustrative.</p>
 
     <div class="nextnav">
-      <div><div class="lbl">Next case study</div><a href="neo.html"><span class="t">NEO — building a design system →</span></a></div>
+      <div><div class="lbl">Next case study</div><a href="neo.html"><span class="t">NEO: building a design system →</span></a></div>
       <a class="back" href="index.html#work">All work</a>
     </div>
   </div>
