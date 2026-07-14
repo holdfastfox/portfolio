@@ -65,7 +65,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0
 .step p{font-size:13.5px;color:var(--muted);margin:0;max-width:none}
 
 /* ILLUSTRATIVE UI MOCK */
-.illus{background:var(--surface);border:0.5px solid var(--line);border-radius:16px;padding:18px;margin:8px 0 8px}
+.illus{background:var(--surface);border:0.5px solid var(--line);border-radius:16px;padding:18px;margin:8px 0 8px;overflow:hidden}
 .illus .cap{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.5px;text-transform:uppercase;color:var(--muted2);margin-top:12px;display:flex;align-items:center;gap:8px}
 .illus .cap::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime)}
 
