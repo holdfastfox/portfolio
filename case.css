@@ -59,10 +59,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0
 
 /* PROCESS STEPS */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:10px}
-.step .bar{height:2px;background:var(--line);position:relative;margin-bottom:13px}
-.step .bar::before{content:"";position:absolute;left:0;top:-1px;width:32px;height:4px;border-radius:2px;background:var(--node)}
-.step.s2 .bar::before{left:34%}
-.step.s3 .bar::before{left:68%}
+.step .bar{height:3px;background:var(--lime);border-radius:2px;margin-bottom:13px}
 .step .sn{font-family:'Space Mono',monospace;font-size:11px;color:var(--node)}
 .step h3{font-family:'Hedvig Letters Serif',serif;font-weight:400;font-size:18px;margin:9px 0 5px;-webkit-text-stroke:0.3px var(--ink);paint-order:stroke fill}
 .step p{font-size:13.5px;color:var(--muted);margin:0;max-width:none}
