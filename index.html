@@ -93,6 +93,13 @@
   .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
   .chip{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:1px;border:0.5px solid var(--line);border-radius:30px;padding:7px 13px;color:var(--ink)}
 
+  /* LOGO WALL */
+  .logo-wall{display:flex;flex-wrap:wrap;gap:28px 44px;align-items:center;margin-top:20px;padding-top:20px;border-top:0.5px solid var(--line)}
+  .logo-wall img{height:26px;width:auto;filter:grayscale(100%) opacity(0.35);transition:filter .2s}
+  [data-theme="dark"] .logo-wall img{filter:grayscale(100%) invert(1) opacity(0.45)}
+  .logo-wall img:hover{filter:grayscale(100%) opacity(0.65)}
+  [data-theme="dark"] .logo-wall img:hover{filter:grayscale(100%) invert(1) opacity(0.7)}
+
   footer{border-top:0.5px solid var(--line);padding:46px 0 60px}
   .fgrid{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
   .fbig{font-family:'Hedvig Letters Serif',serif;-webkit-text-stroke:0.7px var(--ink);paint-order:stroke fill;font-size:clamp(24px,4vw,34px);line-height:1.3;letter-spacing:-0.3px;max-width:520px}
@@ -295,6 +302,24 @@
         <span class="chip">Curious by default</span>
         <span class="chip">Brand to platform</span>
         <span class="chip">Research → systems → shipped</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREELANCE CLIENTS -->
+  <section id="clients">
+    <div class="wrap">
+      <div class="shead"><span class="tick"></span><h2>Freelance work</h2></div>
+      <div class="logo-wall">
+        <img src="assets/logos/yankee-candle.png" alt="Yankee Candle" loading="lazy">
+        <img src="assets/logos/marmot.svg" alt="Marmot" loading="lazy">
+        <img src="assets/logos/graco.svg" alt="Graco" loading="lazy">
+        <img src="assets/logos/hello-divorce.svg" alt="Hello Divorce" loading="lazy">
+        <img src="assets/logos/wellstar.svg" alt="Wellstar" loading="lazy">
+        <img src="assets/logos/shea-homes.webp" alt="Shea Homes" loading="lazy">
+        <img src="assets/logos/doctors-company.webp" alt="The Doctors Company" loading="lazy">
+        <img src="assets/logos/actian.png" alt="Actian" loading="lazy">
+        <img src="assets/logos/cornerstone.png" alt="Cornerstone Building Brands" loading="lazy">
       </div>
     </div>
   </section>
