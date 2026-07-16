@@ -93,12 +93,15 @@
   .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
   .chip{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:1px;border:0.5px solid var(--line);border-radius:30px;padding:7px 13px;color:var(--ink)}
 
-  /* LOGO WALL */
-  .logo-wall{display:flex;flex-wrap:wrap;gap:20px 32px;align-items:center;margin-top:20px;padding-top:20px;border-top:0.5px solid var(--line)}
-  .logo-wall img{width:110px;height:40px;object-fit:contain;filter:grayscale(100%) opacity(0.6);transition:filter .2s}
-  [data-theme="dark"] .logo-wall img{filter:grayscale(100%) invert(1) opacity(0.65)}
-  .logo-wall img:hover{filter:grayscale(100%) opacity(0.85)}
-  [data-theme="dark"] .logo-wall img:hover{filter:grayscale(100%) invert(1) opacity(0.85)}
+  /* LOGO GRID */
+  .logo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
+  .logo-tile{background:var(--surface);border:0.5px solid var(--line);border-radius:8px;padding:2rem 1.5rem;display:flex;align-items:center;justify-content:center;min-height:100px}
+  .logo-img-wrap{display:flex;align-items:center;justify-content:center;width:100%}
+  .logo-img-wrap img{height:32px;max-width:120px;object-fit:contain;filter:brightness(0) opacity(0.45)}
+  [data-theme="dark"] .logo-img-wrap img{filter:brightness(0) invert(1) opacity(0.5)}
+  .logo-fallback{font-size:.8rem;font-weight:600;color:var(--muted);text-align:center}
+  .logo-img-wrap img+.logo-fallback{display:none}
+  @media(max-width:768px){.logo-grid{grid-template-columns:repeat(2,1fr)}}
 
   footer{border-top:0.5px solid var(--line);padding:46px 0 60px}
   .fgrid{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
@@ -256,16 +259,19 @@
   <section id="brand">
     <div class="wrap">
       <div class="shead"><span class="tick"></span><span class="n">03</span><h2>Freelance work</h2></div>
-      <div class="logo-wall">
-        <img src="assets/logos/yankee-candle.png" alt="Yankee Candle" loading="lazy">
-        <img src="assets/logos/marmot.svg" alt="Marmot" loading="lazy">
-        <img src="assets/logos/graco.svg" alt="Graco" loading="lazy">
-        <img src="assets/logos/hello-divorce.svg" alt="Hello Divorce" loading="lazy">
-        <img src="assets/logos/wellstar.svg" alt="Wellstar" loading="lazy">
-        <img src="assets/logos/shea-homes.webp" alt="Shea Homes" loading="lazy">
-        <img src="assets/logos/doctors-company.webp" alt="The Doctors Company" loading="lazy">
-        <img src="assets/logos/actian.png" alt="Actian" loading="lazy">
-        <img src="assets/logos/cornerstone.png" alt="Cornerstone Building Brands" loading="lazy">
+      <div class="logo-grid">
+        <div class="logo-tile"><div class="logo-img-wrap"><img src="assets/logos/yankee-candle.svg" alt="Yankee Candle" loading="lazy"><span class="logo-fallback">Yankee Candle</span></div></div>
+        <div class="logo-tile"><div class="logo-img-wrap"><img src="assets/logos/marmot.svg" alt="Marmot" loading="lazy"><span class="logo-fallback">Marmot</span></div></div>
+        <div class="logo-tile"><div class="logo-img-wrap"><img src="assets/logos/graco.svg" alt="Graco" loading="lazy"><span class="logo-fallback">Graco</span></div></div>
+        <div class="logo-tile"><div class="logo-img-wrap"><img src="assets/logos/hello-divorce.svg" alt="Hello Divorce" loading="lazy"><span class="logo-fallback">Hello Divorce</span></div></div>
+        <div class="logo-tile"><div class="logo-img-wrap"><img src="assets/logos/wellstar.png" alt="Wellstar" loading="lazy"><span class="logo-fallback">Wellstar</span></div></div>
+        <div class="logo-tile"><div class="logo-img-wrap"><img src="assets/logos/shea-homes.png" alt="Shea Homes" loading="lazy"><span class="logo-fallback">Shea Homes</span></div></div>
+        <div class="logo-tile"><div class="logo-img-wrap"><img src="assets/logos/doctors-company.webp" alt="The Doctors Company" loading="lazy"><span class="logo-fallback">The Doctors Company</span></div></div>
+        <div class="logo-tile"><div class="logo-img-wrap"><img src="assets/logos/actian.png" alt="Actian" loading="lazy"><span class="logo-fallback">Actian</span></div></div>
+        <div class="logo-tile"><div class="logo-img-wrap"><img src="assets/logos/cornerstone.png" alt="Cornerstone Building Brands" loading="lazy"><span class="logo-fallback">Cornerstone Building Brands</span></div></div>
+        <div class="logo-tile"><div class="logo-img-wrap"><img src="assets/logos/humana.png" alt="Humana" loading="lazy"><span class="logo-fallback">Humana</span></div></div>
+        <div class="logo-tile"><div class="logo-img-wrap"><img src="assets/logos/kessel-run.png" alt="Kessel Run (USAF)" loading="lazy"><span class="logo-fallback">Kessel Run</span></div></div>
+        <div class="logo-tile"><div class="logo-img-wrap"><img src="assets/logos/prime-therapeutics.png" alt="Prime Therapeutics" loading="lazy"><span class="logo-fallback">Prime Therapeutics</span></div></div>
       </div>
     </div>
   </section>
