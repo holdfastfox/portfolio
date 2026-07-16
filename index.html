@@ -94,11 +94,11 @@
   .chip{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:1px;border:0.5px solid var(--line);border-radius:30px;padding:7px 13px;color:var(--ink)}
 
   /* LOGO WALL */
-  .logo-wall{display:flex;flex-wrap:wrap;gap:28px 44px;align-items:center;margin-top:20px;padding-top:20px;border-top:0.5px solid var(--line)}
-  .logo-wall img{height:26px;width:auto;filter:grayscale(100%) opacity(0.35);transition:filter .2s}
-  [data-theme="dark"] .logo-wall img{filter:grayscale(100%) invert(1) opacity(0.45)}
-  .logo-wall img:hover{filter:grayscale(100%) opacity(0.65)}
-  [data-theme="dark"] .logo-wall img:hover{filter:grayscale(100%) invert(1) opacity(0.7)}
+  .logo-wall{display:flex;flex-wrap:wrap;gap:20px 32px;align-items:center;margin-top:20px;padding-top:20px;border-top:0.5px solid var(--line)}
+  .logo-wall img{width:110px;height:40px;object-fit:contain;filter:grayscale(100%) opacity(0.6);transition:filter .2s}
+  [data-theme="dark"] .logo-wall img{filter:grayscale(100%) invert(1) opacity(0.65)}
+  .logo-wall img:hover{filter:grayscale(100%) opacity(0.85)}
+  [data-theme="dark"] .logo-wall img:hover{filter:grayscale(100%) invert(1) opacity(0.85)}
 
   footer{border-top:0.5px solid var(--line);padding:46px 0 60px}
   .fgrid{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
@@ -260,33 +260,17 @@
   <!-- BRAND & FREELANCE WORK -->
   <section id="brand">
     <div class="wrap">
-      <div class="shead"><span class="tick"></span><span class="n">04</span><h2>Brand &amp; freelance work</h2></div>
-      <div class="blist">
-        <div class="bitem">
-          <h4>Jingle Bell Productions: logo redesign</h4>
-          <p>A music producer needed a logo that didn't look like 2003. I sketched, revised, and landed on a mark that works as a full logo and a watermark.</p>
-          <div class="t">Brand identity · Logo design</div>
-        </div>
-        <div class="bitem">
-          <h4>Yankee Candle: UI/UX &amp; analytics</h4>
-          <p>I redesigned the shipping-options step, A/B tested. Outcome: +7% desktop / +2% mobile conversion.</p>
-          <div class="t">E-commerce · UI/UX · A/B testing</div>
-        </div>
-        <div class="bitem">
-          <h4>Marmot: product page redesign</h4>
-          <p>Contracted to redesign Marmot's desktop product pages: clearer information, smoother path to purchase.</p>
-          <div class="t">Contracted · E-commerce · UI/UX</div>
-        </div>
-        <div class="bitem">
-          <h4>Wellstar: website redesign</h4>
-          <p>Contracted to redesign the Wellstar website: patient-facing clarity at enterprise-healthcare scale.</p>
-          <div class="t">Contracted · Healthcare · Strategy · UI/UX</div>
-        </div>
-        <div class="bitem">
-          <h4>Hello Divorce: website, portal &amp; landing pages</h4>
-          <p>Marketing website, client portal, and social-media landing pages for a legal services company. Clarity was the whole brief.</p>
-          <div class="t">Contracted · Strategy · UI/UX</div>
-        </div>
+      <div class="shead"><span class="tick"></span><span class="n">04</span><h2>Freelance work</h2></div>
+      <div class="logo-wall">
+        <img src="assets/logos/yankee-candle.png" alt="Yankee Candle" loading="lazy">
+        <img src="assets/logos/marmot.svg" alt="Marmot" loading="lazy">
+        <img src="assets/logos/graco.svg" alt="Graco" loading="lazy">
+        <img src="assets/logos/hello-divorce.svg" alt="Hello Divorce" loading="lazy">
+        <img src="assets/logos/wellstar.svg" alt="Wellstar" loading="lazy">
+        <img src="assets/logos/shea-homes.webp" alt="Shea Homes" loading="lazy">
+        <img src="assets/logos/doctors-company.webp" alt="The Doctors Company" loading="lazy">
+        <img src="assets/logos/actian.png" alt="Actian" loading="lazy">
+        <img src="assets/logos/cornerstone.png" alt="Cornerstone Building Brands" loading="lazy">
       </div>
     </div>
   </section>
@@ -306,23 +290,7 @@
     </div>
   </section>
 
-  <!-- FREELANCE CLIENTS -->
-  <section id="clients">
-    <div class="wrap">
-      <div class="shead"><span class="tick"></span><h2>Freelance work</h2></div>
-      <div class="logo-wall">
-        <img src="assets/logos/yankee-candle.png" alt="Yankee Candle" loading="lazy">
-        <img src="assets/logos/marmot.svg" alt="Marmot" loading="lazy">
-        <img src="assets/logos/graco.svg" alt="Graco" loading="lazy">
-        <img src="assets/logos/hello-divorce.svg" alt="Hello Divorce" loading="lazy">
-        <img src="assets/logos/wellstar.svg" alt="Wellstar" loading="lazy">
-        <img src="assets/logos/shea-homes.webp" alt="Shea Homes" loading="lazy">
-        <img src="assets/logos/doctors-company.webp" alt="The Doctors Company" loading="lazy">
-        <img src="assets/logos/actian.png" alt="Actian" loading="lazy">
-        <img src="assets/logos/cornerstone.png" alt="Cornerstone Building Brands" loading="lazy">
-      </div>
-    </div>
-  </section>
+
 </main>
 
 <footer>
