@@ -92,7 +92,18 @@ footer a:hover{color:var(--node)}
 @media(max-width:680px){
   .steps{grid-template-columns:1fr;gap:24px}
   .chero{padding:44px 0 24px}
+  .img-pair{grid-template-columns:1fr}
+  .img-strip img{height:280px}
 }
+
+/* CASE STUDY IMAGES */
+.case-img{margin:2rem 0}
+.case-img img{width:100%;border-radius:8px}
+.case-img figcaption{font-size:.85rem;color:var(--muted);margin-top:.5rem}
+.img-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0}
+.img-pair img{width:100%;height:320px;object-fit:cover;border-radius:8px}
+.img-strip{display:flex;gap:1rem;overflow-x:auto;margin:2rem 0;padding-bottom:.5rem;-webkit-overflow-scrolling:touch}
+.img-strip img{height:400px;width:auto;border-radius:8px;flex-shrink:0}
 
 /* illustration helper classes (themed, dark-mode aware) */
 .ill{display:block;width:100%;height:auto;margin:0 auto}
