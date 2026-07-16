@@ -70,7 +70,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0
 .illus .cap::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime)}
 
 /* OUTCOMES */
-.outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:8px}
+.outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:8px}
 .oc{background:var(--surface);border-radius:14px;padding:18px 20px}
 .oc .ot{font-family:'Hedvig Letters Serif',serif;font-size:19px;-webkit-text-stroke:0.3px var(--ink);paint-order:stroke fill;margin:0 0 6px}
 .oc p{font-size:13.5px;color:var(--muted);margin:0}
