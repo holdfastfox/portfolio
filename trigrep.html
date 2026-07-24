@@ -27,11 +27,11 @@
   <div class="chero">
     <span class="kicker">Case study · AI &amp; developer tools</span>
     <h1>Trigrep: code search, tested from first principles</h1>
-    <p class="summary">Six enterprise engineering interviews <span class="hl">reversed the core assumption</span>: natural-language-first wasn't the answer. Here's what the research found, and what shipped instead.</p>
+    <p class="summary">Six enterprise engineering interviews <span class="hl">reversed the core assumption</span>: natural-language-first wasn't the answer. Here's what the research found, and what's being built instead.</p>
     <div class="metabar">
       <div><div class="k">Role</div><div class="v">Lead product designer: research, interaction design, prototyping</div></div>
       <div><div class="k">Context</div><div class="v">Enterprise developer-tools platform</div></div>
-      <div><div class="k">Focus</div><div class="v">Research → interaction model → shipped UI</div></div>
+      <div><div class="k">Focus</div><div class="v">Research → interaction model → design in progress</div></div>
       <div><div class="k">Collaboration</div><div class="v">Engineering, product, design system</div></div>
     </div>
   </div>
@@ -58,7 +58,7 @@
       <div class="steps">
         <div class="step s1"><div class="bar"></div><span class="sn">01</span><h3>Research</h3><p>Six interviews across three enterprise engineering organizations. Two rounds: one to test the AI-first hypothesis, one to test the revised direction.</p></div>
         <div class="step s2"><div class="bar"></div><span class="sn">02</span><h3>Pivot</h3><p>Research reversed the core architecture decision. What started as AI-first split into two tracks: the query interface shipped first; the AI assistant became a parallel path.</p></div>
-        <div class="step s3"><div class="bar"></div><span class="sn">03</span><h3>Design &amp; ship</h3><p>Shipped the query interface with the critical path built in: search → export to CSV → execute a transformation. Users had no on-ramp to the query syntax; inline hints and examples provided one.</p></div>
+        <div class="step s3"><div class="bar"></div><span class="sn">03</span><h3>Design</h3><p>Designing the query interface with the critical path built in: search → export to CSV → execute a transformation. Users had no on-ramp to the query syntax; inline hints and examples provide one.</p></div>
       </div>
     </div>
 
@@ -100,7 +100,7 @@
     <div class="block">
       <div class="shead"><span class="tick"></span><h2>Key decisions &amp; tradeoffs</h2></div>
       <ul>
-        <li><b>Two separate tracks, not one combined surface.</b> Some users wanted natural-language search. Others wanted direct query control. One interface couldn't serve both. We shipped the query interface first; the AI assistant became a parallel path.</li>
+        <li><b>Two separate tracks, not one combined surface.</b> Some users wanted natural-language search. Others wanted direct query control. One interface couldn't serve both. The query interface is being built first; the AI assistant is a parallel path.</li>
         <li><b>Export and execute as primary actions.</b> Search is never the endpoint. The path: search → export → align → execute a transformation. Both actions had to be prominent in the results view, not buried.</li>
         <li><b>Inline syntax hints over AI translation.</b> One engineer gave up on their first attempt: no examples, no in-tool guidance. Instead of replacing syntax with natural language, we made it learnable in context: a query-language selector with inline examples.</li>
         <li><b>Warm, slightly stale index over rebuild-on-demand.</b> Engineers tolerated 30–60 minute index freshness. We prioritized warm sync. The real investment: making empty-vs-error states clear so a slow search never looks like a failure.</li>
@@ -111,7 +111,7 @@
       <div class="shead"><span class="tick"></span><h2>Outcomes</h2></div>
       <div class="outcomes">
         <div class="oc"><p class="ot">Core assumption reversed</p><p>Six interviews across three enterprise engineering organizations disproved the AI-first hypothesis before any production work began.</p></div>
-        <div class="oc"><p class="ot">Shipped the right thing</p><p>The query-based interface shipped first with export and execute as primary actions: the workflow the research said mattered most.</p></div>
+        <div class="oc"><p class="ot">Validated the direction</p><p>The query-based interface is being built first, with export and execute as primary actions: the workflow the research said mattered most.</p></div>
         <div class="oc"><p class="ot">Architecture decision changed</p><p>Research moved AI search and query search from one combined surface to two separate tracks: a product-level decision, not just a UI one.</p></div>
       </div>
     </div>
